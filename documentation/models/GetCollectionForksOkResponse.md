@@ -1,0 +1,32 @@
+# GetCollectionForksOkResponse
+
+**Properties**
+
+| Name | Type                                   | Required | Description                                            |
+| :--- | :------------------------------------- | :------- | :----------------------------------------------------- |
+| data | List[GetCollectionForksOkResponseData] | ❌       | A list of the collection's forks.                      |
+| meta | GetCollectionForksOkResponseMeta       | ❌       | The response's meta information for paginated results. |
+
+# GetCollectionForksOkResponseData
+
+Information about the forked collection.
+
+**Properties**
+
+| Name       | Type | Required | Description                                      |
+| :--------- | :--- | :------- | :----------------------------------------------- |
+| created_at | str  | ❌       | The date and time at which the fork was created. |
+| created_by | str  | ❌       | The user who created the collection fork.        |
+| fork_id    | str  | ❌       | The forked collection's ID.                      |
+| fork_name  | str  | ❌       | The forked collection's label.                   |
+
+# GetCollectionForksOkResponseMeta
+
+The response's meta information for paginated results.
+
+**Properties**
+
+| Name        | Type  | Required | Description                                                              |
+| :---------- | :---- | :------- | :----------------------------------------------------------------------- |
+| next_cursor | str   | ❌       | The pagination cursor that points to the next record in the results set. |
+| total       | float | ❌       | The total number of forked collections.                                  |

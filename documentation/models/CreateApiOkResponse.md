@@ -1,0 +1,16 @@
+# CreateApiOkResponse
+
+The API's base data schema.
+
+**Properties**
+
+| Name        | Type | Required | Description                                      |
+| :---------- | :--- | :------- | :----------------------------------------------- |
+| id\_        | str  | ❌       | The API's ID.                                    |
+| name        | str  | ❌       | The API's name.                                  |
+| summary     | str  | ❌       | The API's short summary.                         |
+| created_at  | str  | ❌       | The date and time at which the API was created.  |
+| created_by  | int  | ❌       | The Postman ID of the user that created the API. |
+| updated_at  | str  | ❌       | The date and time at which the API was updated.  |
+| updated_by  | int  | ❌       | The Postman ID of the user that updated the API. |
+| description | str  | ❌       | The API's description.                           |

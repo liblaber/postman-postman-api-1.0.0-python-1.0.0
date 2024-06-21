@@ -1,0 +1,35 @@
+# CreateScimGroupCreatedResponse
+
+**Properties**
+
+| Name         | Type                                        | Required | Description                                                              |
+| :----------- | :------------------------------------------ | :------- | :----------------------------------------------------------------------- |
+| schemas      | List[str]                                   | ❌       | The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml). |
+| id\_         | str                                         | ❌       | The group's SCIM ID.                                                     |
+| display_name | str                                         | ❌       | The group's display name.                                                |
+| external_id  | str                                         | ❌       | The group's external ID.                                                 |
+| members      | List[CreateScimGroupCreatedResponseMembers] | ❌       |                                                                          |
+| meta         | CreateScimGroupCreatedResponseMeta          | ❌       | The response's non-standard meta information.                            |
+
+# CreateScimGroupCreatedResponseMembers
+
+An object containing the group's assigned SCIM members.
+
+**Properties**
+
+| Name    | Type | Required | Description              |
+| :------ | :--- | :------- | :----------------------- |
+| value   | str  | ❌       | The user's SCIM ID.      |
+| display | str  | ❌       | The user's display name. |
+
+# CreateScimGroupCreatedResponseMeta
+
+The response's non-standard meta information.
+
+**Properties**
+
+| Name          | Type | Required | Description                                             |
+| :------------ | :--- | :------- | :------------------------------------------------------ |
+| created       | str  | ❌       | The date and time at which the group was created.       |
+| last_modified | str  | ❌       | The date and time at which the group was last modified. |
+| resource_type | str  | ❌       | The SCIM resource type.                                 |

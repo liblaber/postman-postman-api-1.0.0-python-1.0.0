@@ -1,0 +1,39 @@
+# SchemaSecurityValidationRequest
+
+**Properties**
+
+| Name   | Type                                  | Required | Description |
+| :----- | :------------------------------------ | :------- | :---------- |
+| schema | SchemaSecurityValidationRequestSchema | ❌       |             |
+
+# SchemaSecurityValidationRequestSchema
+
+**Properties**
+
+| Name     | Type           | Required | Description                     |
+| :------- | :------------- | :------- | :------------------------------ |
+| language | SchemaLanguage | ✅       | The definition format.          |
+| schema   | str            | ✅       | The stringified API definition. |
+| type\_   | SchemaType     | ✅       | The definition type.            |
+
+# SchemaLanguage
+
+The definition format.
+
+**Properties**
+
+| Name | Type | Required | Description |
+| :--- | :--- | :------- | :---------- |
+| JSON | str  | ✅       | "json"      |
+| YAML | str  | ✅       | "yaml"      |
+
+# SchemaType
+
+The definition type.
+
+**Properties**
+
+| Name     | Type | Required | Description |
+| :------- | :--- | :------- | :---------- |
+| OPENAPI3 | str  | ✅       | "openapi3"  |
+| OPENAPI2 | str  | ✅       | "openapi2"  |

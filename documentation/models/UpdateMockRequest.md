@@ -1,0 +1,30 @@
+# UpdateMockRequest
+
+**Properties**
+
+| Name | Type                  | Required | Description |
+| :--- | :-------------------- | :------- | :---------- |
+| mock | UpdateMockRequestMock | ❌       |             |
+
+# UpdateMockRequestMock
+
+**Properties**
+
+| Name        | Type        | Required | Description                                                                                                                     |
+| :---------- | :---------- | :------- | :------------------------------------------------------------------------------------------------------------------------------ |
+| name        | str         | ❌       | The mock server's name.                                                                                                         |
+| environment | str         | ❌       | The associated environment's unique ID.                                                                                         |
+| description | str         | ❌       | The mock server's description.                                                                                                  |
+| private     | bool        | ❌       | If true, the mock server is set private. By default, mock servers are public and can receive requests from anyone and anywhere. |
+| version_tag | str         | ❌       | The API's version tag ID.                                                                                                       |
+| config      | MockConfig2 | ❌       | The mock server's configuration settings.                                                                                       |
+
+# MockConfig_2
+
+The mock server's configuration settings.
+
+**Properties**
+
+| Name               | Type | Required | Description                                                                                                                                                             |
+| :----------------- | :--- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| server_response_id | str  | ❌       | The server response ID. This sets the given server response as the default response for each request.<br/><br/>To deactivate a server response, pass a null value.<br/> |

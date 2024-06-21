@@ -1,0 +1,19 @@
+# CreateWebhookOkResponse
+
+**Properties**
+
+| Name    | Type                           | Required | Description |
+| :------ | :----------------------------- | :------- | :---------- |
+| webhook | CreateWebhookOkResponseWebhook | ❌       |             |
+
+# CreateWebhookOkResponseWebhook
+
+**Properties**
+
+| Name        | Type | Required | Description                                                              |
+| :---------- | :--- | :------- | :----------------------------------------------------------------------- |
+| id\_        | str  | ❌       | The webhook's ID.                                                        |
+| name        | str  | ❌       | The webhook's name.                                                      |
+| collection  | str  | ❌       | The unique ID of the collection that triggers when calling this webhook. |
+| webhook_url | str  | ❌       | The webhook's URL.                                                       |
+| uid         | str  | ❌       | The webhook's unique ID.                                                 |

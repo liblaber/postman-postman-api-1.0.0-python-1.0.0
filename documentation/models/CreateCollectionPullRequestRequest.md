@@ -1,0 +1,12 @@
+# CreateCollectionPullRequestRequest
+
+Information about the pull request.
+
+**Properties**
+
+| Name           | Type      | Required | Description                                        |
+| :------------- | :-------- | :------- | :------------------------------------------------- |
+| title          | str       | ✅       | The title of the pull request.                     |
+| description    | str       | ✅       | The pull request's description.                    |
+| reviewers      | List[str] | ✅       | A list of reviewers to assign to the pull request. |
+| destination_id | str       | ✅       | The collection ID to merge the pull request into.  |

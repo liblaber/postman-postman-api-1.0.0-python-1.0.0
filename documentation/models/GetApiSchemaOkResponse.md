@@ -1,0 +1,68 @@
+# GetApiSchemaOkResponse
+
+# GetApiSchemaOkResponse_1
+
+Information about the schema.
+
+**Properties**
+
+| Name       | Type                         | Required | Description                                                                              |
+| :--------- | :--------------------------- | :------- | :--------------------------------------------------------------------------------------- |
+| id\_       | str                          | ❌       | The schema's ID.                                                                         |
+| type\_     | str                          | ❌       | The schema's type.                                                                       |
+| files      | GetApiSchemaOkResponse1Files | ❌       | Information about the schema's files. The response is paginated and limited to one page. |
+| created_at | str                          | ❌       | The date and time at which the schema was created.                                       |
+| created_by | str                          | ❌       | The user ID of the user that created the schema.                                         |
+| updated_at | str                          | ❌       | The date and time at which the schema was last updated.                                  |
+| updated_by | str                          | ❌       | The user ID of the user that last updated the schema.                                    |
+
+# GetApiSchemaOkResponse_1Files
+
+Information about the schema's files. The response is paginated and limited to one page.
+
+**Properties**
+
+| Name | Type            | Required | Description                 |
+| :--- | :-------------- | :------- | :-------------------------- |
+| data | List[FilesData] | ❌       | A list of the schema files. |
+| meta | FilesMeta       | ❌       |                             |
+
+# FilesData
+
+Information about the schema file.
+
+**Properties**
+
+| Name       | Type | Required | Description                                           |
+| :--------- | :--- | :------- | :---------------------------------------------------- |
+| id\_       | str  | ❌       | The schema file's ID.                                 |
+| name       | str  | ❌       | The schema file's name.                               |
+| path       | str  | ❌       | The file system path to the schema file.              |
+| created_at | str  | ❌       | The date and time at which the file was created.      |
+| created_by | str  | ❌       | The user ID of the user that created the file.        |
+| updated_at | str  | ❌       | The date and time at which the file was last updated. |
+| updated_by | str  | ❌       | The user ID of the user that last updated the file.   |
+
+# FilesMeta
+
+**Properties**
+
+| Name      | Type | Required | Description                    |
+| :-------- | :--- | :------- | :----------------------------- |
+| next_path | str  | ❌       | The URL path to the next file. |
+
+# GetApiSchemaOkResponse_2
+
+Information about the schema.
+
+**Properties**
+
+| Name       | Type | Required | Description                                             |
+| :--------- | :--- | :------- | :------------------------------------------------------ |
+| id\_       | str  | ❌       | The schema's ID.                                        |
+| type\_     | str  | ❌       | The schema's type.                                      |
+| created_by | str  | ❌       | The user ID of the user that created the schema.        |
+| updated_by | str  | ❌       | The user ID of the user that last updated the schema.   |
+| created_at | str  | ❌       | The date and time at which the schema was created.      |
+| updated_at | str  | ❌       | The date and time at which the schema was last updated. |
+| content    | str  | ❌       | The schema file, in a bundled format.                   |

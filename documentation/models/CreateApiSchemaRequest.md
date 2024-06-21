@@ -1,0 +1,61 @@
+# CreateApiSchemaRequest
+
+Information about the API schema.
+
+**Properties**
+
+| Name   | Type                              | Required | Description                                    |
+| :----- | :-------------------------------- | :------- | :--------------------------------------------- |
+| type\_ | CreateApiSchemaRequestType        | ✅       | The schema's type.                             |
+| files  | List[CreateApiSchemaRequestFiles] | ✅       | The list of files that are part of the schema. |
+
+# CreateApiSchemaRequestType
+
+The schema's type.
+
+**Properties**
+
+| Name        | Type | Required | Description   |
+| :---------- | :--- | :------- | :------------ |
+| PROTO_2     | str  | ✅       | "proto:2"     |
+| PROTO_3     | str  | ✅       | "proto:3"     |
+| GRAPHQL     | str  | ✅       | "graphql"     |
+| OPENAPI_3_1 | str  | ✅       | "openapi:3_1" |
+| OPENAPI_3   | str  | ✅       | "openapi:3"   |
+| OPENAPI_2   | str  | ✅       | "openapi:2"   |
+| OPENAPI_1   | str  | ✅       | "openapi:1"   |
+| RAML_1      | str  | ✅       | "raml:1"      |
+| RAML_0_8    | str  | ✅       | "raml:0_8"    |
+| WSDL_2      | str  | ✅       | "wsdl:2"      |
+| WSDL_1      | str  | ✅       | "wsdl:1"      |
+| ASYNCAPI_2  | str  | ✅       | "asyncapi:2"  |
+
+# CreateApiSchemaRequestFiles
+
+**Properties**
+
+| Name    | Type      | Required | Description                               |
+| :------ | :-------- | :------- | :---------------------------------------- |
+| path    | str       | ❌       | The schema's file path.                   |
+| root    | FilesRoot | ❌       | Information about the schema's root file. |
+| content | str       | ❌       | The schema file's stringified contents.   |
+
+# FilesRoot
+
+Information about the schema's root file.
+
+**Properties**
+
+| Name    | Type    | Required | Description                                                                                       |
+| :------ | :------ | :------- | :------------------------------------------------------------------------------------------------ |
+| enabled | Enabled | ❌       | If true, tag the file as the root file. The root tag is only allowed for protobuf specifications. |
+
+# Enabled
+
+If true, tag the file as the root file. The root tag is only allowed for protobuf specifications.
+
+**Properties**
+
+| Name | Type | Required | Description |
+| :--- | :--- | :------- | :---------- |
+| TRUE | str  | ✅       | "true"      |

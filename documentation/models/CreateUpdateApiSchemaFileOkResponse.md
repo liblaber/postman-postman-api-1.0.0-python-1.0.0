@@ -1,0 +1,15 @@
+# CreateUpdateApiSchemaFileOkResponse
+
+Information about the schema file.
+
+**Properties**
+
+| Name       | Type | Required | Description                                           |
+| :--------- | :--- | :------- | :---------------------------------------------------- |
+| id\_       | str  | ❌       | The schema file's ID.                                 |
+| name       | str  | ❌       | The schema file's name.                               |
+| path       | str  | ❌       | The file system path to the schema file.              |
+| created_at | str  | ❌       | The date and time at which the file was created.      |
+| created_by | str  | ❌       | The user ID of the user that created the file.        |
+| updated_at | str  | ❌       | The date and time at which the file was last updated. |
+| updated_by | str  | ❌       | The user ID of the user that last updated the file.   |

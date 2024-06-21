@@ -1,0 +1,37 @@
+# UpdateScimUserStateRequest
+
+**Properties**
+
+| Name       | Type                                       | Required | Description                                                              |
+| :--------- | :----------------------------------------- | :------- | :----------------------------------------------------------------------- |
+| schemas    | List[str]                                  | ❌       | The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml). |
+| operations | List[UpdateScimUserStateRequestOperations] | ❌       | Information about the user update operation.                             |
+
+# UpdateScimUserStateRequestOperations
+
+**Properties**
+
+| Name  | Type             | Required | Description                      |
+| :---- | :--------------- | :------- | :------------------------------- |
+| op    | OperationsOp2    | ❌       | The operation to perform.        |
+| value | OperationsValue2 | ❌       | The performed operation's value. |
+
+# OperationsOp_2
+
+The operation to perform.
+
+**Properties**
+
+| Name    | Type | Required | Description |
+| :------ | :--- | :------- | :---------- |
+| REPLACE | str  | ✅       | "replace"   |
+
+# OperationsValue_2
+
+The performed operation's value.
+
+**Properties**
+
+| Name   | Type | Required | Description                                                                                                                                                                                                                                                               |
+| :----- | :--- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| active | bool | ❌       | Sets the user's `active` state:<br/>- `true` — Activates the user. This lets them authenticate in to your Postman team.<br/>- `false` — Removes the user from your Postman team and deactivates the account. This blocks the user from authenticating in to Postman.<br/> |

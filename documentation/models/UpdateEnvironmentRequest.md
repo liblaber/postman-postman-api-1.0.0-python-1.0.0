@@ -1,0 +1,39 @@
+# UpdateEnvironmentRequest
+
+**Properties**
+
+| Name        | Type                                | Required | Description |
+| :---------- | :---------------------------------- | :------- | :---------- |
+| environment | UpdateEnvironmentRequestEnvironment | ❌       |             |
+
+# UpdateEnvironmentRequestEnvironment
+
+**Properties**
+
+| Name   | Type                     | Required | Description                                    |
+| :----- | :----------------------- | :------- | :--------------------------------------------- |
+| name   | str                      | ❌       | The environment's name.                        |
+| values | List[EnvironmentValues3] | ❌       | Information about the environment's variables. |
+
+# EnvironmentValues_3
+
+**Properties**
+
+| Name    | Type        | Required | Description                       |
+| :------ | :---------- | :------- | :-------------------------------- |
+| enabled | bool        | ❌       | If true, the variable is enabled. |
+| key     | str         | ❌       | The variable's name.              |
+| value   | str         | ❌       | The variable's value.             |
+| type\_  | ValuesType3 | ❌       | The variable type.                |
+
+# ValuesType_3
+
+The variable type.
+
+**Properties**
+
+| Name    | Type | Required | Description |
+| :------ | :--- | :------- | :---------- |
+| SECRET  | str  | ✅       | "secret"    |
+| DEFAULT | str  | ✅       | "default"   |
+| ANY     | str  | ✅       | "any"       |

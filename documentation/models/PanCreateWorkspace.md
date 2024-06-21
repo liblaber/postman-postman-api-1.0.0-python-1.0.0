@@ -1,0 +1,16 @@
+# PanCreateWorkspace
+
+**Properties**
+
+| Name      | Type                        | Required | Description |
+| :-------- | :-------------------------- | :------- | :---------- |
+| workspace | PanCreateWorkspaceWorkspace | ❌       |             |
+
+# PanCreateWorkspaceWorkspace
+
+**Properties**
+
+| Name             | Type | Required | Description                       |
+| :--------------- | :--- | :------- | :-------------------------------- |
+| id\_             | str  | ✅       | The workspace's ID.               |
+| parent_folder_id | int  | ✅       | The workspace's parent folder ID. |

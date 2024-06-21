@@ -1,0 +1,33 @@
+# GetCollectionsForkedByUserOkResponse
+
+**Properties**
+
+| Name | Type                                           | Required | Description                                            |
+| :--- | :--------------------------------------------- | :------- | :----------------------------------------------------- |
+| data | List[GetCollectionsForkedByUserOkResponseData] | ❌       | A list of the user's forked collections.               |
+| meta | GetCollectionsForkedByUserOkResponseMeta       | ❌       | The response's meta information for paginated results. |
+
+# GetCollectionsForkedByUserOkResponseData
+
+Information about the forked collection.
+
+**Properties**
+
+| Name       | Type | Required | Description                                          |
+| :--------- | :--- | :------- | :--------------------------------------------------- |
+| fork_name  | str  | ❌       | The forked collection's label.                       |
+| fork_id    | str  | ❌       | The forked collection's ID.                          |
+| source_id  | str  | ❌       | The ID of the forked collection's source collection. |
+| created_at | str  | ❌       | The date and time at which the fork was created.     |
+
+# GetCollectionsForkedByUserOkResponseMeta
+
+The response's meta information for paginated results.
+
+**Properties**
+
+| Name              | Type  | Required | Description                                                              |
+| :---------------- | :---- | :------- | :----------------------------------------------------------------------- |
+| total             | float | ❌       | The total number of forked collections.                                  |
+| next_cursor       | str   | ❌       | The pagination cursor that points to the next record in the results set. |
+| inaccessible_fork | float | ❌       | The total number of forked collections that the user cannot access.      |

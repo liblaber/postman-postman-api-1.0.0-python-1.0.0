@@ -1,0 +1,11 @@
+# CreateApiVersionAcceptedResponse
+
+**Properties**
+
+| Name          | Type | Required | Description                                                              |
+| :------------ | :--- | :------- | :----------------------------------------------------------------------- |
+| id\_          | str  | ❌       | The version's ID.                                                        |
+| created_at    | str  | ❌       | The date and time at which the version was created.                      |
+| updated_at    | str  | ❌       | The date and time at which the version was last updated.                 |
+| name          | str  | ❌       | The version's name.                                                      |
+| release_notes | str  | ❌       | Information about the API version release. For example, changelog notes. |

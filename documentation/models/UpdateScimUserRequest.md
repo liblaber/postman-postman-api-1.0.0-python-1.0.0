@@ -1,0 +1,19 @@
+# UpdateScimUserRequest
+
+**Properties**
+
+| Name    | Type                      | Required | Description                                                              |
+| :------ | :------------------------ | :------- | :----------------------------------------------------------------------- |
+| schemas | List[str]                 | ❌       | The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml). |
+| name    | UpdateScimUserRequestName | ❌       | Information about the user's name.                                       |
+
+# UpdateScimUserRequestName
+
+Information about the user's name.
+
+**Properties**
+
+| Name        | Type | Required | Description            |
+| :---------- | :--- | :------- | :--------------------- |
+| given_name  | str  | ❌       | The user's first name. |
+| family_name | str  | ❌       | The user's last name.  |

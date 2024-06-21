@@ -1,0 +1,18 @@
+# PutCollectionRequest
+
+**Properties**
+
+| Name       | Type                           | Required | Description                                                                                                                                   |
+| :--------- | :----------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| collection | PutCollectionRequestCollection | ❌       | For a complete list of values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). |
+
+# PutCollectionRequestCollection
+
+For a complete list of values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json).
+
+**Properties**
+
+| Name | Type       | Required | Description                                                                                                                                                                                                                                                                                                                                 |
+| :--- | :--------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| info | dict       | ✅       | An object that contains basic information about the collection. For a complete list of values, refer to the `definitions.info` entry in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json).                                                                                               |
+| item | List[dict] | ✅       | Information about the collection's contents, such as folders, requests, and responses. For a complete list of values, refer to the `#/definitions/item-group` entry in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json).<br/><br/>The maximum collection size cannot exceed 20 MB.<br/> |

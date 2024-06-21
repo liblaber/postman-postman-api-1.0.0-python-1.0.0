@@ -1,0 +1,25 @@
+# CreateMockOkResponse
+
+**Properties**
+
+| Name | Type                     | Required | Description                        |
+| :--- | :----------------------- | :------- | :--------------------------------- |
+| mock | CreateMockOkResponseMock | ❌       | Information about the mock server. |
+
+# CreateMockOkResponseMock
+
+Information about the mock server.
+
+**Properties**
+
+| Name        | Type | Required | Description                                                  |
+| :---------- | :--- | :------- | :----------------------------------------------------------- |
+| id\_        | str  | ❌       | The mock server's ID.                                        |
+| owner       | str  | ❌       | The ID of mock server's owner.                               |
+| uid         | str  | ❌       | The mock server's unique ID.                                 |
+| collection  | str  | ❌       | The unique ID of the mock's associated collection.           |
+| mock_url    | str  | ❌       | The mock server URL.                                         |
+| config      | dict | ❌       | Information about the mock server's configuration.           |
+| created_at  | str  | ❌       | The date and time at which the mock server was created.      |
+| updated_at  | str  | ❌       | The date and time at which the mock server was last updated. |
+| environment | str  | ❌       | The unique ID of the mock's associated environment.          |

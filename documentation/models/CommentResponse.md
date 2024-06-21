@@ -1,0 +1,21 @@
+# CommentResponse
+
+**Properties**
+
+| Name | Type                      | Required | Description |
+| :--- | :------------------------ | :------- | :---------- |
+| data | List[CommentResponseData] | ❌       |             |
+
+# CommentResponseData
+
+Information about the comment.
+
+**Properties**
+
+| Name       | Type | Required | Description                                          |
+| :--------- | :--- | :------- | :--------------------------------------------------- |
+| id\_       | int  | ❌       | The comment's ID.                                    |
+| created_by | int  | ❌       | The user ID of the user who created the comment.     |
+| created_at | str  | ❌       | The date and time at which the comment was created.  |
+| updated_at | str  | ❌       | The date and time when the comment was last updated. |
+| body       | str  | ❌       | The contents of the comment.                         |

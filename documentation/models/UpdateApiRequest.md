@@ -1,0 +1,11 @@
+# UpdateApiRequest
+
+Information about the API.
+
+**Properties**
+
+| Name        | Type | Required | Description                                               |
+| :---------- | :--- | :------- | :-------------------------------------------------------- |
+| name        | str  | ✅       | The API's name.                                           |
+| summary     | str  | ❌       | The API's short summary.                                  |
+| description | str  | ❌       | The API's description. This supports Markdown formatting. |

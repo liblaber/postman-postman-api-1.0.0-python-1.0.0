@@ -1,0 +1,17 @@
+# PatchCollectionOkResponse
+
+**Properties**
+
+| Name       | Type                                | Required | Description |
+| :--------- | :---------------------------------- | :------- | :---------- |
+| collection | PatchCollectionOkResponseCollection | ❌       |             |
+
+# PatchCollectionOkResponseCollection
+
+**Properties**
+
+| Name        | Type | Required | Description                           |
+| :---------- | :--- | :------- | :------------------------------------ |
+| id\_        | str  | ❌       | The collection's ID.                  |
+| name        | str  | ❌       | The collection's updated name.        |
+| description | str  | ❌       | The collection's updated description. |

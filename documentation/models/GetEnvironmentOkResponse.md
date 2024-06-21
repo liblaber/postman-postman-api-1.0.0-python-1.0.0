@@ -1,0 +1,44 @@
+# GetEnvironmentOkResponse
+
+**Properties**
+
+| Name        | Type                                | Required | Description |
+| :---------- | :---------------------------------- | :------- | :---------- |
+| environment | GetEnvironmentOkResponseEnvironment | ❌       |             |
+
+# GetEnvironmentOkResponseEnvironment
+
+**Properties**
+
+| Name       | Type                     | Required | Description                                                  |
+| :--------- | :----------------------- | :------- | :----------------------------------------------------------- |
+| id\_       | str                      | ❌       | The environment's ID.                                        |
+| name       | str                      | ❌       | The environment's name.                                      |
+| owner      | str                      | ❌       | The ID of environment's owner.                               |
+| created_at | str                      | ❌       | The date and time at which the environment was created.      |
+| updated_at | str                      | ❌       | The date and time at which the environment was last updated. |
+| values     | List[EnvironmentValues2] | ❌       | Information about the environment's variables.               |
+| is_public  | bool                     | ❌       | If true, the environment is public and visible to all users. |
+
+# EnvironmentValues_2
+
+**Properties**
+
+| Name    | Type        | Required | Description                       |
+| :------ | :---------- | :------- | :-------------------------------- |
+| enabled | bool        | ❌       | If true, the variable is enabled. |
+| key     | str         | ❌       | The variable's name.              |
+| value   | str         | ❌       | The variable's value.             |
+| type\_  | ValuesType2 | ❌       | The variable type.                |
+
+# ValuesType_2
+
+The variable type.
+
+**Properties**
+
+| Name    | Type | Required | Description |
+| :------ | :--- | :------- | :---------- |
+| SECRET  | str  | ✅       | "secret"    |
+| DEFAULT | str  | ✅       | "default"   |
+| ANY     | str  | ✅       | "any"       |

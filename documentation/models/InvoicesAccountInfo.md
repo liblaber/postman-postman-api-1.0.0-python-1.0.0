@@ -1,0 +1,41 @@
+# InvoicesAccountInfo
+
+Information about the account.
+
+**Properties**
+
+| Name          | Type         | Required | Description                                                                                                                                                                                                  |
+| :------------ | :----------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| billing_email | str          | ❌       | The email address to which invoices are sent.                                                                                                                                                                |
+| id\_          | int          | ❌       | The account's ID.                                                                                                                                                                                            |
+| state         | str          | ❌       | The account's current state:<br/>- `FREE`<br/>- `PAID`<br/>- `EXPIRED_TRIAL`<br/>- `OVERDUE`<br/>- `SUSPENDED`<br/>- `BLOCKED`<br/>- `PAYMENT_DISPUTED`<br/>                                                 |
+| team_id       | int          | ❌       | The team's ID associated with the account.                                                                                                                                                                   |
+| sales_channel | SalesChannel | ❌       | The sales channel from which the account was created:<br/>- `SELF_SERVE` — The user purchased the account plan.<br/>- `SALES_SERVE` — The account was purchased through the Postman sales team process.<br/> |
+| slots         | Slots        | ❌       | Information about the team's slots.                                                                                                                                                                          |
+
+# SalesChannel
+
+The sales channel from which the account was created:
+
+- `SELF_SERVE` — The user purchased the account plan.
+- `SALES_SERVE` — The account was purchased through the Postman sales team process.
+
+**Properties**
+
+| Name        | Type | Required | Description   |
+| :---------- | :--- | :------- | :------------ |
+| SELF_SERVE  | str  | ✅       | "SELF_SERVE"  |
+| SALES_SERVE | str  | ✅       | "SALES_SERVE" |
+
+# Slots
+
+Information about the team's slots.
+
+**Properties**
+
+| Name      | Type | Required | Description                                                                                                       |
+| :-------- | :--- | :------- | :---------------------------------------------------------------------------------------------------------------- |
+| available | int  | ❌       | The number of the team's available slots.                                                                         |
+| consumed  | int  | ❌       | The number of currently-billed team members.                                                                      |
+| total     | int  | ❌       | The total number of slots available to the team.                                                                  |
+| unbilled  | int  | ❌       | The number of unbilled slots if [auto-flex billing](https://learning.postman.com/auto-flex-policy/) is available. |

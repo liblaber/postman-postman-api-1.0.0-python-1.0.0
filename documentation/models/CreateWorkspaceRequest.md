@@ -1,0 +1,39 @@
+# CreateWorkspaceRequest
+
+**Properties**
+
+| Name      | Type                            | Required | Description                      |
+| :-------- | :------------------------------ | :------- | :------------------------------- |
+| workspace | CreateWorkspaceRequestWorkspace | ❌       | Information about the workspace. |
+
+# CreateWorkspaceRequestWorkspace
+
+Information about the workspace.
+
+**Properties**
+
+| Name        | Type           | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| :---------- | :------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name        | str            | ✅       | The workspace's name.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| type\_      | WorkspaceType1 | ✅       | The type of workspace:<br/>- `personal`<br/>- `private` — Private workspaces are available on Postman [**Professional** and **Enterprise** plans](https://www.postman.com/pricing).<br/>- `public`<br/>- `team`<br/>- `partner` — [Partner Workspaces](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/partner-workspaces/) are available on Postman [**Professional** and **Enterprise** plans](https://www.postman.com/pricing)).<br/> |
+| description | str            | ❌       | The workspace's description.                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+# WorkspaceType_1
+
+The type of workspace:
+
+- `personal`
+- `private` — Private workspaces are available on Postman [**Professional** and **Enterprise** plans](https://www.postman.com/pricing).
+- `public`
+- `team`
+- `partner` — [Partner Workspaces](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/partner-workspaces/) are available on Postman [**Professional** and **Enterprise** plans](https://www.postman.com/pricing)).
+
+**Properties**
+
+| Name     | Type | Required | Description |
+| :------- | :--- | :------- | :---------- |
+| PERSONAL | str  | ✅       | "personal"  |
+| PRIVATE  | str  | ✅       | "private"   |
+| PUBLIC   | str  | ✅       | "public"    |
+| TEAM     | str  | ✅       | "team"      |
+| PARTNER  | str  | ✅       | "partner"   |

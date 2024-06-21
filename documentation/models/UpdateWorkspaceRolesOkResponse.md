@@ -1,0 +1,30 @@
+# UpdateWorkspaceRolesOkResponse
+
+**Properties**
+
+| Name  | Type                                      | Required | Description |
+| :---- | :---------------------------------------- | :------- | :---------- |
+| roles | List[UpdateWorkspaceRolesOkResponseRoles] | ❌       |             |
+
+# UpdateWorkspaceRolesOkResponseRoles
+
+**Properties**
+
+| Name         | Type        | Required | Description                                    |
+| :----------- | :---------- | :------- | :--------------------------------------------- |
+| id\_         | int         | ❌       | The role's ID.                                 |
+| user         | List[float] | ❌       | A list of user IDs assigned to the role.       |
+| usergroup    | List[float] | ❌       | A list of user group IDs assigned to the role. |
+| display_name | DisplayName | ❌       | The role's display name.                       |
+
+# DisplayName
+
+The role's display name.
+
+**Properties**
+
+| Name   | Type | Required | Description |
+| :----- | :--- | :------- | :---------- |
+| ADMIN  | str  | ✅       | "Admin"     |
+| VIEWER | str  | ✅       | "Viewer"    |
+| EDITOR | str  | ✅       | "Editor"    |

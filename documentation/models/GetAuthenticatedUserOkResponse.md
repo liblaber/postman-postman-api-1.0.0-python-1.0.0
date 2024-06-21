@@ -1,0 +1,38 @@
+# GetAuthenticatedUserOkResponse
+
+**Properties**
+
+| Name       | Type                                           | Required | Description                                                                                                                                                                                                     |
+| :--------- | :--------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| user       | GetAuthenticatedUserOkResponseUser             | ❌       | Information about the authenticated user.                                                                                                                                                                       |
+| operations | List[GetAuthenticatedUserOkResponseOperations] | ❌       | Information about operations and their usage limits. This object does not return for users with the [Guest role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles). |
+
+# GetAuthenticatedUserOkResponseUser
+
+Information about the authenticated user.
+
+**Properties**
+
+| Name        | Type      | Required | Description                                                                                                                          |
+| :---------- | :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| id\_        | float     | ❌       | The user's Postman ID.                                                                                                               |
+| username    | str       | ❌       | The user's username.                                                                                                                 |
+| email       | str       | ❌       | The user's email address.                                                                                                            |
+| full_name   | str       | ❌       | The user's full name.                                                                                                                |
+| avatar      | str       | ❌       | The user's avatar image URL.                                                                                                         |
+| is_public   | bool      | ❌       | If true, the user's information is public and visible to all users.                                                                  |
+| team_id     | int       | ❌       | The team ID the user is assigned to. This returns a `0` value if the user is not assigned to a team.                                 |
+| team_name   | str       | ❌       | The name of the team the user is assigned to.                                                                                        |
+| team_domain | str       | ❌       | The team's Postman domain ID.                                                                                                        |
+| roles       | List[str] | ❌       | A list of the user's assigned [roles](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles). |
+
+# GetAuthenticatedUserOkResponseOperations
+
+**Properties**
+
+| Name    | Type  | Required | Description                          |
+| :------ | :---- | :------- | :----------------------------------- |
+| limit   | float | ❌       | The operation's limit value.         |
+| name    | str   | ❌       | The operation's name.                |
+| overage | float | ❌       | The operation's overage value.       |
+| usage   | float | ❌       | The operation's current usage value. |

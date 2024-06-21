@@ -1,0 +1,89 @@
+# PullRequestsService
+
+A list of all methods in the `PullRequestsService` service. Click on the method name to view detailed information about that method.
+
+| Methods                                     | Description                                                                                                                                                                          |
+| :------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [get_pull_request](#get_pull_request)       | Gets information about a pull request, such as the source and destination details, who reviewed the pull request, the merge's current status, and whether the element is accessible. |
+| [update_pull_request](#update_pull_request) | Updates an open pull request.                                                                                                                                                        |
+
+## get_pull_request
+
+Gets information about a pull request, such as the source and destination details, who reviewed the pull request, the merge's current status, and whether the element is accessible.
+
+- HTTP Method: `GET`
+- Endpoint: `/pull-requests/{pullRequestId}`
+
+**Parameters**
+
+| Name            | Type | Required | Description            |
+| :-------------- | :--- | :------- | :--------------------- |
+| pull_request_id | str  | ✅       | The pull request's ID. |
+
+**Return Type**
+
+`PullRequestGet`
+
+**Example Usage Code Snippet**
+
+```python
+from postman import Postman, Environment
+
+sdk = Postman(
+    access_token="YOUR_ACCESS_TOKEN",
+    api_key="YOUR_API_KEY",
+    api_key_header="YOUR_API_KEY_HEADER",
+    base_url=Environment.DEFAULT.value
+)
+
+result = sdk.pull_requests.get_pull_request(pull_request_id="4e1a6609-1a29-4037-a411-89ecc14c6cd8")
+
+print(result)
+```
+
+## update_pull_request
+
+Updates an open pull request.
+
+- HTTP Method: `PUT`
+- Endpoint: `/pull-requests/{pullRequestId}`
+
+**Parameters**
+
+| Name            | Type                                                              | Required | Description            |
+| :-------------- | :---------------------------------------------------------------- | :------- | :--------------------- |
+| request_body    | [UpdatePullRequestRequest](../models/UpdatePullRequestRequest.md) | ❌       | The request body.      |
+| pull_request_id | str                                                               | ✅       | The pull request's ID. |
+
+**Return Type**
+
+`PullRequestUpdated`
+
+**Example Usage Code Snippet**
+
+```python
+from postman import Postman, Environment
+from postman.models import UpdatePullRequestRequest
+
+sdk = Postman(
+    access_token="YOUR_ACCESS_TOKEN",
+    api_key="YOUR_API_KEY",
+    api_key_header="YOUR_API_KEY_HEADER",
+    base_url=Environment.DEFAULT.value
+)
+
+request_body = UpdatePullRequestRequest(
+    title="Updated PR title",
+    description="Updated description of the pull request.",
+    reviewers=[
+        "12345678"
+    ]
+)
+
+result = sdk.pull_requests.update_pull_request(
+    request_body=request_body,
+    pull_request_id="4e1a6609-1a29-4037-a411-89ecc14c6cd8"
+)
+
+print(result)
+```

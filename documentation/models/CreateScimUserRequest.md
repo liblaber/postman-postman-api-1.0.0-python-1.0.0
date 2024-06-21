@@ -1,0 +1,24 @@
+# CreateScimUserRequest
+
+**Properties**
+
+| Name        | Type                      | Required | Description                                                                       |
+| :---------- | :------------------------ | :------- | :-------------------------------------------------------------------------------- |
+| schemas     | List[str]                 | ❌       | The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml).          |
+| user_name   | str                       | ❌       | The user's username.                                                              |
+| active      | bool                      | ❌       | If true, activates the user. This lets them authenticate in to your Postman team. |
+| external_id | str                       | ❌       | The user's external ID.                                                           |
+| groups      | List[str]                 | ❌       | A list of groups to assign the user to.                                           |
+| locale      | str                       | ❌       | The user's [IETF language tag](https://datatracker.ietf.org/doc/html/rfc5646).    |
+| name        | CreateScimUserRequestName | ❌       | Information about the user's name.                                                |
+
+# CreateScimUserRequestName
+
+Information about the user's name.
+
+**Properties**
+
+| Name        | Type | Required | Description            |
+| :---------- | :--- | :------- | :--------------------- |
+| given_name  | str  | ❌       | The user's first name. |
+| family_name | str  | ❌       | The user's last name.  |

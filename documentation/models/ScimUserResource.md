@@ -1,0 +1,38 @@
+# ScimUserResource
+
+The SCIM user resource object.
+
+**Properties**
+
+| Name        | Type                 | Required | Description                                                              |
+| :---------- | :------------------- | :------- | :----------------------------------------------------------------------- |
+| schemas     | List[str]            | ❌       | The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml). |
+| id\_        | str                  | ❌       | The team member's SCIM ID.                                               |
+| user_name   | str                  | ❌       | The team member's SCIM username.                                         |
+| name        | ScimUserResourceName | ❌       | Information about the Postman team member.                               |
+| external_id | str                  | ❌       | The team member's external ID.                                           |
+| active      | bool                 | ❌       | If true, the team member is active.                                      |
+| meta        | ScimUserResourceMeta | ❌       | The response's non-standard meta information.                            |
+
+# ScimUserResourceName
+
+Information about the Postman team member.
+
+**Properties**
+
+| Name        | Type | Required | Description                   |
+| :---------- | :--- | :------- | :---------------------------- |
+| given_name  | str  | ❌       | The team member's first name. |
+| family_name | str  | ❌       | The team member's last name.  |
+
+# ScimUserResourceMeta
+
+The response's non-standard meta information.
+
+**Properties**
+
+| Name          | Type | Required | Description                                                   |
+| :------------ | :--- | :------- | :------------------------------------------------------------ |
+| resource_type | str  | ❌       | The resource type.                                            |
+| created       | str  | ❌       | The date and time at which the team member was created.       |
+| last_modified | str  | ❌       | The date and time at which the team member was last modified. |

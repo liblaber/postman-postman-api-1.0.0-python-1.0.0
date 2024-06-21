@@ -1,0 +1,23 @@
+# ScimUpdateGroupOkResponse
+
+**Properties**
+
+| Name         | Type                          | Required | Description                                                              |
+| :----------- | :---------------------------- | :------- | :----------------------------------------------------------------------- |
+| schemas      | List[str]                     | ❌       | The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml). |
+| id\_         | str                           | ❌       | The group's ID.                                                          |
+| display_name | str                           | ❌       | The group's name.                                                        |
+| external_id  | str                           | ❌       | The group's external ID.                                                 |
+| meta         | ScimUpdateGroupOkResponseMeta | ❌       | The response's non-standard meta information.                            |
+
+# ScimUpdateGroupOkResponseMeta
+
+The response's non-standard meta information.
+
+**Properties**
+
+| Name          | Type | Required | Description                                             |
+| :------------ | :--- | :------- | :------------------------------------------------------ |
+| resource_type | str  | ❌       | The resource type.                                      |
+| created       | str  | ❌       | The date and time at which the group was created.       |
+| last_modified | str  | ❌       | The date and time at which the group was last modified. |

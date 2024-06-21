@@ -1,0 +1,18 @@
+# DeleteCollectionOkResponse
+
+**Properties**
+
+| Name       | Type                                 | Required | Description                               |
+| :--------- | :----------------------------------- | :------- | :---------------------------------------- |
+| collection | DeleteCollectionOkResponseCollection | ❌       | Information about the deleted collection. |
+
+# DeleteCollectionOkResponseCollection
+
+Information about the deleted collection.
+
+**Properties**
+
+| Name | Type | Required | Description                         |
+| :--- | :--- | :------- | :---------------------------------- |
+| id\_ | str  | ❌       | The deleted collection's ID.        |
+| uid  | str  | ❌       | The deleted collection's unique ID. |

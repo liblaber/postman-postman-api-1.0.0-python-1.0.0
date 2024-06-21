@@ -1,0 +1,32 @@
+# CreateCollectionForkOkResponse
+
+**Properties**
+
+| Name       | Type                                     | Required | Description                              |
+| :--------- | :--------------------------------------- | :------- | :--------------------------------------- |
+| collection | CreateCollectionForkOkResponseCollection | ❌       | Information about the forked collection. |
+
+# CreateCollectionForkOkResponseCollection
+
+Information about the forked collection.
+
+**Properties**
+
+| Name | Type           | Required | Description                              |
+| :--- | :------------- | :------- | :--------------------------------------- |
+| id\_ | str            | ❌       | The forked collection's ID.              |
+| name | str            | ❌       | The collection's name.                   |
+| fork | CollectionFork | ❌       | Information about the collection's fork. |
+| uid  | str            | ❌       | The forked collection's unique ID.       |
+
+# CollectionFork
+
+Information about the collection's fork.
+
+**Properties**
+
+| Name       | Type | Required | Description                                |
+| :--------- | :--- | :------- | :----------------------------------------- |
+| label      | str  | ❌       | The fork's label.                          |
+| created_at | str  | ❌       | The fork's creation date and time.         |
+| from\_     | str  | ❌       | The unique ID of fork's source collection. |

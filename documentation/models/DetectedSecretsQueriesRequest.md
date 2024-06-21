@@ -1,0 +1,38 @@
+# DetectedSecretsQueriesRequest
+
+**Properties**
+
+| Name                  | Type                       | Required | Description                                                                                                                                                                                                                                   |
+| :-------------------- | :------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| resolved              | bool                       | ❌       | If true, return secrets with a `resolved` status.                                                                                                                                                                                             |
+| secret_types          | List[str]                  | ❌       | A list of secrets types to query. For a list of valid IDs, use the GET `/secret-types` endpoint.                                                                                                                                              |
+| statuses              | List[Statuses]             | ❌       | A list of the types of resolution statuses to query.                                                                                                                                                                                          |
+| workspace_ids         | List[str]                  | ❌       | A list of workspaces IDs to query.                                                                                                                                                                                                            |
+| workspace_visiblities | List[WorkspaceVisiblities] | ❌       | A list of workspace [visibility settings](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility) to query. This currently supports the `team` and `public` settings. |
+
+# Statuses
+
+The secret resolution status type:
+
+- `FALSE_POSITIVE` — The discovered secret is not an actual secret.
+- `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue.
+- `ACCEPTED_RISK` — The Secret Scanner found the secret, but user accepts the risk of publishing it.
+
+**Properties**
+
+| Name           | Type | Required | Description      |
+| :------------- | :--- | :------- | :--------------- |
+| FALSE_POSITIVE | str  | ✅       | "FALSE_POSITIVE" |
+| ACCEPTED_RISK  | str  | ✅       | "ACCEPTED_RISK"  |
+| REVOKED        | str  | ✅       | "REVOKED"        |
+
+# WorkspaceVisiblities
+
+The type of visibility setting.
+
+**Properties**
+
+| Name   | Type | Required | Description |
+| :----- | :--- | :------- | :---------- |
+| TEAM   | str  | ✅       | "team"      |
+| PUBLIC | str  | ✅       | "public"    |

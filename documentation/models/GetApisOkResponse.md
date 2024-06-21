@@ -1,0 +1,39 @@
+# GetApisOkResponse
+
+Information about the API schema.
+
+**Properties**
+
+| Name | Type                        | Required | Description                                            |
+| :--- | :-------------------------- | :------- | :----------------------------------------------------- |
+| apis | List[GetApisOkResponseApis] | ❌       |                                                        |
+| meta | GetApisOkResponseMeta       | ❌       | The response's meta information for paginated results. |
+
+# GetApisOkResponseApis
+
+The API's base data schema.
+
+**Properties**
+
+| Name        | Type | Required | Description                                      |
+| :---------- | :--- | :------- | :----------------------------------------------- |
+| id\_        | str  | ❌       | The API's ID.                                    |
+| name        | str  | ❌       | The API's name.                                  |
+| summary     | str  | ❌       | The API's short summary.                         |
+| created_at  | str  | ❌       | The date and time at which the API was created.  |
+| created_by  | int  | ❌       | The Postman ID of the user that created the API. |
+| updated_at  | str  | ❌       | The date and time at which the API was updated.  |
+| updated_by  | int  | ❌       | The Postman ID of the user that updated the API. |
+| description | str  | ❌       | The API's description.                           |
+
+# GetApisOkResponseMeta
+
+The response's meta information for paginated results.
+
+**Properties**
+
+| Name        | Type  | Required | Description                                                              |
+| :---------- | :---- | :------- | :----------------------------------------------------------------------- |
+| limit       | float | ❌       | The maximum number of records in the paginated response.                 |
+| total       | float | ❌       | The number of records that match the defined criteria.                   |
+| next_cursor | str   | ❌       | The pagination cursor that points to the next record in the results set. |

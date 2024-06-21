@@ -1,0 +1,42 @@
+# GetWorkspaceRolesOkResponse
+
+**Properties**
+
+| Name  | Type                             | Required | Description                                                                                                                                   |
+| :---- | :------------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| roles | GetWorkspaceRolesOkResponseRoles | ❌       | Information about the workspace's [user roles](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles). |
+
+# GetWorkspaceRolesOkResponseRoles
+
+Information about the workspace's [user roles](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
+
+**Properties**
+
+| Name      | Type            | Required | Description                                                                                                                    |
+| :-------- | :-------------- | :------- | :----------------------------------------------------------------------------------------------------------------------------- |
+| user      | List[RolesUser] | ❌       | The list of user roles in the workspace.                                                                                       |
+| usergroup | List[Usergroup] | ❌       | Information about the workspace's [user group roles](https://learning.postman.com/docs/collaborating-in-postman/user-groups/). |
+
+# RolesUser
+
+Information about the user role.
+
+**Properties**
+
+| Name         | Type | Required | Description              |
+| :----------- | :--- | :------- | :----------------------- |
+| id\_         | int  | ❌       | The role's ID.           |
+| description  | str  | ❌       | The role's description.  |
+| display_name | str  | ❌       | The role's display name. |
+
+# Usergroup
+
+Information about the user group in the workspace.
+
+**Properties**
+
+| Name         | Type | Required | Description              |
+| :----------- | :--- | :------- | :----------------------- |
+| id\_         | int  | ❌       | The role's ID.           |
+| description  | str  | ❌       | The role's description.  |
+| display_name | str  | ❌       | The role's display name. |

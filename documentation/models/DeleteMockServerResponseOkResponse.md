@@ -1,0 +1,40 @@
+# DeleteMockServerResponseOkResponse
+
+Information about the deleted server response.
+
+**Properties**
+
+| Name        | Type                                            | Required | Description                                                                                           |
+| :---------- | :---------------------------------------------- | :------- | :---------------------------------------------------------------------------------------------------- |
+| id\_        | str                                             | ❌       | The server response's ID.                                                                             |
+| name        | str                                             | ❌       | The server response's name.                                                                           |
+| status_code | float                                           | ❌       | The server response's 5xx HTTP response code.                                                         |
+| headers     | List[DeleteMockServerResponseOkResponseHeaders] | ❌       | The server response's request headers, such as Content-Type, Accept, encoding, and other information. |
+| language    | DeleteMockServerResponseOkResponseLanguage      | ❌       | The server response's body language type.                                                             |
+| body        | str                                             | ❌       | The server response's body that returns when calling the mock server.                                 |
+| created_by  | str                                             | ❌       | The user ID of the user who created the server response.                                              |
+| updated_by  | str                                             | ❌       | The user ID of the user who last updated the server response.                                         |
+| created_at  | str                                             | ❌       | The date and time at which the server response was created.                                           |
+
+# DeleteMockServerResponseOkResponseHeaders
+
+**Properties**
+
+| Name  | Type | Required | Description                     |
+| :---- | :--- | :------- | :------------------------------ |
+| key   | str  | ❌       | The request header's key value. |
+| value | str  | ❌       | The request header's value.     |
+
+# DeleteMockServerResponseOkResponseLanguage
+
+The server response's body language type.
+
+**Properties**
+
+| Name       | Type | Required | Description  |
+| :--------- | :--- | :------- | :----------- |
+| TEXT       | str  | ✅       | "text"       |
+| JAVASCRIPT | str  | ✅       | "javascript" |
+| JSON       | str  | ✅       | "json"       |
+| HTML       | str  | ✅       | "html"       |
+| XML        | str  | ✅       | "xml"        |
