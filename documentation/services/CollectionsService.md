@@ -121,7 +121,10 @@ Gets all of your [collections](https://www.getpostman.com/docs/collections). The
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -169,7 +172,10 @@ from postman import Postman, Environment
 from postman.models import CreateCollectionRequest
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -223,7 +229,10 @@ from postman import Postman, Environment
 from postman.models import CreateCollectionForkRequest
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -266,7 +275,10 @@ from postman import Postman, Environment
 from postman.models import MergeCollectionForkRequest
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -309,7 +321,10 @@ from postman import Postman, Environment
 from postman.models import GetCollectionModel
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -362,7 +377,10 @@ from postman import Postman, Environment
 from postman.models import PutCollectionRequest
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -416,7 +434,10 @@ from postman import Postman, Environment
 from postman.models import PatchCollectionRequest
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -465,7 +486,10 @@ Deletes a collection.
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -503,7 +527,10 @@ from postman import Postman, Environment
 from postman.models import AscDesc
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -542,7 +569,10 @@ Gets all comments left by users in a collection.
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -582,7 +612,10 @@ from postman import Postman, Environment
 from postman.models import CommentCreateUpdate
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -636,7 +669,10 @@ from postman import Postman, Environment
 from postman.models import CommentCreateUpdate
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -685,7 +721,10 @@ Deleting the first comment of a thread deletes all the comments in the thread.
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -726,7 +765,10 @@ from postman import Postman, Environment
 from postman.models import AscDesc
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -768,7 +810,10 @@ Pulls the changes from a parent (source) collection into the forked collection. 
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -802,7 +847,10 @@ Gets information about a collection's pull requests, such as the source and dest
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -838,7 +886,10 @@ from postman import Postman, Environment
 from postman.models import CreateCollectionPullRequestRequest
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -884,7 +935,10 @@ Gets information about all roles in a collection. The response returns the IDs o
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -921,7 +975,10 @@ from postman import Postman, Environment
 from postman.models import UpdateCollectionRolesRequest
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -979,7 +1036,10 @@ This endpoint may take a few minutes to return an updated `isSourceAhead` status
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -1019,7 +1079,10 @@ from postman import Postman, Environment
 from postman.models import Format
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -1057,7 +1120,10 @@ from postman import Postman, Environment
 from postman.models import TransferCollectionItems
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -1108,7 +1174,10 @@ from postman import Postman, Environment
 from postman.models import TransferCollectionItems
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -1159,7 +1228,10 @@ from postman import Postman, Environment
 from postman.models import TransferCollectionItems
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -1185,3 +1257,8 @@ result = sdk.collections.transfer_collection_responses(request_body=request_body
 
 print(result)
 ```
+<<<<<<< HEAD
+=======
+
+<!-- This file was generated by liblab | https://liblab.com/ -->
+>>>>>>> 95da91c (initial commit)

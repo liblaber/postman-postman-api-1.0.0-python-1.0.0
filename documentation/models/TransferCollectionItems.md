@@ -2,12 +2,21 @@
 
 **Properties**
 
+<<<<<<< HEAD
 | Name     | Type      | Required | Description                                                                                                                                                                                                        |
 | :------- | :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ids      | List[str] | ✅       | A list of collection request, response, or folder UIDs to transfer.                                                                                                                                                |
 | mode     | Mode      | ✅       | The transfer operation to perform.                                                                                                                                                                                 |
 | target   | Target    | ✅       | Information about the item transfer's destination location.                                                                                                                                                        |
 | location | Location  | ✅       | The transferred items' placement in the target destination:<br/>- For `start` or `end` — Do not include the `model` and `id` values.<br/>- For `before` or `after` — Include the `model` and `id` properties.<br/> |
+=======
+| Name     | Type      | Required | Description                                                                                                                                                                                                     |
+| :------- | :-------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ids      | List[str] | ✅       | A list of collection request, response, or folder UIDs to transfer.                                                                                                                                             |
+| mode     | Mode      | ✅       | The transfer operation to perform.                                                                                                                                                                              |
+| target   | Target    | ✅       | Information about the item transfer's destination location.                                                                                                                                                     |
+| location | Location  | ✅       | The transferred items' placement in the target destination:<br>- For `start` or `end` — Do not include the `model` and `id` values.<br>- For `before` or `after` — Include the `model` and `id` properties.<br> |
+>>>>>>> 95da91c (initial commit)
 
 # Mode
 
@@ -52,11 +61,19 @@ The transferred items' placement in the target destination:
 
 **Properties**
 
+<<<<<<< HEAD
 | Name     | Type     | Required | Description                                                                                                                                                   |
 | :------- | :------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | id\_     | str      | ❌       | For `before` or `after` positions, the model's UID.                                                                                                           |
 | model    | str      | ❌       | For `before` or `after` positions, the type of item (model) that the transferred item will be positioned by. One of: `folder`, `request`, or `response.`<br/> |
 | position | Position | ✅       | The transferred item's position within the destination object.                                                                                                |
+=======
+| Name     | Type     | Required | Description                                                                                                                                                  |
+| :------- | :------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| position | Position | ✅       | The transferred item's position within the destination object.                                                                                               |
+| id\_     | str      | ❌       | For `before` or `after` positions, the model's UID.                                                                                                          |
+| model    | str      | ❌       | For `before` or `after` positions, the type of item (model) that the transferred item will be positioned by. One of: `folder`, `request`, or `response.`<br> |
+>>>>>>> 95da91c (initial commit)
 
 # Position
 
@@ -70,3 +87,8 @@ The transferred item's position within the destination object.
 | END    | str  | ✅       | "end"       |
 | BEFORE | str  | ✅       | "before"    |
 | AFTER  | str  | ✅       | "after"     |
+<<<<<<< HEAD
+=======
+
+<!-- This file was generated by liblab | https://liblab.com/ -->
+>>>>>>> 95da91c (initial commit)

@@ -12,11 +12,19 @@ Information about the workspace.
 
 **Properties**
 
+<<<<<<< HEAD
 | Name        | Type           | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | :---------- | :------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name        | str            | ✅       | The workspace's name.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | type\_      | WorkspaceType1 | ✅       | The type of workspace:<br/>- `personal`<br/>- `private` — Private workspaces are available on Postman [**Professional** and **Enterprise** plans](https://www.postman.com/pricing).<br/>- `public`<br/>- `team`<br/>- `partner` — [Partner Workspaces](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/partner-workspaces/) are available on Postman [**Professional** and **Enterprise** plans](https://www.postman.com/pricing)).<br/> |
 | description | str            | ❌       | The workspace's description.                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+=======
+| Name        | Type           | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| :---------- | :------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name        | str            | ✅       | The workspace's name.                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| type\_      | WorkspaceType1 | ✅       | The type of workspace:<br>- `personal`<br>- `private` — Private workspaces are available on Postman [**Professional** and **Enterprise** plans](https://www.postman.com/pricing).<br>- `public`<br>- `team`<br>- `partner` — [Partner Workspaces](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/partner-workspaces/) are available on Postman [**Professional** and **Enterprise** plans](https://www.postman.com/pricing)).<br> |
+| description | str            | ❌       | The workspace's description.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+>>>>>>> 95da91c (initial commit)
 
 # WorkspaceType_1
 
@@ -37,3 +45,8 @@ The type of workspace:
 | PUBLIC   | str  | ✅       | "public"    |
 | TEAM     | str  | ✅       | "team"      |
 | PARTNER  | str  | ✅       | "partner"   |
+<<<<<<< HEAD
+=======
+
+<!-- This file was generated by liblab | https://liblab.com/ -->
+>>>>>>> 95da91c (initial commit)

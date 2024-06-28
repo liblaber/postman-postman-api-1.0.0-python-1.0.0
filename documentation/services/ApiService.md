@@ -143,7 +143,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -187,7 +190,10 @@ from postman import Postman, Environment
 from postman.models import CreateApiRequest, Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -222,11 +228,19 @@ Gets information about an API.
 
 **Parameters**
 
+<<<<<<< HEAD
 | Name    | Type                                              | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | :------ | :------------------------------------------------ | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | api_id  | str                                               | ✅       | The API's ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | accept  | [Accept](../models/Accept.md)                     | ✅       | The `application/vnd.api.v10+json` request header required to use the endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | include | [List[GetApiInclude]](../models/GetApiInclude.md) | ❌       | An array that contains additional resources to include in the response. Use this parameter to query for element links to the API, such as collections and schemas:<br/>- `collections` — Query for linked Postman collections.<br/>- `versions` — Query for linked versions.<br/>- `schemas` — Query for linked schemas.<br/>- `gitInfo` — Query for information about the API's git-linked repository. This query only returns the linked repository and folder locations of the files. It does not return `collections` or `schemas` information.<br/><br/>**Note:**<br/><br/>API viewers can only use the `versions` option. |
+=======
+| Name    | Type                                              | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| :------ | :------------------------------------------------ | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| api_id  | str                                               | ✅       | The API's ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| accept  | [Accept](../models/Accept.md)                     | ✅       | The `application/vnd.api.v10+json` request header required to use the endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| include | [List[GetApiInclude]](../models/GetApiInclude.md) | ❌       | An array that contains additional resources to include in the response. Use this parameter to query for element links to the API, such as collections and schemas:<br>- `collections` — Query for linked Postman collections.<br>- `versions` — Query for linked versions.<br>- `schemas` — Query for linked schemas.<br>- `gitInfo` — Query for information about the API's git-linked repository. This query only returns the linked repository and folder locations of the files. It does not return `collections` or `schemas` information.<br><br>**Note:**<br><br>API viewers can only use the `versions` option. |
+>>>>>>> 95da91c (initial commit)
 
 **Return Type**
 
@@ -239,7 +253,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -283,7 +300,10 @@ from postman import Postman, Environment
 from postman.models import UpdateApiRequest, Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -325,7 +345,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -372,7 +395,10 @@ from postman.models import Accept
 from postman.models.add_api_collection_request import AddApiCollectionRequest1
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -425,7 +451,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -473,7 +502,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -511,7 +543,10 @@ Gets all comments left by users in an API.
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -551,7 +586,10 @@ from postman import Postman, Environment
 from postman.models import CommentCreateUpdate
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -605,7 +643,10 @@ from postman import Postman, Environment
 from postman.models import CommentCreateUpdate
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -654,7 +695,10 @@ Deleting the first comment of a thread deletes all the comments in the thread.
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -694,7 +738,10 @@ from postman import Postman, Environment
 from postman.models import CreateApiSchemaRequest, Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -760,7 +807,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -810,7 +860,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -860,7 +913,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -911,7 +967,10 @@ from postman import Postman, Environment
 from postman.models import CreateUpdateApiSchemaFileRequest, Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -959,7 +1018,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -1001,7 +1063,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -1043,7 +1108,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -1088,7 +1156,10 @@ from postman.models import Accept
 from postman.models.create_api_version_request import CreateApiVersionRequest1
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -1149,7 +1220,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -1195,7 +1269,10 @@ from postman import Postman, Environment
 from postman.models import UpdateApiVersionRequest, Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -1242,7 +1319,10 @@ from postman import Postman, Environment
 from postman.models import Accept
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -1256,3 +1336,8 @@ result = sdk.api.delete_api_version(
 
 print(result)
 ```
+<<<<<<< HEAD
+=======
+
+<!-- This file was generated by liblab | https://liblab.com/ -->
+>>>>>>> 95da91c (initial commit)

@@ -17,6 +17,7 @@ if [ "$USE_VENV" -eq 1 ]; then
     . .venv/bin/activate
 fi
 
+<<<<<<< HEAD
 pip install build
 python -m build --outdir dist .
 pip install dist/postman_sdk-1.0.0-py3-none-any.whl --force-reinstall
@@ -24,3 +25,12 @@ pip install dist/postman_sdk-1.0.0-py3-none-any.whl --force-reinstall
 if [ "$USE_VENV" -eq 1 ]; then
     deactivate
 fi
+=======
+pip3 install build
+python3 -m build --outdir dist .
+pip3 install dist/postman-1.0.0-py3-none-any.whl --force-reinstall
+
+if [ "$USE_VENV" -eq 1 ]; then
+    deactivate
+fi
+>>>>>>> 95da91c (initial commit)

@@ -55,11 +55,19 @@ Gets information about all Postman team members.
 
 **Parameters**
 
+<<<<<<< HEAD
 | Name        | Type  | Required | Description                                                                                                                                                                                                                                   |
 | :---------- | :---- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | start_index | float | ❌       | The index entry by which to begin the list of returned results.                                                                                                                                                                               |
 | count       | float | ❌       | Limit the number of results returned in a single response.                                                                                                                                                                                    |
 | filter      | str   | ❌       | Filter results by a specific word or phrase. This query parameter only supports the `displayName` filter and has the following requirements:<br/>- Filter values are case-sensitive.<br/>- Special characters and spaces must be URL encoded. |
+=======
+| Name        | Type  | Required | Description                                                                                                                                                                                                                                 |
+| :---------- | :---- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| start_index | float | ❌       | The index entry by which to begin the list of returned results.                                                                                                                                                                             |
+| count       | float | ❌       | Limit the number of results returned in a single response.                                                                                                                                                                                  |
+| filter      | str   | ❌       | Filter results by a specific word or phrase. This query parameter only supports the `displayName` filter and has the following requirements:<br>- Filter values are case-sensitive.<br>- Special characters and spaces must be URL encoded. |
+>>>>>>> 95da91c (initial commit)
 
 **Return Type**
 
@@ -71,7 +79,10 @@ Gets information about all Postman team members.
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -114,7 +125,10 @@ from postman import Postman, Environment
 from postman.models import CreateScimGroupRequest
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -161,7 +175,10 @@ Gets information about a Postman group within the team.
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -200,7 +217,10 @@ from postman import Postman, Environment
 from postman.models import ScimUpdateGroupRequest
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -253,7 +273,10 @@ User accounts and the data corresponding to them are not deleted. To permanently
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -281,7 +304,10 @@ Gets all the resource types supported by Postman's SCIM API.
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -309,7 +335,10 @@ Gets the Postman SCIM API configuration information. This includes a list of sup
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -329,11 +358,19 @@ Gets information about all Postman team members.
 
 **Parameters**
 
+<<<<<<< HEAD
 | Name        | Type  | Required | Description                                                                                                                                                                                                                                |
 | :---------- | :---- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | start_index | float | ❌       | The index entry by which to begin the list of returned results.                                                                                                                                                                            |
 | count       | float | ❌       | Limit the number of results returned in a single response.                                                                                                                                                                                 |
 | filter      | str   | ❌       | Filter results by a specific word or phrase. This query parameter only supports the `userName` filter and has the following requirements:<br/>- Filter values are case-sensitive.<br/>- Special characters and spaces must be URL encoded. |
+=======
+| Name        | Type  | Required | Description                                                                                                                                                                                                                              |
+| :---------- | :---- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| start_index | float | ❌       | The index entry by which to begin the list of returned results.                                                                                                                                                                          |
+| count       | float | ❌       | Limit the number of results returned in a single response.                                                                                                                                                                               |
+| filter      | str   | ❌       | Filter results by a specific word or phrase. This query parameter only supports the `userName` filter and has the following requirements:<br>- Filter values are case-sensitive.<br>- Special characters and spaces must be URL encoded. |
+>>>>>>> 95da91c (initial commit)
 
 **Return Type**
 
@@ -345,7 +382,10 @@ Gets information about all Postman team members.
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -388,7 +428,10 @@ from postman import Postman, Environment
 from postman.models import CreateScimUserRequest
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -439,7 +482,10 @@ Gets information about a Postman team member.
 from postman import Postman, Environment
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -479,7 +525,10 @@ from postman import Postman, Environment
 from postman.models import UpdateScimUserRequest
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -532,7 +581,10 @@ from postman import Postman, Environment
 from postman.models import UpdateScimUserStateRequest
 
 sdk = Postman(
+<<<<<<< HEAD
     access_token="YOUR_ACCESS_TOKEN",
+=======
+>>>>>>> 95da91c (initial commit)
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
     base_url=Environment.DEFAULT.value
@@ -559,3 +611,8 @@ result = sdk.scim.update_scim_user_state(
 
 print(result)
 ```
+<<<<<<< HEAD
+=======
+
+<!-- This file was generated by liblab | https://liblab.com/ -->
+>>>>>>> 95da91c (initial commit)

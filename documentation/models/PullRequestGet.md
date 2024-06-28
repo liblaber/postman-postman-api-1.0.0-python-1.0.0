@@ -2,6 +2,7 @@
 
 **Properties**
 
+<<<<<<< HEAD
 | Name        | Type            | Required | Description                                                                                                                                                                                                                             |
 | :---------- | :-------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | created_at  | str             | ❌       | The date and time at which the pull request was created.                                                                                                                                                                                |
@@ -18,6 +19,24 @@
 | status      | str             | ❌       | The pull request's current review status:<br/>- `open` — The pull request is still open.<br/>- `approved` — The pull request was approved by its reviewers.<br/>- `declined` — The pull request was not approved by its reviewers.<br/> |
 | merge       | Merge           | ❌       | Information about the current progress of the pull request's merge.                                                                                                                                                                     |
 | reviewers   | List[Reviewers] | ❌       | Information about the reviewers assigned to the pull request.                                                                                                                                                                           |
+=======
+| Name        | Type            | Required | Description                                                                                                                                                                                                                         |
+| :---------- | :-------------- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| created_at  | str             | ❌       | The date and time at which the pull request was created.                                                                                                                                                                            |
+| updated_at  | str             | ❌       | The date and time at which the pull request was updated.                                                                                                                                                                            |
+| id\_        | str             | ❌       | The pull request's ID.                                                                                                                                                                                                              |
+| title       | str             | ❌       | The pull request's title.                                                                                                                                                                                                           |
+| description | str             | ❌       | The pull request's description.                                                                                                                                                                                                     |
+| created_by  | str             | ❌       | The ID of the user who created the pull request.                                                                                                                                                                                    |
+| updated_by  | str             | ❌       | The ID of the user who last updated the pull request.                                                                                                                                                                               |
+| comment     | str             | ❌       | If the pull request is a `decline` status, an optoinal comment about why the pull request was declined.                                                                                                                             |
+| fortk_type  | str             | ❌       | The type of element the pull request was forked from.                                                                                                                                                                               |
+| source      | Source          | ❌       | Information about the pull request's source (parent) element.                                                                                                                                                                       |
+| destination | Destination     | ❌       | Information about the pull request destination element.                                                                                                                                                                             |
+| status      | str             | ❌       | The pull request's current review status:<br>- `open` — The pull request is still open.<br>- `approved` — The pull request was approved by its reviewers.<br>- `declined` — The pull request was not approved by its reviewers.<br> |
+| merge       | Merge           | ❌       | Information about the current progress of the pull request's merge.                                                                                                                                                                 |
+| reviewers   | List[Reviewers] | ❌       | Information about the reviewers assigned to the pull request.                                                                                                                                                                       |
+>>>>>>> 95da91c (initial commit)
 
 # Source
 
@@ -50,9 +69,15 @@ Information about the current progress of the pull request's merge.
 
 **Properties**
 
+<<<<<<< HEAD
 | Name   | Type        | Required | Description                                                                                                                                                                                                   |
 | :----- | :---------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | status | MergeStatus | ❌       | The pull request's current merge status:<br/>- `inactive` — There is no merge in progress.<br/>- `inprogress` — The pull request is currently merging.<br/>- `failed` — The pull request's merge failed.<br/> |
+=======
+| Name   | Type        | Required | Description                                                                                                                                                                                               |
+| :----- | :---------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| status | MergeStatus | ❌       | The pull request's current merge status:<br>- `inactive` — There is no merge in progress.<br>- `inprogress` — The pull request is currently merging.<br>- `failed` — The pull request's merge failed.<br> |
+>>>>>>> 95da91c (initial commit)
 
 # MergeStatus
 
@@ -74,7 +99,16 @@ The pull request's current merge status:
 
 **Properties**
 
+<<<<<<< HEAD
 | Name   | Type | Required | Description                                                                           |
 | :----- | :--- | :------- | :------------------------------------------------------------------------------------ |
 | id\_   | str  | ❌       | The reviewer's user ID.                                                               |
 | status | str  | ❌       | The reviewer's review status response. One of:<br/>- `approved`<br/>- `declined`<br/> |
+=======
+| Name   | Type | Required | Description                                                                        |
+| :----- | :--- | :------- | :--------------------------------------------------------------------------------- |
+| id\_   | str  | ❌       | The reviewer's user ID.                                                            |
+| status | str  | ❌       | The reviewer's review status response. One of:<br>- `approved`<br>- `declined`<br> |
+
+<!-- This file was generated by liblab | https://liblab.com/ -->
+>>>>>>> 95da91c (initial commit)
