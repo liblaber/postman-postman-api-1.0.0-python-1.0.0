@@ -1,0 +1,104 @@
+# CreateApiVersionRequest
+
+# CreateApiVersion_1
+
+Information about the API version.
+
+**Properties**
+
+| Name          | Type                               | Required | Description                                                              |
+| :------------ | :--------------------------------- | :------- | :----------------------------------------------------------------------- |
+| name          | str                                | ✅       | The version's name.                                                      |
+| schemas       | List[CreateApiVersion1Schemas]     | ✅       | A list of the version's schemas.                                         |
+| collections   | List[CreateApiVersion1Collections] | ✅       | A list of the version's collections.                                     |
+| release_notes | str                                | ❌       | Information about the API version release. For example, changelog notes. |
+
+# CreateApiVersion_1Schemas
+
+Information about the schema.
+
+**Properties**
+
+| Name | Type | Required | Description      |
+| :--- | :--- | :------- | :--------------- |
+| id\_ | str  | ❌       | The schema's ID. |
+
+# CreateApiVersion_1Collections
+
+Information about the collection.
+
+**Properties**
+
+| Name | Type | Required | Description          |
+| :--- | :--- | :------- | :------------------- |
+| id\_ | str  | ❌       | The collection's ID. |
+
+# CreateApiVersion_2
+
+Information about the API version.
+
+**Properties**
+
+| Name          | Type                               | Required | Description                                                              |
+| :------------ | :--------------------------------- | :------- | :----------------------------------------------------------------------- |
+| name          | str                                | ✅       | The version's name.                                                      |
+| branch        | str                                | ✅       | The branch ID.                                                           |
+| schemas       | List[CreateApiVersion2Schemas]     | ✅       | A list of the version's schemas.                                         |
+| collections   | List[CreateApiVersion2Collections] | ✅       | A list of the version's collections.                                     |
+| release_notes | str                                | ❌       | Information about the API version release. For example, changelog notes. |
+
+# CreateApiVersion_2Schemas
+
+Information about the schema.
+
+**Properties**
+
+| Name      | Type | Required | Description                                             |
+| :-------- | :--- | :------- | :------------------------------------------------------ |
+| file_path | str  | ❌       | The path to the schema root file in the Git repository. |
+
+# CreateApiVersion_2Collections
+
+Information about the collection.
+
+**Properties**
+
+| Name      | Type | Required | Description                                 |
+| :-------- | :--- | :------- | :------------------------------------------ |
+| file_path | str  | ❌       | Path to a collection in the Git repository. |
+
+# CreateApiVersion_3
+
+Information about the API version.
+
+**Properties**
+
+| Name          | Type                               | Required | Description                                                              |
+| :------------ | :--------------------------------- | :------- | :----------------------------------------------------------------------- |
+| name          | str                                | ✅       | The version's name.                                                      |
+| branch        | str                                | ✅       | The branch ID.                                                           |
+| schemas       | List[CreateApiVersion3Schemas]     | ✅       | A list of the version's schemas.                                         |
+| collections   | List[CreateApiVersion3Collections] | ✅       | A list of the version's collections.                                     |
+| release_notes | str                                | ❌       | Information about the API version release. For example, changelog notes. |
+
+# CreateApiVersion_3Schemas
+
+Information about the schema.
+
+**Properties**
+
+| Name           | Type | Required | Description                                                                    |
+| :------------- | :--- | :------- | :----------------------------------------------------------------------------- |
+| directory_path | str  | ❌       | The path to the root directory where schemas are stored in the Git repository. |
+
+# CreateApiVersion_3Collections
+
+Information about the collection.
+
+**Properties**
+
+| Name      | Type | Required | Description                                       |
+| :-------- | :--- | :------- | :------------------------------------------------ |
+| file_path | str  | ❌       | The path to the collection in the Git repository. |
+
+<!-- This file was generated by liblab | https://liblab.com/ -->
