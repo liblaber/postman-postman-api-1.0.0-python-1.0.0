@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "postman-restapi"
-version = "1.0.0"
+version = "1.0.1"
 license = { text = "MIT" }
 description = """The Postman API enables you to programmatically access data stored in your Postman account. """
 readme = "README.md"
