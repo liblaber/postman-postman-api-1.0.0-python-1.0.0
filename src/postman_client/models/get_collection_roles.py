@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class GroupRole(Enum):
@@ -38,6 +38,13 @@ class Group(BaseModel):
     """
 
     def __init__(self, role: GroupRole = None, id_: float = None):
+        """Information about the group role.
+
+        :param role: The role type: - `VIEWER` — Can view, fork, and export collections. - `EDITOR` — Can edit collections directly. , defaults to None
+        :type role: GroupRole, optional
+        :param id_: The role's ID., defaults to None
+        :type id_: float, optional
+        """
         if role is not None:
             self.role = self._enum_matching(role, GroupRole.list(), "role")
         if id_ is not None:
@@ -76,6 +83,13 @@ class GetCollectionRolesTeam(BaseModel):
     """
 
     def __init__(self, role: TeamRole = None, id_: float = None):
+        """Information about the team role.
+
+        :param role: The role type: - `VIEWER` — Can view, fork, and export collections. - `EDITOR` — Can edit collections directly. , defaults to None
+        :type role: TeamRole, optional
+        :param id_: The role's ID., defaults to None
+        :type id_: float, optional
+        """
         if role is not None:
             self.role = self._enum_matching(role, TeamRole.list(), "role")
         if id_ is not None:
@@ -114,6 +128,13 @@ class GetCollectionRolesUser(BaseModel):
     """
 
     def __init__(self, role: UserRole = None, id_: float = None):
+        """Information about the user role.
+
+        :param role: The role type: - `VIEWER` — Can view, fork, and export collections. - `EDITOR` — Can edit collections directly. , defaults to None
+        :type role: UserRole, optional
+        :param id_: The role's ID., defaults to None
+        :type id_: float, optional
+        """
         if role is not None:
             self.role = self._enum_matching(role, UserRole.list(), "role")
         if id_ is not None:
@@ -138,6 +159,15 @@ class GetCollectionRoles(BaseModel):
         team: List[GetCollectionRolesTeam] = None,
         user: List[GetCollectionRolesUser] = None,
     ):
+        """Information about the collection's roles.
+
+        :param group: A list of the collection's group roles., defaults to None
+        :type group: List[Group], optional
+        :param team: A list of the collection's team roles., defaults to None
+        :type team: List[GetCollectionRolesTeam], optional
+        :param user: A list of the collection's user roles., defaults to None
+        :type user: List[GetCollectionRolesUser], optional
+        """
         if group is not None:
             self.group = self._define_list(group, Group)
         if team is not None:

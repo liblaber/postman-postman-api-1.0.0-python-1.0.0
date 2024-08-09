@@ -15,17 +15,14 @@ Information about the account.
 
 # SalesChannel
 
-The sales channel from which the account was created:
-
-- `SELF_SERVE` — The user purchased the account plan.
-- `SALES_SERVE` — The account was purchased through the Postman sales team process.
+The sales channel from which the account was created: - `SELF_SERVE` — The user purchased the account plan. - `SALES_SERVE` — The account was purchased through the Postman sales team process.
 
 **Properties**
 
-| Name        | Type | Required | Description   |
-| :---------- | :--- | :------- | :------------ |
-| SELF_SERVE  | str  | ✅       | "SELF_SERVE"  |
-| SALES_SERVE | str  | ✅       | "SALES_SERVE" |
+| Name       | Type | Required | Description   |
+| :--------- | :--- | :------- | :------------ |
+| SELFSERVE  | str  | ✅       | "SELF_SERVE"  |
+| SALESSERVE | str  | ✅       | "SALES_SERVE" |
 
 # Slots
 

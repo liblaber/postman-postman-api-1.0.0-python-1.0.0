@@ -51,10 +51,7 @@ Information about the updated role.
 
 # ValueRole_1
 
-The role type:
-
-- `VIEWER` — Can view, fork, and export collections.
-- `EDITOR` — Can edit collections directly.
+The role type: - `VIEWER` — Can view, fork, and export collections. - `EDITOR` — Can edit collections directly.
 
 **Properties**
 

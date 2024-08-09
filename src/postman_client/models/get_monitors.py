@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({"id_": "id"})
@@ -22,6 +22,17 @@ class GetMonitorsMonitors(BaseModel):
     def __init__(
         self, id_: str = None, name: str = None, owner: str = None, uid: str = None
     ):
+        """GetMonitorsMonitors
+
+        :param id_: The monitor's ID., defaults to None
+        :type id_: str, optional
+        :param name: The monitor's name., defaults to None
+        :type name: str, optional
+        :param owner: The ID of the monitor's owner., defaults to None
+        :type owner: str, optional
+        :param uid: The monitor's unique ID., defaults to None
+        :type uid: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -41,5 +52,10 @@ class GetMonitors(BaseModel):
     """
 
     def __init__(self, monitors: List[GetMonitorsMonitors] = None):
+        """GetMonitors
+
+        :param monitors: monitors, defaults to None
+        :type monitors: List[GetMonitorsMonitors], optional
+        """
         if monitors is not None:
             self.monitors = self._define_list(monitors, GetMonitorsMonitors)

@@ -4,8 +4,8 @@ from enum import Enum
 from typing import Union
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
-from .base import OneOfBaseModel
+from .utils.base_model import BaseModel
+from .utils.one_of_base_model import OneOfBaseModel
 
 
 @JsonMap({"collection_id": "collectionId"})
@@ -17,6 +17,11 @@ class AddApiCollection1Data(BaseModel):
     """
 
     def __init__(self, collection_id: str = None):
+        """AddApiCollection1Data
+
+        :param collection_id: The collection ID to copy to the API., defaults to None
+        :type collection_id: str, optional
+        """
         if collection_id is not None:
             self.collection_id = collection_id
 
@@ -24,11 +29,11 @@ class AddApiCollection1Data(BaseModel):
 class AddApiCollection1OperationType(Enum):
     """An enumeration representing different categories.
 
-    :cvar COPY_COLLECTION: "COPY_COLLECTION"
-    :vartype COPY_COLLECTION: str
+    :cvar COPYCOLLECTION: "COPY_COLLECTION"
+    :vartype COPYCOLLECTION: str
     """
 
-    COPY_COLLECTION = "COPY_COLLECTION"
+    COPYCOLLECTION = "COPY_COLLECTION"
 
     def list():
         """Lists all category values.
@@ -56,6 +61,13 @@ class AddApiCollection1(BaseModel):
         data: AddApiCollection1Data = None,
         operation_type: AddApiCollection1OperationType = None,
     ):
+        """AddApiCollection1
+
+        :param data: data, defaults to None
+        :type data: AddApiCollection1Data, optional
+        :param operation_type: The `COPY_COLLECTION` method., defaults to None
+        :type operation_type: AddApiCollection1OperationType, optional
+        """
         if data is not None:
             self.data = self._define_object(data, AddApiCollection1Data)
         if operation_type is not None:
@@ -67,11 +79,11 @@ class AddApiCollection1(BaseModel):
 class AddApiCollection2OperationType(Enum):
     """An enumeration representing different categories.
 
-    :cvar GENERATE_FROM_SCHEMA: "GENERATE_FROM_SCHEMA"
-    :vartype GENERATE_FROM_SCHEMA: str
+    :cvar GENERATEFROMSCHEMA: "GENERATE_FROM_SCHEMA"
+    :vartype GENERATEFROMSCHEMA: str
     """
 
-    GENERATE_FROM_SCHEMA = "GENERATE_FROM_SCHEMA"
+    GENERATEFROMSCHEMA = "GENERATE_FROM_SCHEMA"
 
     def list():
         """Lists all category values.
@@ -102,6 +114,15 @@ class AddApiCollection2(BaseModel):
         operation_type: AddApiCollection2OperationType = None,
         options: dict = None,
     ):
+        """AddApiCollection2
+
+        :param name: The collection's name., defaults to None
+        :type name: str, optional
+        :param operation_type: The `GENERATE_FROM_SCHEMA` method., defaults to None
+        :type operation_type: AddApiCollection2OperationType, optional
+        :param options: The advanced creation options for collections and their values. For a complete list of properties and their values, see Postman's [OpenAPI 3.0 to Postman Collection v2.1.0 Converter OPTIONS documentation](https://github.com/postmanlabs/openapi-to-postman/blob/develop/OPTIONS.md). These properties are case-sensitive., defaults to None
+        :type options: dict, optional
+        """
         if name is not None:
             self.name = name
         if operation_type is not None:
@@ -115,11 +136,11 @@ class AddApiCollection2(BaseModel):
 class InfoSchema(Enum):
     """An enumeration representing different categories.
 
-    :cvar HTTPS_SCHEMA_GETPOSTMAN_COM_JSON_COLLECTION_V2_1_0_COLLECTION_JSON: "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-    :vartype HTTPS_SCHEMA_GETPOSTMAN_COM_JSON_COLLECTION_V2_1_0_COLLECTION_JSON: str
+    :cvar HTTPSSCHEMAGETPOSTMANCOMJSONCOLLECTIONV2_1_0COLLECTIONJSON: "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    :vartype HTTPSSCHEMAGETPOSTMANCOMJSONCOLLECTIONV2_1_0COLLECTIONJSON: str
     """
 
-    HTTPS_SCHEMA_GETPOSTMAN_COM_JSON_COLLECTION_V2_1_0_COLLECTION_JSON = (
+    HTTPSSCHEMAGETPOSTMANCOMJSONCOLLECTIONV2_1_0COLLECTIONJSON = (
         "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     )
 
@@ -143,6 +164,13 @@ class DataInfo(BaseModel):
     """
 
     def __init__(self, name: str = None, schema: InfoSchema = None):
+        """Information about the collection.
+
+        :param name: The collection's name., defaults to None
+        :type name: str, optional
+        :param schema: The collection's schema format., defaults to None
+        :type schema: InfoSchema, optional
+        """
         if name is not None:
             self.name = name
         if schema is not None:
@@ -160,6 +188,13 @@ class AddApiCollection3Data(BaseModel):
     """
 
     def __init__(self, info: DataInfo = None, item: List[any] = None):
+        """Information about the collection's contents, such as requests and responses. For a complete list of values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json).
+
+        :param info: Information about the collection., defaults to None
+        :type info: DataInfo, optional
+        :param item: Information about the requests and responses in the collection. For a complete list of values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)., defaults to None
+        :type item: List[any], optional
+        """
         if info is not None:
             self.info = self._define_object(info, DataInfo)
         if item is not None:
@@ -169,11 +204,11 @@ class AddApiCollection3Data(BaseModel):
 class AddApiCollection3OperationType(Enum):
     """An enumeration representing different categories.
 
-    :cvar CREATE_NEW: "CREATE_NEW"
-    :vartype CREATE_NEW: str
+    :cvar CREATENEW: "CREATE_NEW"
+    :vartype CREATENEW: str
     """
 
-    CREATE_NEW = "CREATE_NEW"
+    CREATENEW = "CREATE_NEW"
 
     def list():
         """Lists all category values.
@@ -201,6 +236,13 @@ class AddApiCollection3(BaseModel):
         data: AddApiCollection3Data = None,
         operation_type: AddApiCollection3OperationType = None,
     ):
+        """AddApiCollection3
+
+        :param data: Information about the collection's contents, such as requests and responses. For a complete list of values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json)., defaults to None
+        :type data: AddApiCollection3Data, optional
+        :param operation_type: The `CREATE_NEW` method., defaults to None
+        :type operation_type: AddApiCollection3OperationType, optional
+        """
         if data is not None:
             self.data = self._define_object(data, AddApiCollection3Data)
         if operation_type is not None:

@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class OperationsOp2(Enum):
@@ -33,6 +33,11 @@ class OperationsValue2(BaseModel):
     """
 
     def __init__(self, active: bool = None):
+        """The performed operation's value.
+
+        :param active: Sets the user's `active` state: - `true` — Activates the user. This lets them authenticate in to your Postman team. - `false` — Removes the user from your Postman team and deactivates the account. This blocks the user from authenticating in to Postman. , defaults to None
+        :type active: bool, optional
+        """
         if active is not None:
             self.active = active
 
@@ -48,6 +53,13 @@ class UpdateScimUserStateOperations(BaseModel):
     """
 
     def __init__(self, op: OperationsOp2 = None, value: OperationsValue2 = None):
+        """UpdateScimUserStateOperations
+
+        :param op: The operation to perform., defaults to None
+        :type op: OperationsOp2, optional
+        :param value: The performed operation's value., defaults to None
+        :type value: OperationsValue2, optional
+        """
         if op is not None:
             self.op = self._enum_matching(op, OperationsOp2.list(), "op")
         if value is not None:
@@ -69,6 +81,13 @@ class UpdateScimUserState(BaseModel):
         schemas: List[str] = None,
         operations: List[UpdateScimUserStateOperations] = None,
     ):
+        """UpdateScimUserState
+
+        :param schemas: The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml)., defaults to None
+        :type schemas: List[str], optional
+        :param operations: Information about the user update operation., defaults to None
+        :type operations: List[UpdateScimUserStateOperations], optional
+        """
         if schemas is not None:
             self.schemas = schemas
         if operations is not None:

@@ -2,100 +2,32 @@
 
 A list of all methods in the `CollectionsService` service. Click on the method name to view detailed information about that method.
 
-| Methods                                 | Description                                                                                                                              |
-| :-------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| [get_collections](#get_collections)     | Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections.   |
-| [create_collection](#create_collection) | Creates a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). |
-
-For more information about the Collection Format, see the [Postman Collection Format documentation](https://learning.postman.com/collection-format/getting-started/overview/).
-
-**Note:**
-
-- For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):
-  - `info` object — Use the `definitions.info` entry.
-  - `item` object — Use the `definitions.items` entry.
-- For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json).
-  |
-  |[create_collection_fork](#create_collection_fork)| Creates a [fork](https://learning.postman.com/docs/collaborating-in-postman/version-control/#creating-a-fork) from an existing collection into a workspace. |
-  |[merge_collection_fork](#merge_collection_fork)| Merges a forked collection back into its parent collection. |
-  |[get_collection](#get_collection)| Gets information about a collection. For a complete list of this endpoint's possible values, use the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). |
-  |[put_collection](#put_collection)| Replaces the contents of a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). Include the collection's ID values in the request body. If you do not, the endpoint removes the existing items and creates new items.
-
-> The maximum collection size this endpoint accepts cannot exceed 20 MB.
-
-For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):
-
-- `info` object — Use `../definitions/info"`.
-- `item` object — Use `../definitions/item"`.
-
-For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). For more information about the Collection Format, see the [Postman Collection Format documentation](https://learning.postman.com/collection-format/getting-started/overview/).
-
-**Note:**
-
-To copy another collection's contents to the given collection, remove all ID values before you pass it in this endpoint. If you do not, this endpoint returns an error. These values include the `id`, `uid`, and `postman_id` values.
-|
-|[patch_collection](#patch_collection)| Updates specific collection information, such as its name, events, or its variables. For more information about the `auth`, `variables`, and `events` properties, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):
-
-- For `variables`, refer to `../definitions/variable"`.
-- For `auth`, refer to `../definitions/auth-attribute"`.
-- For `events`, refer to `../definitions/event"`.
-
-For more information about the Collection Format, see the [Postman Collection Format documentation](https://learning.postman.com/collection-format/getting-started/overview/).
-|
-|[delete_collection](#delete_collection)| Deletes a collection. |
-|[get_collections_forked_by_user](#get_collections_forked_by_user)| Gets a list of all the authenticated user's forked collections. |
-|[get_collection_comments](#get_collection_comments)| Gets all comments left by users in a collection. |
-|[create_collection_comment](#create_collection_comment)| Creates a comment on a collection.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
-|
-|[update_collection_comment](#update_collection_comment)| Updates a comment on a collection.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
-|
-|[delete_collection_comment](#delete_collection_comment)| Deletes a comment from a collection. On success, this returns an HTTP `204 No Content` response
-
-**Note:**
-
-Deleting the first comment of a thread deletes all the comments in the thread.
-|
-|[get_collection_forks](#get_collection_forks)| Gets a collection's forked collections. The response returns data for each fork, such as the fork's ID, the user who forked it, and the fork's creation date. |
-|[pull_collection_changes](#pull_collection_changes)| Pulls the changes from a parent (source) collection into the forked collection. In the endpoint's response:
-
-- The `destinationId` is the ID of the forked collection.
-- The `sourceId` is the ID of the source collection.
-  |
-  |[get_collection_pull_requests](#get_collection_pull_requests)| Gets information about a collection's pull requests, such as the source and destination IDs, status of the pull requests, and a URL link to the pull requests. |
-  |[create_collection_pull_request](#create_collection_pull_request)| Creates a pull request for a forked collection into its parent collection. |
-  |[get_collection_roles](#get_collection_roles)| Gets information about all roles in a collection. The response returns the IDs of all users, teams, and groups with access to view or edit the collection. |
-  |[update_collection_roles](#update_collection_roles)| Updates the roles of users, groups, or teams in a collection. On success, this returns a `204 No Content` response.
-
-**Note:**
-
-- Only users assigned the EDITOR [role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#collection-roles) in the collection can use this endpoint.
-- This endpoint does not support the external [Partner or Guest roles](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
-  |
-  |[get_source_collection_status](#get_source_collection_status)| Checks whether there is a change between the forked collection and its parent (source) collection.
-
-If the value of the `isSourceAhead` property is `true` in the response, then there is a difference between the forked collection and its source collection.
-
-**Note:**
-
-This endpoint may take a few minutes to return an updated `isSourceAhead` status.
-|
-|[transform_collection_to_open_api](#transform_collection_to_open_api)| Transforms an existing Postman Collection into a stringified OpenAPI definition.
-
-**Note:**
-
-This does not create an API.
-|
-|[transfer_collection_folders](#transfer_collection_folders)| Copies or moves folders into a collection or folder. |
-|[transfer_collection_requests](#transfer_collection_requests)| Copies or moves requests into a collection or folder. |
-|[transfer_collection_responses](#transfer_collection_responses)| Copies or moves responses into a request. |
+| Methods                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| :-------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [get_collections](#get_collections)                                   | Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| [create_collection](#create_collection)                               | Creates a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). For more information about the Collection Format, see the [Postman Collection Format documentation](https://learning.postman.com/collection-format/getting-started/overview/). **Note:** - For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json): - `info` object — Use the `definitions.info` entry. - `item` object — Use the `definitions.items` entry. - For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json).                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| [create_collection_fork](#create_collection_fork)                     | Creates a [fork](https://learning.postman.com/docs/collaborating-in-postman/version-control/#creating-a-fork) from an existing collection into a workspace.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| [merge_collection_fork](#merge_collection_fork)                       | Merges a forked collection back into its parent collection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| [get_collection](#get_collection)                                     | Gets information about a collection. For a complete list of this endpoint's possible values, use the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| [put_collection](#put_collection)                                     | Replaces the contents of a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). Include the collection's ID values in the request body. If you do not, the endpoint removes the existing items and creates new items. > The maximum collection size this endpoint accepts cannot exceed 20 MB. For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json): - `info` object — Use `../definitions/info"`. - `item` object — Use `../definitions/item"`. For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). For more information about the Collection Format, see the [Postman Collection Format documentation](https://learning.postman.com/collection-format/getting-started/overview/). **Note:** To copy another collection's contents to the given collection, remove all ID values before you pass it in this endpoint. If you do not, this endpoint returns an error. These values include the `id`, `uid`, and `postman_id` values. |
+| [patch_collection](#patch_collection)                                 | Updates specific collection information, such as its name, events, or its variables. For more information about the `auth`, `variables`, and `events` properties, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json): - For `variables`, refer to `../definitions/variable"`. - For `auth`, refer to `../definitions/auth-attribute"`. - For `events`, refer to `../definitions/event"`. For more information about the Collection Format, see the [Postman Collection Format documentation](https://learning.postman.com/collection-format/getting-started/overview/).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| [delete_collection](#delete_collection)                               | Deletes a collection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| [get_collections_forked_by_user](#get_collections_forked_by_user)     | Gets a list of all the authenticated user's forked collections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| [get_collection_comments](#get_collection_comments)                   | Gets all comments left by users in a collection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| [create_collection_comment](#create_collection_comment)               | Creates a comment on a collection. **Note:** This endpoint accepts a max of 10,000 characters.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| [update_collection_comment](#update_collection_comment)               | Updates a comment on a collection. **Note:** This endpoint accepts a max of 10,000 characters.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| [delete_collection_comment](#delete_collection_comment)               | Deletes a comment from a collection. On success, this returns an HTTP `204 No Content` response **Note:** Deleting the first comment of a thread deletes all the comments in the thread.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| [get_collection_forks](#get_collection_forks)                         | Gets a collection's forked collections. The response returns data for each fork, such as the fork's ID, the user who forked it, and the fork's creation date.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| [pull_collection_changes](#pull_collection_changes)                   | Pulls the changes from a parent (source) collection into the forked collection. In the endpoint's response: - The `destinationId` is the ID of the forked collection. - The `sourceId` is the ID of the source collection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| [get_collection_pull_requests](#get_collection_pull_requests)         | Gets information about a collection's pull requests, such as the source and destination IDs, status of the pull requests, and a URL link to the pull requests.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| [create_collection_pull_request](#create_collection_pull_request)     | Creates a pull request for a forked collection into its parent collection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| [get_collection_roles](#get_collection_roles)                         | Gets information about all roles in a collection. The response returns the IDs of all users, teams, and groups with access to view or edit the collection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| [update_collection_roles](#update_collection_roles)                   | Updates the roles of users, groups, or teams in a collection. On success, this returns a `204 No Content` response. **Note:** - Only users assigned the EDITOR [role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#collection-roles) in the collection can use this endpoint. - This endpoint does not support the external [Partner or Guest roles](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| [get_source_collection_status](#get_source_collection_status)         | Checks whether there is a change between the forked collection and its parent (source) collection. If the value of the `isSourceAhead` property is `true` in the response, then there is a difference between the forked collection and its source collection. **Note:** This endpoint may take a few minutes to return an updated `isSourceAhead` status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| [transform_collection_to_open_api](#transform_collection_to_open_api) | Transforms an existing Postman Collection into a stringified OpenAPI definition. **Note:** This does not create an API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| [transfer_collection_folders](#transfer_collection_folders)           | Copies or moves folders into a collection or folder.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| [transfer_collection_requests](#transfer_collection_requests)         | Copies or moves requests into a collection or folder.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| [transfer_collection_responses](#transfer_collection_responses)       | Copies or moves responses into a request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 ## get_collections
 
@@ -123,7 +55,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collections.get_collections(
@@ -136,16 +69,7 @@ print(result)
 
 ## create_collection
 
-Creates a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html).
-
-For more information about the Collection Format, see the [Postman Collection Format documentation](https://learning.postman.com/collection-format/getting-started/overview/).
-
-**Note:**
-
-- For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):
-  - `info` object — Use the `definitions.info` entry.
-  - `item` object — Use the `definitions.items` entry.
-- For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json).
+Creates a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). For more information about the Collection Format, see the [Postman Collection Format documentation](https://learning.postman.com/collection-format/getting-started/overview/). **Note:** - For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json): - `info` object — Use the `definitions.info` entry. - `item` object — Use the `definitions.items` entry. - For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json).
 
 - HTTP Method: `POST`
 - Endpoint: `/collections`
@@ -170,7 +94,8 @@ from postman_client.models import CollectionsCreateCollectionRequest
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CollectionsCreateCollectionRequest(
@@ -223,7 +148,8 @@ from postman_client.models import CreateCollectionForkRequest
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CreateCollectionForkRequest(
@@ -265,7 +191,8 @@ from postman_client.models import MergeCollectionForkRequest
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = MergeCollectionForkRequest(
@@ -307,7 +234,8 @@ from postman_client.models import GetCollectionModel
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collections.get_collection(
@@ -321,20 +249,7 @@ print(result)
 
 ## put_collection
 
-Replaces the contents of a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). Include the collection's ID values in the request body. If you do not, the endpoint removes the existing items and creates new items.
-
-> The maximum collection size this endpoint accepts cannot exceed 20 MB.
-
-For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):
-
-- `info` object — Use `../definitions/info"`.
-- `item` object — Use `../definitions/item"`.
-
-For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). For more information about the Collection Format, see the [Postman Collection Format documentation](https://learning.postman.com/collection-format/getting-started/overview/).
-
-**Note:**
-
-To copy another collection's contents to the given collection, remove all ID values before you pass it in this endpoint. If you do not, this endpoint returns an error. These values include the `id`, `uid`, and `postman_id` values.
+Replaces the contents of a collection using the [Postman Collection v2 schema format](https://schema.postman.com/json/collection/v2.1.0/docs/index.html). Include the collection's ID values in the request body. If you do not, the endpoint removes the existing items and creates new items. > The maximum collection size this endpoint accepts cannot exceed 20 MB. For a complete list of available property values for this endpoint, use the following references available in the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json): - `info` object — Use `../definitions/info"`. - `item` object — Use `../definitions/item"`. For all other possible values, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json). For more information about the Collection Format, see the [Postman Collection Format documentation](https://learning.postman.com/collection-format/getting-started/overview/). **Note:** To copy another collection's contents to the given collection, remove all ID values before you pass it in this endpoint. If you do not, this endpoint returns an error. These values include the `id`, `uid`, and `postman_id` values.
 
 - HTTP Method: `PUT`
 - Endpoint: `/collections/{collectionId}`
@@ -359,7 +274,8 @@ from postman_client.models import PutCollectionRequest
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = PutCollectionRequest(
@@ -381,13 +297,7 @@ print(result)
 
 ## patch_collection
 
-Updates specific collection information, such as its name, events, or its variables. For more information about the `auth`, `variables`, and `events` properties, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json):
-
-- For `variables`, refer to `../definitions/variable"`.
-- For `auth`, refer to `../definitions/auth-attribute"`.
-- For `events`, refer to `../definitions/event"`.
-
-For more information about the Collection Format, see the [Postman Collection Format documentation](https://learning.postman.com/collection-format/getting-started/overview/).
+Updates specific collection information, such as its name, events, or its variables. For more information about the `auth`, `variables`, and `events` properties, refer to the [collection.json schema file](https://schema.postman.com/json/collection/v2.1.0/collection.json): - For `variables`, refer to `../definitions/variable"`. - For `auth`, refer to `../definitions/auth-attribute"`. - For `events`, refer to `../definitions/event"`. For more information about the Collection Format, see the [Postman Collection Format documentation](https://learning.postman.com/collection-format/getting-started/overview/).
 
 - HTTP Method: `PATCH`
 - Endpoint: `/collections/{collectionId}`
@@ -412,7 +322,8 @@ from postman_client.models import PatchCollectionRequest
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = PatchCollectionRequest(
@@ -460,7 +371,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collections.delete_collection(collection_id="12ece9e1-2abf-4edc-8e34-de66e74114d2")
@@ -497,7 +409,8 @@ from postman_client.models import AscDesc
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collections.get_collections_forked_by_user(
@@ -535,7 +448,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collections.get_collection_comments(collection_id="12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2")
@@ -545,11 +459,7 @@ print(result)
 
 ## create_collection_comment
 
-Creates a comment on a collection.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
+Creates a comment on a collection. **Note:** This endpoint accepts a max of 10,000 characters.
 
 - HTTP Method: `POST`
 - Endpoint: `/collections/{collectionId}/comments`
@@ -574,7 +484,8 @@ from postman_client.models import CommentCreateUpdate
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CommentCreateUpdate(
@@ -597,11 +508,7 @@ print(result)
 
 ## update_collection_comment
 
-Updates a comment on a collection.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
+Updates a comment on a collection. **Note:** This endpoint accepts a max of 10,000 characters.
 
 - HTTP Method: `PUT`
 - Endpoint: `/collections/{collectionId}/comments/{commentId}`
@@ -627,7 +534,8 @@ from postman_client.models import CommentCreateUpdate
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CommentCreateUpdate(
@@ -651,11 +559,7 @@ print(result)
 
 ## delete_collection_comment
 
-Deletes a comment from a collection. On success, this returns an HTTP `204 No Content` response
-
-**Note:**
-
-Deleting the first comment of a thread deletes all the comments in the thread.
+Deletes a comment from a collection. On success, this returns an HTTP `204 No Content` response **Note:** Deleting the first comment of a thread deletes all the comments in the thread.
 
 - HTTP Method: `DELETE`
 - Endpoint: `/collections/{collectionId}/comments/{commentId}`
@@ -675,7 +579,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collections.delete_collection_comment(
@@ -715,7 +620,8 @@ from postman_client.models import AscDesc
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collections.get_collection_forks(
@@ -730,10 +636,7 @@ print(result)
 
 ## pull_collection_changes
 
-Pulls the changes from a parent (source) collection into the forked collection. In the endpoint's response:
-
-- The `destinationId` is the ID of the forked collection.
-- The `sourceId` is the ID of the source collection.
+Pulls the changes from a parent (source) collection into the forked collection. In the endpoint's response: - The `destinationId` is the ID of the forked collection. - The `sourceId` is the ID of the source collection.
 
 - HTTP Method: `PUT`
 - Endpoint: `/collections/{collectionId}/pulls`
@@ -756,7 +659,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collections.pull_collection_changes(collection_id="12ece9e1-2abf-4edc-8e34-de66e74114d2")
@@ -789,7 +693,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collections.get_collection_pull_requests(collection_id="12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2")
@@ -824,7 +729,8 @@ from postman_client.models import PullRequestCreate
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = PullRequestCreate(
@@ -869,7 +775,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collections.get_collection_roles(collection_id="12ece9e1-2abf-4edc-8e34-de66e74114d2")
@@ -879,12 +786,7 @@ print(result)
 
 ## update_collection_roles
 
-Updates the roles of users, groups, or teams in a collection. On success, this returns a `204 No Content` response.
-
-**Note:**
-
-- Only users assigned the EDITOR [role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#collection-roles) in the collection can use this endpoint.
-- This endpoint does not support the external [Partner or Guest roles](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
+Updates the roles of users, groups, or teams in a collection. On success, this returns a `204 No Content` response. **Note:** - Only users assigned the EDITOR [role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#collection-roles) in the collection can use this endpoint. - This endpoint does not support the external [Partner or Guest roles](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
 
 - HTTP Method: `PATCH`
 - Endpoint: `/collections/{collectionId}/roles`
@@ -905,7 +807,8 @@ from postman_client.models import UpdateCollectionRoles
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = UpdateCollectionRoles(
@@ -933,13 +836,7 @@ print(result)
 
 ## get_source_collection_status
 
-Checks whether there is a change between the forked collection and its parent (source) collection.
-
-If the value of the `isSourceAhead` property is `true` in the response, then there is a difference between the forked collection and its source collection.
-
-**Note:**
-
-This endpoint may take a few minutes to return an updated `isSourceAhead` status.
+Checks whether there is a change between the forked collection and its parent (source) collection. If the value of the `isSourceAhead` property is `true` in the response, then there is a difference between the forked collection and its source collection. **Note:** This endpoint may take a few minutes to return an updated `isSourceAhead` status.
 
 - HTTP Method: `GET`
 - Endpoint: `/collections/{collectionId}/source-status`
@@ -962,7 +859,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collections.get_source_collection_status(collection_id="12ece9e1-2abf-4edc-8e34-de66e74114d2")
@@ -972,11 +870,7 @@ print(result)
 
 ## transform_collection_to_open_api
 
-Transforms an existing Postman Collection into a stringified OpenAPI definition.
-
-**Note:**
-
-This does not create an API.
+Transforms an existing Postman Collection into a stringified OpenAPI definition. **Note:** This does not create an API.
 
 - HTTP Method: `GET`
 - Endpoint: `/collections/{collectionId}/transformations`
@@ -1001,7 +895,8 @@ from postman_client.models import Format
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collections.transform_collection_to_open_api(
@@ -1038,7 +933,8 @@ from postman_client.models import TransferCollectionItems
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = TransferCollectionItems(
@@ -1088,7 +984,8 @@ from postman_client.models import TransferCollectionItems
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = TransferCollectionItems(
@@ -1138,7 +1035,8 @@ from postman_client.models import TransferCollectionItems
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = TransferCollectionItems(

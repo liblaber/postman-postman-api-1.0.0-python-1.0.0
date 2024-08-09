@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({"created_at": "createdAt", "from_": "from"})
@@ -18,6 +18,15 @@ class CollectionsFork(BaseModel):
     """
 
     def __init__(self, label: str = None, created_at: str = None, from_: str = None):
+        """If the collection is [forked](https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities), the fork's information.
+
+        :param label: The fork's label., defaults to None
+        :type label: str, optional
+        :param created_at: The fork's creation date and time., defaults to None
+        :type created_at: str, optional
+        :param from_: The unique ID of the fork's source collection., defaults to None
+        :type from_: str, optional
+        """
         if label is not None:
             self.label = label
         if created_at is not None:
@@ -66,6 +75,25 @@ class GetCollectionsCollections(BaseModel):
         fork: CollectionsFork = None,
         is_public: bool = None,
     ):
+        """Information about the collection.
+
+        :param id_: The collection's ID., defaults to None
+        :type id_: str, optional
+        :param name: The collection's name., defaults to None
+        :type name: str, optional
+        :param owner: The owner of the collection., defaults to None
+        :type owner: str, optional
+        :param created_at: The collection's creation date and time., defaults to None
+        :type created_at: str, optional
+        :param updated_at: The date and time at which the collection was last updated., defaults to None
+        :type updated_at: str, optional
+        :param uid: The collection's unique ID., defaults to None
+        :type uid: str, optional
+        :param fork: If the collection is [forked](https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities), the fork's information., defaults to None
+        :type fork: CollectionsFork, optional
+        :param is_public: If true, the collection is public and visible to all users., defaults to None
+        :type is_public: bool, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -93,5 +121,10 @@ class GetCollections(BaseModel):
     """
 
     def __init__(self, collections: List[GetCollectionsCollections] = None):
+        """GetCollections
+
+        :param collections: collections, defaults to None
+        :type collections: List[GetCollectionsCollections], optional
+        """
         if collections is not None:
             self.collections = self._define_list(collections, GetCollectionsCollections)

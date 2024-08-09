@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap(
@@ -68,6 +68,37 @@ class PanElementCreated(BaseModel):
         parent_folder_id: int = None,
         environments: List[str] = None,
     ):
+        """Information about the Private API Network element.
+
+        :param added_at: The date and time at which the element was added., defaults to None
+        :type added_at: str, optional
+        :param added_by: The user who added the element., defaults to None
+        :type added_by: int, optional
+        :param created_by: The user who created the element., defaults to None
+        :type created_by: int, optional
+        :param created_at: The date and time at which the element was created., defaults to None
+        :type created_at: str, optional
+        :param updated_by: The user who last updated the element., defaults to None
+        :type updated_by: int, optional
+        :param updated_at: The date and time at which the element was last updated., defaults to None
+        :type updated_at: str, optional
+        :param type_: The element's type., defaults to None
+        :type type_: str, optional
+        :param id_: The element's ID or UID., defaults to None
+        :type id_: str, optional
+        :param name: The element's name., defaults to None
+        :type name: str, optional
+        :param summary: The element's summary., defaults to None
+        :type summary: str, optional
+        :param description: The element's description., defaults to None
+        :type description: str, optional
+        :param href: The element's Postman URL., defaults to None
+        :type href: str, optional
+        :param parent_folder_id: The parent folder's ID., defaults to None
+        :type parent_folder_id: int, optional
+        :param environments: A list of the element's environments., defaults to None
+        :type environments: List[str], optional
+        """
         if added_at is not None:
             self.added_at = added_at
         if added_by is not None:
@@ -87,7 +118,7 @@ class PanElementCreated(BaseModel):
         if name is not None:
             self.name = name
         if summary is not None:
-            self.summary = summary
+            self.summary = self._define_str("summary", summary, nullable=True)
         if description is not None:
             self.description = description
         if href is not None:

@@ -6,11 +6,11 @@ from enum import Enum
 class Accept(Enum):
     """An enumeration representing different categories.
 
-    :cvar APPLICATION_VND_API_V10_JSON: "application/vnd.api.v10+json"
-    :vartype APPLICATION_VND_API_V10_JSON: str
+    :cvar APPLICATIONVNDAPIV10JSON: "application/vnd.api.v10+json"
+    :vartype APPLICATIONVNDAPIV10JSON: str
     """
 
-    APPLICATION_VND_API_V10_JSON = "application/vnd.api.v10+json"
+    APPLICATIONVNDAPIV10JSON = "application/vnd.api.v10+json"
 
     def list():
         """Lists all category values.

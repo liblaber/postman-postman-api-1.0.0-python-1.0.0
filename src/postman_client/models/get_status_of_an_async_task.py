@@ -4,8 +4,8 @@ from enum import Enum
 from typing import Union
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
-from .base import OneOfBaseModel
+from .utils.base_model import BaseModel
+from .utils.one_of_base_model import OneOfBaseModel
 
 
 class MetaModel(Enum):
@@ -13,12 +13,12 @@ class MetaModel(Enum):
 
     :cvar COLLECTION: "collection"
     :vartype COLLECTION: str
-    :cvar API_VERSION: "api-version"
-    :vartype API_VERSION: str
+    :cvar APIVERSION: "api-version"
+    :vartype APIVERSION: str
     """
 
     COLLECTION = "collection"
-    API_VERSION = "api-version"
+    APIVERSION = "api-version"
 
     def list():
         """Lists all category values.
@@ -63,6 +63,15 @@ class GetStatusOfAnAsyncTaskMeta(BaseModel):
     """
 
     def __init__(self, url: str = None, model: MetaModel = None, action: Action = None):
+        """The response's non-standard meta information.
+
+        :param url: The endpoint URL that created the task., defaults to None
+        :type url: str, optional
+        :param model: The model for which the task is performing the operation., defaults to None
+        :type model: MetaModel, optional
+        :param action: The task's action., defaults to None
+        :type action: Action, optional
+        """
         if url is not None:
             self.url = url
         if model is not None:
@@ -108,6 +117,13 @@ class Details1Resources(BaseModel):
     """
 
     def __init__(self, id_: str = None, url: str = None):
+        """Details1Resources
+
+        :param id_: The ID of the assigned resource., defaults to None
+        :type id_: str, optional
+        :param url: The task's assigned resource URL., defaults to None
+        :type url: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if url is not None:
@@ -123,6 +139,11 @@ class Details1(BaseModel):
     """
 
     def __init__(self, resources: List[Details1Resources] = None):
+        """Information about the task's resources.
+
+        :param resources: resources, defaults to None
+        :type resources: List[Details1Resources], optional
+        """
         if resources is not None:
             self.resources = self._define_list(resources, Details1Resources)
 
@@ -136,6 +157,11 @@ class Error(BaseModel):
     """
 
     def __init__(self, message: str = None):
+        """Error
+
+        :param message: The task's error message., defaults to None
+        :type message: str, optional
+        """
         if message is not None:
             self.message = message
 
@@ -149,6 +175,11 @@ class Details2(BaseModel):
     """
 
     def __init__(self, error: Error = None):
+        """Information about the error that occurred during the task's processing.
+
+        :param error: error, defaults to None
+        :type error: Error, optional
+        """
         if error is not None:
             self.error = self._define_object(error, Error)
 
@@ -187,6 +218,21 @@ class GetStatusOfAnAsyncTask(BaseModel):
         created_at: str = None,
         updated_at: str = None,
     ):
+        """GetStatusOfAnAsyncTask
+
+        :param id_: The task's ID., defaults to None
+        :type id_: str, optional
+        :param meta: The response's non-standard meta information., defaults to None
+        :type meta: GetStatusOfAnAsyncTaskMeta, optional
+        :param status: The task's current status., defaults to None
+        :type status: GetStatusOfAnAsyncTaskStatus, optional
+        :param details: details, defaults to None
+        :type details: Details, optional
+        :param created_at: The date and time at which the task was created., defaults to None
+        :type created_at: str, optional
+        :param updated_at: The date and time at which the task was last updated., defaults to None
+        :type updated_at: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if meta is not None:

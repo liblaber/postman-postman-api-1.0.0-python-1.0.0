@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap(
@@ -53,6 +53,29 @@ class GetAuthenticatedUserUser(BaseModel):
         team_domain: str = None,
         roles: List[str] = None,
     ):
+        """Information about the authenticated user.
+
+        :param id_: The user's Postman ID., defaults to None
+        :type id_: float, optional
+        :param username: The user's username., defaults to None
+        :type username: str, optional
+        :param email: The user's email address., defaults to None
+        :type email: str, optional
+        :param full_name: The user's full name., defaults to None
+        :type full_name: str, optional
+        :param avatar: The user's avatar image URL., defaults to None
+        :type avatar: str, optional
+        :param is_public: If true, the user's information is public and visible to all users., defaults to None
+        :type is_public: bool, optional
+        :param team_id: The team ID the user is assigned to. This returns a `0` value if the user is not assigned to a team., defaults to None
+        :type team_id: int, optional
+        :param team_name: The name of the team the user is assigned to., defaults to None
+        :type team_name: str, optional
+        :param team_domain: The team's Postman domain ID., defaults to None
+        :type team_domain: str, optional
+        :param roles: A list of the user's assigned [roles](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles)., defaults to None
+        :type roles: List[str], optional
+        """
         if id_ is not None:
             self.id_ = id_
         if username is not None:
@@ -62,7 +85,7 @@ class GetAuthenticatedUserUser(BaseModel):
         if full_name is not None:
             self.full_name = full_name
         if avatar is not None:
-            self.avatar = avatar
+            self.avatar = self._define_str("avatar", avatar, nullable=True)
         if is_public is not None:
             self.is_public = is_public
         if team_id is not None:
@@ -96,6 +119,17 @@ class GetAuthenticatedUserOperations(BaseModel):
         overage: float = None,
         usage: float = None,
     ):
+        """GetAuthenticatedUserOperations
+
+        :param limit: The operation's limit value., defaults to None
+        :type limit: float, optional
+        :param name: The operation's name., defaults to None
+        :type name: str, optional
+        :param overage: The operation's overage value., defaults to None
+        :type overage: float, optional
+        :param usage: The operation's current usage value., defaults to None
+        :type usage: float, optional
+        """
         if limit is not None:
             self.limit = limit
         if name is not None:
@@ -121,6 +155,13 @@ class GetAuthenticatedUser(BaseModel):
         user: GetAuthenticatedUserUser = None,
         operations: List[GetAuthenticatedUserOperations] = None,
     ):
+        """GetAuthenticatedUser
+
+        :param user: Information about the authenticated user., defaults to None
+        :type user: GetAuthenticatedUserUser, optional
+        :param operations: Information about operations and their usage limits. This object does not return for users with the [Guest role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles)., defaults to None
+        :type operations: List[GetAuthenticatedUserOperations], optional
+        """
         if user is not None:
             self.user = self._define_object(user, GetAuthenticatedUserUser)
         if operations is not None:

@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -17,6 +17,13 @@ class ServerResponseHeaders1(BaseModel):
     """
 
     def __init__(self, key: str = None, value: str = None):
+        """ServerResponseHeaders1
+
+        :param key: The request header's key value., defaults to None
+        :type key: str, optional
+        :param value: The request header's value., defaults to None
+        :type value: str, optional
+        """
         if key is not None:
             self.key = key
         if value is not None:
@@ -79,6 +86,19 @@ class CreateMockServerResponseServerResponse(BaseModel):
         language: ServerResponseLanguage1 = None,
         body: str = None,
     ):
+        """CreateMockServerResponseServerResponse
+
+        :param name: The server response's name.
+        :type name: str
+        :param status_code: The server response's 5xx HTTP response code. This property only accepts 5xx values.
+        :type status_code: int
+        :param headers: The server response's request headers, such as Content-Type, Accept, encoding, and other information., defaults to None
+        :type headers: List[ServerResponseHeaders1], optional
+        :param language: The server response's body language type., defaults to None
+        :type language: ServerResponseLanguage1, optional
+        :param body: The server response's body that returns when calling the mock server., defaults to None
+        :type body: str, optional
+        """
         self.name = name
         self.status_code = status_code
         if headers is not None:
@@ -100,6 +120,11 @@ class CreateMockServerResponse(BaseModel):
     """
 
     def __init__(self, server_response: CreateMockServerResponseServerResponse = None):
+        """CreateMockServerResponse
+
+        :param server_response: server_response, defaults to None
+        :type server_response: CreateMockServerResponseServerResponse, optional
+        """
         if server_response is not None:
             self.server_response = self._define_object(
                 server_response, CreateMockServerResponseServerResponse

@@ -28,8 +28,9 @@ class BaseService:
         """
         self.base_url = base_url
         self._default_headers = DefaultHeaders()
+        self._timeout = 60000
 
-        self._request_handler = self._get_request_handler()
+        self._update_request_handler()
 
     def set_api_key(self, api_key: str, api_key_header="X-Api-Key"):
         """
@@ -38,6 +39,18 @@ class BaseService:
         self._default_headers.set_header(
             DefaultHeadersKeys.API_KEY_AUTH, ApiKeyAuth(api_key, api_key_header)
         )
+
+        return self
+
+    def set_timeout(self, timeout: int):
+        """
+        Sets the timeout for the service.
+
+        :param int timeout: The timeout (ms) to be set.
+        :return: The service instance.
+        """
+        self._timeout = timeout
+        self._update_request_handler()
 
         return self
 
@@ -82,5 +95,11 @@ class BaseService:
             RequestChain()
             .add_handler(RetryHandler())
             .add_handler(HookHandler())
-            .add_handler(HttpHandler())
+            .add_handler(HttpHandler(self._timeout))
         )
+
+    def _update_request_handler(self) -> None:
+        """
+        Update the request handler.
+        """
+        self._request_handler = self._get_request_handler()

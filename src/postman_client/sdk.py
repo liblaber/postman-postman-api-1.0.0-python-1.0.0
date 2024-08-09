@@ -30,6 +30,7 @@ class PostmanClient:
         api_key: str = None,
         api_key_header: str = "X-Api-Key",
         base_url: str = Environment.DEFAULT.value,
+        timeout: int = 60000,
     ):
         """
         Initializes PostmanClient the SDK class.
@@ -56,6 +57,7 @@ class PostmanClient:
         self.webhooks = WebhooksService(base_url=base_url)
         self.workspaces = WorkspacesService(base_url=base_url)
         self.set_api_key(api_key, api_key_header)
+        self.set_timeout(timeout)
 
     def set_base_url(self, base_url):
         """
@@ -110,6 +112,37 @@ class PostmanClient:
         self.scim.set_api_key(api_key, api_key_header)
         self.webhooks.set_api_key(api_key, api_key_header)
         self.workspaces.set_api_key(api_key, api_key_header)
+
+        return self
+
+    def set_timeout(self, timeout: int):
+        """
+        Sets the timeout for the entire SDK.
+
+        :param int timeout: The timeout (ms) to be set.
+        :return: The SDK instance.
+        """
+        self.billing.set_timeout(timeout)
+        self.api.set_timeout(timeout)
+        self.tags.set_timeout(timeout)
+        self.audit_logs.set_timeout(timeout)
+        self.collections.set_timeout(timeout)
+        self.collection_items.set_timeout(timeout)
+        self.collection_folders.set_timeout(timeout)
+        self.collection_requests.set_timeout(timeout)
+        self.collection_responses.set_timeout(timeout)
+        self.secret_scanner.set_timeout(timeout)
+        self.environments.set_timeout(timeout)
+        self.import_.set_timeout(timeout)
+        self.user.set_timeout(timeout)
+        self.mocks.set_timeout(timeout)
+        self.monitors.set_timeout(timeout)
+        self.private_api_network.set_timeout(timeout)
+        self.pull_requests.set_timeout(timeout)
+        self.api_security.set_timeout(timeout)
+        self.scim.set_timeout(timeout)
+        self.webhooks.set_timeout(timeout)
+        self.workspaces.set_timeout(timeout)
 
         return self
 

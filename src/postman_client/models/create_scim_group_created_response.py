@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -16,6 +16,13 @@ class CreateScimGroupMembers2(BaseModel):
     """
 
     def __init__(self, value: str = None, display: str = None):
+        """An object containing the group's assigned SCIM members.
+
+        :param value: The user's SCIM ID., defaults to None
+        :type value: str, optional
+        :param display: The user's display name., defaults to None
+        :type display: str, optional
+        """
         if value is not None:
             self.value = value
         if display is not None:
@@ -37,6 +44,15 @@ class CreateScimGroupMeta(BaseModel):
     def __init__(
         self, created: str = None, last_modified: str = None, resource_type: str = None
     ):
+        """The response's non-standard meta information.
+
+        :param created: The date and time at which the group was created., defaults to None
+        :type created: str, optional
+        :param last_modified: The date and time at which the group was last modified., defaults to None
+        :type last_modified: str, optional
+        :param resource_type: The SCIM resource type., defaults to None
+        :type resource_type: str, optional
+        """
         if created is not None:
             self.created = created
         if last_modified is not None:
@@ -72,6 +88,21 @@ class CreateScimGroupCreatedResponse(BaseModel):
         members: List[CreateScimGroupMembers2] = None,
         meta: CreateScimGroupMeta = None,
     ):
+        """CreateScimGroupCreatedResponse
+
+        :param schemas: The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml)., defaults to None
+        :type schemas: List[str], optional
+        :param id_: The group's SCIM ID., defaults to None
+        :type id_: str, optional
+        :param display_name: The group's display name., defaults to None
+        :type display_name: str, optional
+        :param external_id: The group's external ID., defaults to None
+        :type external_id: str, optional
+        :param members: members, defaults to None
+        :type members: List[CreateScimGroupMembers2], optional
+        :param meta: The response's non-standard meta information., defaults to None
+        :type meta: CreateScimGroupMeta, optional
+        """
         if schemas is not None:
             self.schemas = schemas
         if id_ is not None:

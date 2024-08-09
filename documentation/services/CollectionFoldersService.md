@@ -2,27 +2,12 @@
 
 A list of all methods in the `CollectionFoldersService` service. Click on the method name to view detailed information about that method.
 
-| Methods                                         | Description                                  |
-| :---------------------------------------------- | :------------------------------------------- |
-| [get_folder_comments](#get_folder_comments)     | Gets all comments left by users in a folder. |
-| [create_folder_comment](#create_folder_comment) | Creates a comment on a folder.               |
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
-|
-|[update_folder_comment](#update_folder_comment)| Updates a comment on a folder.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
-|
-|[delete_folder_comment](#delete_folder_comment)| Deletes a comment from a folder. On success, this returns an HTTP `204 No Content` response
-
-**Note:**
-
-Deleting the first comment of a thread deletes all the comments in the thread.
-|
+| Methods                                         | Description                                                                                                                                                                          |
+| :---------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [get_folder_comments](#get_folder_comments)     | Gets all comments left by users in a folder.                                                                                                                                         |
+| [create_folder_comment](#create_folder_comment) | Creates a comment on a folder. **Note:** This endpoint accepts a max of 10,000 characters.                                                                                           |
+| [update_folder_comment](#update_folder_comment) | Updates a comment on a folder. **Note:** This endpoint accepts a max of 10,000 characters.                                                                                           |
+| [delete_folder_comment](#delete_folder_comment) | Deletes a comment from a folder. On success, this returns an HTTP `204 No Content` response **Note:** Deleting the first comment of a thread deletes all the comments in the thread. |
 
 ## get_folder_comments
 
@@ -50,7 +35,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collection_folders.get_folder_comments(
@@ -63,11 +49,7 @@ print(result)
 
 ## create_folder_comment
 
-Creates a comment on a folder.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
+Creates a comment on a folder. **Note:** This endpoint accepts a max of 10,000 characters.
 
 - HTTP Method: `POST`
 - Endpoint: `/collections/{collectionId}/folders/{folderId}/comments`
@@ -93,7 +75,8 @@ from postman_client.models import CommentCreateUpdate
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CommentCreateUpdate(
@@ -117,11 +100,7 @@ print(result)
 
 ## update_folder_comment
 
-Updates a comment on a folder.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
+Updates a comment on a folder. **Note:** This endpoint accepts a max of 10,000 characters.
 
 - HTTP Method: `PUT`
 - Endpoint: `/collections/{collectionId}/folders/{folderId}/comments/{commentId}`
@@ -148,7 +127,8 @@ from postman_client.models import CommentCreateUpdate
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CommentCreateUpdate(
@@ -173,11 +153,7 @@ print(result)
 
 ## delete_folder_comment
 
-Deletes a comment from a folder. On success, this returns an HTTP `204 No Content` response
-
-**Note:**
-
-Deleting the first comment of a thread deletes all the comments in the thread.
+Deletes a comment from a folder. On success, this returns an HTTP `204 No Content` response **Note:** Deleting the first comment of a thread deletes all the comments in the thread.
 
 - HTTP Method: `DELETE`
 - Endpoint: `/collections/{collectionId}/folders/{folderId}/comments/{commentId}`
@@ -198,7 +174,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collection_folders.delete_folder_comment(

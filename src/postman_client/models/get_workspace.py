@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class WorkspaceType2(Enum):
@@ -79,6 +79,15 @@ class WorkspaceCollections(BaseModel):
     """
 
     def __init__(self, id_: str = None, name: str = None, uid: str = None):
+        """Information about the collection.
+
+        :param id_: The collection's ID., defaults to None
+        :type id_: str, optional
+        :param name: The collection's name., defaults to None
+        :type name: str, optional
+        :param uid: The collection's unique ID., defaults to None
+        :type uid: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -100,6 +109,15 @@ class WorkspaceEnvironments(BaseModel):
     """
 
     def __init__(self, id_: str = None, name: str = None, uid: str = None):
+        """Information about the environment.
+
+        :param id_: The environment's ID., defaults to None
+        :type id_: str, optional
+        :param name: The environment's name., defaults to None
+        :type name: str, optional
+        :param uid: The environment's unique ID., defaults to None
+        :type uid: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -129,6 +147,17 @@ class WorkspaceMocks(BaseModel):
         uid: str = None,
         deactivated: bool = None,
     ):
+        """Information about the mock server.
+
+        :param id_: The mock server's ID., defaults to None
+        :type id_: str, optional
+        :param name: The mock server's name., defaults to None
+        :type name: str, optional
+        :param uid: The mock server's unique ID., defaults to None
+        :type uid: str, optional
+        :param deactivated: If true, the mock server is not active. Mock servers deactivate when a linked collection or environment is deleted., defaults to None
+        :type deactivated: bool, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -152,6 +181,15 @@ class WorkspaceMonitors(BaseModel):
     """
 
     def __init__(self, id_: str = None, name: str = None, uid: str = None):
+        """Information about the monitor.
+
+        :param id_: The monitor's ID., defaults to None
+        :type id_: str, optional
+        :param name: The monitor's name., defaults to None
+        :type name: str, optional
+        :param uid: The monitor's unique ID., defaults to None
+        :type uid: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -173,6 +211,15 @@ class WorkspaceApis(BaseModel):
     """
 
     def __init__(self, id_: str = None, name: str = None, uid: str = None):
+        """Information about the API.
+
+        :param id_: The API's ID., defaults to None
+        :type id_: str, optional
+        :param name: The API's name., defaults to None
+        :type name: str, optional
+        :param uid: The API's unique ID., defaults to None
+        :type uid: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -241,6 +288,37 @@ class GetWorkspaceWorkspace(BaseModel):
         monitors: List[WorkspaceMonitors] = None,
         apis: List[WorkspaceApis] = None,
     ):
+        """Information about the workspace.
+
+        :param id_: The workspace's ID., defaults to None
+        :type id_: str, optional
+        :param name: The workspace's name., defaults to None
+        :type name: str, optional
+        :param type_: The type of workspace., defaults to None
+        :type type_: WorkspaceType2, optional
+        :param description: The workspace's description., defaults to None
+        :type description: str, optional
+        :param visibility: The workspace's visibility. [Visibility](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility) determines who can access the workspace: - `personal` — Only you can access the workspace. - `team` — All team members can access the workspace. - `private` — Only invited team members can access the workspace ([**Professional** and **Enterprise** plans only](https://www.postman.com/pricing)). - `public` — Everyone can access the workspace. - `partner` — Only invited team members and [partners](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/partner-workspaces/) can access the workspace ([**Professional** and **Enterprise** plans only](https://www.postman.com/pricing)). , defaults to None
+        :type visibility: WorkspaceVisibility, optional
+        :param created_by: The user ID of the user who created the workspace., defaults to None
+        :type created_by: str, optional
+        :param updated_by: The user ID of the user who last updated the workspace., defaults to None
+        :type updated_by: str, optional
+        :param created_at: The date and time at which the workspace was created., defaults to None
+        :type created_at: str, optional
+        :param updated_at: The date and time at which the workspace was last updated., defaults to None
+        :type updated_at: str, optional
+        :param collections: The workspace's collections., defaults to None
+        :type collections: List[WorkspaceCollections], optional
+        :param environments: The workspace's environments., defaults to None
+        :type environments: List[WorkspaceEnvironments], optional
+        :param mocks: The workspace's mock servers., defaults to None
+        :type mocks: List[WorkspaceMocks], optional
+        :param monitors: The workspace's monitors., defaults to None
+        :type monitors: List[WorkspaceMonitors], optional
+        :param apis: The workspace's APIs., defaults to None
+        :type apis: List[WorkspaceApis], optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -282,5 +360,10 @@ class GetWorkspace(BaseModel):
     """
 
     def __init__(self, workspace: GetWorkspaceWorkspace = None):
+        """GetWorkspace
+
+        :param workspace: Information about the workspace., defaults to None
+        :type workspace: GetWorkspaceWorkspace, optional
+        """
         if workspace is not None:
             self.workspace = self._define_object(workspace, GetWorkspaceWorkspace)

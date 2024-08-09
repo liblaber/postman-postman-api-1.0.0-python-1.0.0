@@ -2,117 +2,32 @@
 
 A list of all methods in the `ApiService` service. Click on the method name to view detailed information about that method.
 
-| Methods                   | Description                                     |
-| :------------------------ | :---------------------------------------------- |
-| [get_apis](#get_apis)     | Gets information about all APIs in a workspace. |
-| [create_api](#create_api) | Creates an API.                                 |
-| [get_api](#get_api)       | Gets information about an API.                  |
-
-**Note:**
-
-- Git-connected APIs will only return the `versions` and `gitInfo` query responses. This is because schema and collection information is stored in the connected Git repository. The `gitInfo` object only lists the repository and folder locations of the files.
-- API viewers can only use the `versions` option in the `include` query parameter.
-  |
-  |[update_api](#update_api)| Updates an API. |
-  |[delete_api](#delete_api)| Deletes an API. |
-  |[add_api_collection](#add_api_collection)| Adds a collection to an API. To do this, use the following `operationType` values:
-
-- `COPY_COLLECTION` — Copies a collection from the workspace and adds it to an API.
-- `CREATE_NEW` — Creates a new collection by providing the new collection's content.
-- `GENERATE_FROM_SCHEMA` — Generates the collection from an API schema. - `options` — An object that contains advanced creation options and their values. You can find a complete list of properties and their values in Postman's [OpenAPI 3.0 to Postman Collection v2.1.0 Converter OPTIONS documentation](https://github.com/postmanlabs/openapi-to-postman/blob/develop/OPTIONS.md). These properties are case-sensitive.
-  |
-  |[get_api_collection](#get_api_collection)| Gets a collection attached to an API. You can use the `versionId` query parameter to get a collection published in a version.
-
-**Note:**
-
-The `versionId` query parameter is a required parameter for API viewers.
-|
-|[sync_collection_with_schema](#sync_collection_with_schema)| Syncs a collection attached to an API with the API schema.
-
-This is an asynchronous endpoint that returns an HTTP `202 Accepted` response. The response contains a polling link to the `/apis/{apiId}/tasks/{taskId}` endpoint in the `Location` header.
-
-**Note:**
-
-This endpoint only supports the OpenAPI 3 schema type.
-|
-|[get_api_comments](#get_api_comments)| Gets all comments left by users in an API. |
-|[create_api_comment](#create_api_comment)| Creates a comment on an API.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
-|
-|[update_api_comment](#update_api_comment)| Updates a comment on an API.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
-|
-|[delete_api_comment](#delete_api_comment)| Deletes a comment from an API. On success, this returns an HTTP `204 No Content` response.
-
-**Note:**
-
-Deleting the first comment of a thread deletes all the comments in the thread.
-|
-|[create_api_schema](#create_api_schema)| Creates a schema for an API. |
-|[get_api_schema](#get_api_schema)| Gets information about API schema. You can use the `versionId` query parameter to get a schema published in an API version.
-
-You can use this API to do the following:
-
-- Get a schema's metadata.
-- Get all the files in a schema. This only returns the first file in the schema. The endpoint response contains a link to the next set of response results.
-- Get a schema's contents in multi-file or bundled format.
-
-**Note:**
-
-The `versionId` query parameter is a required parameter for API viewers.
-|
-|[get_api_schema_files](#get_api_schema_files)| Gets the files in an API schema. You can use the `versionId` query parameter to get schema files published in an API version.
-
-**Note:**
-
-The `versionId` query parameter is a required parameter for API viewers.
-|
-|[get_api_schema_file_contents](#get_api_schema_file_contents)| Gets an API schema file contents at the defined path. You can use the `versionId` query parameter to get schema file contents published in an API version.
-
-**Note:**
-
-The `versionId` query parameter is a required parameter for API viewers.
-|
-|[create_update_api_schema_file](#create_update_api_schema_file)| Creates or updates an API schema file.
-
-**Note:**
-
-- If the provided file path exists, the file will be updated with the new contents.
-- If the provided file path does not exist, then a new schema file will be created.
-- If the file path contains a `/` (forward slash) character, then a folder is created. For example, if the file path is the `dir/schema.json` value, then a `dir` folder is created with the `schema.json` file inside.
-  |
-  |[delete_api_schema_file](#delete_api_schema_file)| Deletes a file in an API schema. |
-  |[get_status_of_an_async_task](#get_status_of_an_async_task)| Gets the status of an asynchronous task. |
-  |[get_api_versions](#get_api_versions)| Gets all the published versions of an API. |
-  |[create_api_version](#create_api_version)| Creates a new API version asynchronously and immediately returns an HTTP `202 Accepted` response. The response contains a polling link to the task status API in the `Location` header.
-
-This endpoint is equivalent to publishing a version in Postman app, which is the snapshot of API collections and schema at a given point in time.
-|
-|[get_api_version](#get_api_version)| Gets information about an API version.
-
-**Note:**
-
-- For API editors, this endpoint returns an HTTP `302 Found` status code when the version status is pending. It also returns the `/apis/{apiId}/tasks/{taskId}` task status response header.
-- For API viewers, this endpoint returns an HTTP `404 Not Found` when the version status is pending.
-  |
-  |[update_api_version](#update_api_version)| Updates an API version.
-
-**Note:**
-
-This endpoint returns an HTTP `404 Not Found` response when an API version is pending publication.
-|
-|[delete_api_version](#delete_api_version)| Deletes an API version.
-
-**Note:**
-
-This endpoint returns an HTTP `404 Not Found` response when an API version is pending publication.
-|
+| Methods                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| :-------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [get_apis](#get_apis)                                           | Gets information about all APIs in a workspace.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| [create_api](#create_api)                                       | Creates an API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| [get_api](#get_api)                                             | Gets information about an API. **Note:** - Git-connected APIs will only return the `versions` and `gitInfo` query responses. This is because schema and collection information is stored in the connected Git repository. The `gitInfo` object only lists the repository and folder locations of the files. - API viewers can only use the `versions` option in the `include` query parameter.                                                                                                                                                                                                                                                                                             |
+| [update_api](#update_api)                                       | Updates an API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| [delete_api](#delete_api)                                       | Deletes an API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| [add_api_collection](#add_api_collection)                       | Adds a collection to an API. To do this, use the following `operationType` values: - `COPY_COLLECTION` — Copies a collection from the workspace and adds it to an API. - `CREATE_NEW` — Creates a new collection by providing the new collection's content. - `GENERATE_FROM_SCHEMA` — Generates the collection from an API schema. - `options` — An object that contains advanced creation options and their values. You can find a complete list of properties and their values in Postman's [OpenAPI 3.0 to Postman Collection v2.1.0 Converter OPTIONS documentation](https://github.com/postmanlabs/openapi-to-postman/blob/develop/OPTIONS.md). These properties are case-sensitive. |
+| [get_api_collection](#get_api_collection)                       | Gets a collection attached to an API. You can use the `versionId` query parameter to get a collection published in a version. **Note:** The `versionId` query parameter is a required parameter for API viewers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| [sync_collection_with_schema](#sync_collection_with_schema)     | Syncs a collection attached to an API with the API schema. This is an asynchronous endpoint that returns an HTTP `202 Accepted` response. The response contains a polling link to the `/apis/{apiId}/tasks/{taskId}` endpoint in the `Location` header. **Note:** This endpoint only supports the OpenAPI 3 schema type.                                                                                                                                                                                                                                                                                                                                                                   |
+| [get_api_comments](#get_api_comments)                           | Gets all comments left by users in an API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| [create_api_comment](#create_api_comment)                       | Creates a comment on an API. **Note:** This endpoint accepts a max of 10,000 characters.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| [update_api_comment](#update_api_comment)                       | Updates a comment on an API. **Note:** This endpoint accepts a max of 10,000 characters.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| [delete_api_comment](#delete_api_comment)                       | Deletes a comment from an API. On success, this returns an HTTP `204 No Content` response. **Note:** Deleting the first comment of a thread deletes all the comments in the thread.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| [create_api_schema](#create_api_schema)                         | Creates a schema for an API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| [get_api_schema](#get_api_schema)                               | Gets information about API schema. You can use the `versionId` query parameter to get a schema published in an API version. You can use this API to do the following: - Get a schema's metadata. - Get all the files in a schema. This only returns the first file in the schema. The endpoint response contains a link to the next set of response results. - Get a schema's contents in multi-file or bundled format. **Note:** The `versionId` query parameter is a required parameter for API viewers.                                                                                                                                                                                 |
+| [get_api_schema_files](#get_api_schema_files)                   | Gets the files in an API schema. You can use the `versionId` query parameter to get schema files published in an API version. **Note:** The `versionId` query parameter is a required parameter for API viewers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| [get_api_schema_file_contents](#get_api_schema_file_contents)   | Gets an API schema file contents at the defined path. You can use the `versionId` query parameter to get schema file contents published in an API version. **Note:** The `versionId` query parameter is a required parameter for API viewers.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| [create_update_api_schema_file](#create_update_api_schema_file) | Creates or updates an API schema file. **Note:** - If the provided file path exists, the file will be updated with the new contents. - If the provided file path does not exist, then a new schema file will be created. - If the file path contains a `/` (forward slash) character, then a folder is created. For example, if the file path is the `dir/schema.json` value, then a `dir` folder is created with the `schema.json` file inside.                                                                                                                                                                                                                                           |
+| [delete_api_schema_file](#delete_api_schema_file)               | Deletes a file in an API schema.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| [get_status_of_an_async_task](#get_status_of_an_async_task)     | Gets the status of an asynchronous task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| [get_api_versions](#get_api_versions)                           | Gets all the published versions of an API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| [create_api_version](#create_api_version)                       | Creates a new API version asynchronously and immediately returns an HTTP `202 Accepted` response. The response contains a polling link to the task status API in the `Location` header. This endpoint is equivalent to publishing a version in Postman app, which is the snapshot of API collections and schema at a given point in time.                                                                                                                                                                                                                                                                                                                                                  |
+| [get_api_version](#get_api_version)                             | Gets information about an API version. **Note:** - For API editors, this endpoint returns an HTTP `302 Found` status code when the version status is pending. It also returns the `/apis/{apiId}/tasks/{taskId}` task status response header. - For API viewers, this endpoint returns an HTTP `404 Not Found` when the version status is pending.                                                                                                                                                                                                                                                                                                                                         |
+| [update_api_version](#update_api_version)                       | Updates an API version. **Note:** This endpoint returns an HTTP `404 Not Found` response when an API version is pending publication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| [delete_api_version](#delete_api_version)                       | Deletes an API version. **Note:** This endpoint returns an HTTP `404 Not Found` response when an API version is pending publication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 ## get_apis
 
@@ -145,7 +60,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.get_apis(
@@ -188,7 +104,8 @@ from postman_client.models import CreateApiRequest, Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CreateApiRequest(
@@ -208,12 +125,7 @@ print(result)
 
 ## get_api
 
-Gets information about an API.
-
-**Note:**
-
-- Git-connected APIs will only return the `versions` and `gitInfo` query responses. This is because schema and collection information is stored in the connected Git repository. The `gitInfo` object only lists the repository and folder locations of the files.
-- API viewers can only use the `versions` option in the `include` query parameter.
+Gets information about an API. **Note:** - Git-connected APIs will only return the `versions` and `gitInfo` query responses. This is because schema and collection information is stored in the connected Git repository. The `gitInfo` object only lists the repository and folder locations of the files. - API viewers can only use the `versions` option in the `include` query parameter.
 
 - HTTP Method: `GET`
 - Endpoint: `/apis/{apiId}`
@@ -239,7 +151,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 include=[
     "collections"
@@ -282,7 +195,8 @@ from postman_client.models import UpdateApiRequest, Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = UpdateApiRequest(
@@ -323,7 +237,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.delete_api(
@@ -336,13 +251,7 @@ print(result)
 
 ## add_api_collection
 
-Adds a collection to an API. To do this, use the following `operationType` values:
-
-- `COPY_COLLECTION` — Copies a collection from the workspace and adds it to an API.
-- `CREATE_NEW` — Creates a new collection by providing the new collection's content.
-- `GENERATE_FROM_SCHEMA` — Generates the collection from an API schema.
-
-  - `options` — An object that contains advanced creation options and their values. You can find a complete list of properties and their values in Postman's [OpenAPI 3.0 to Postman Collection v2.1.0 Converter OPTIONS documentation](https://github.com/postmanlabs/openapi-to-postman/blob/develop/OPTIONS.md). These properties are case-sensitive.
+Adds a collection to an API. To do this, use the following `operationType` values: - `COPY_COLLECTION` — Copies a collection from the workspace and adds it to an API. - `CREATE_NEW` — Creates a new collection by providing the new collection's content. - `GENERATE_FROM_SCHEMA` — Generates the collection from an API schema. - `options` — An object that contains advanced creation options and their values. You can find a complete list of properties and their values in Postman's [OpenAPI 3.0 to Postman Collection v2.1.0 Converter OPTIONS documentation](https://github.com/postmanlabs/openapi-to-postman/blob/develop/OPTIONS.md). These properties are case-sensitive.
 
 - HTTP Method: `POST`
 - Endpoint: `/apis/{apiId}/collections`
@@ -369,7 +278,8 @@ from postman_client.models.add_api_collection_request import AddApiCollection1
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = AddApiCollection1(
@@ -390,11 +300,7 @@ print(result)
 
 ## get_api_collection
 
-Gets a collection attached to an API. You can use the `versionId` query parameter to get a collection published in a version.
-
-**Note:**
-
-The `versionId` query parameter is a required parameter for API viewers.
+Gets a collection attached to an API. You can use the `versionId` query parameter to get a collection published in a version. **Note:** The `versionId` query parameter is a required parameter for API viewers.
 
 - HTTP Method: `GET`
 - Endpoint: `/apis/{apiId}/collections/{collectionId}`
@@ -421,7 +327,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.get_api_collection(
@@ -436,13 +343,7 @@ print(result)
 
 ## sync_collection_with_schema
 
-Syncs a collection attached to an API with the API schema.
-
-This is an asynchronous endpoint that returns an HTTP `202 Accepted` response. The response contains a polling link to the `/apis/{apiId}/tasks/{taskId}` endpoint in the `Location` header.
-
-**Note:**
-
-This endpoint only supports the OpenAPI 3 schema type.
+Syncs a collection attached to an API with the API schema. This is an asynchronous endpoint that returns an HTTP `202 Accepted` response. The response contains a polling link to the `/apis/{apiId}/tasks/{taskId}` endpoint in the `Location` header. **Note:** This endpoint only supports the OpenAPI 3 schema type.
 
 - HTTP Method: `PUT`
 - Endpoint: `/apis/{apiId}/collections/{collectionId}/sync-with-schema-tasks`
@@ -468,7 +369,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.sync_collection_with_schema(
@@ -505,7 +407,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.get_api_comments(api_id="90ca9f5a-c4c4-11ed-afa1-0242ac120002")
@@ -515,11 +418,7 @@ print(result)
 
 ## create_api_comment
 
-Creates a comment on an API.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
+Creates a comment on an API. **Note:** This endpoint accepts a max of 10,000 characters.
 
 - HTTP Method: `POST`
 - Endpoint: `/apis/{apiId}/comments`
@@ -544,7 +443,8 @@ from postman_client.models import CommentCreateUpdate
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CommentCreateUpdate(
@@ -567,11 +467,7 @@ print(result)
 
 ## update_api_comment
 
-Updates a comment on an API.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
+Updates a comment on an API. **Note:** This endpoint accepts a max of 10,000 characters.
 
 - HTTP Method: `PUT`
 - Endpoint: `/apis/{apiId}/comments/{commentId}`
@@ -597,7 +493,8 @@ from postman_client.models import CommentCreateUpdate
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CommentCreateUpdate(
@@ -621,11 +518,7 @@ print(result)
 
 ## delete_api_comment
 
-Deletes a comment from an API. On success, this returns an HTTP `204 No Content` response.
-
-**Note:**
-
-Deleting the first comment of a thread deletes all the comments in the thread.
+Deletes a comment from an API. On success, this returns an HTTP `204 No Content` response. **Note:** Deleting the first comment of a thread deletes all the comments in the thread.
 
 - HTTP Method: `DELETE`
 - Endpoint: `/apis/{apiId}/comments/{commentId}`
@@ -645,7 +538,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.delete_api_comment(
@@ -684,7 +578,8 @@ from postman_client.models import CreateApiSchemaRequest, Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CreateApiSchemaRequest(
@@ -711,17 +606,7 @@ print(result)
 
 ## get_api_schema
 
-Gets information about API schema. You can use the `versionId` query parameter to get a schema published in an API version.
-
-You can use this API to do the following:
-
-- Get a schema's metadata.
-- Get all the files in a schema. This only returns the first file in the schema. The endpoint response contains a link to the next set of response results.
-- Get a schema's contents in multi-file or bundled format.
-
-**Note:**
-
-The `versionId` query parameter is a required parameter for API viewers.
+Gets information about API schema. You can use the `versionId` query parameter to get a schema published in an API version. You can use this API to do the following: - Get a schema's metadata. - Get all the files in a schema. This only returns the first file in the schema. The endpoint response contains a link to the next set of response results. - Get a schema's contents in multi-file or bundled format. **Note:** The `versionId` query parameter is a required parameter for API viewers.
 
 - HTTP Method: `GET`
 - Endpoint: `/apis/{apiId}/schemas/{schemaId}`
@@ -749,7 +634,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.get_api_schema(
@@ -765,11 +651,7 @@ print(result)
 
 ## get_api_schema_files
 
-Gets the files in an API schema. You can use the `versionId` query parameter to get schema files published in an API version.
-
-**Note:**
-
-The `versionId` query parameter is a required parameter for API viewers.
+Gets the files in an API schema. You can use the `versionId` query parameter to get schema files published in an API version. **Note:** The `versionId` query parameter is a required parameter for API viewers.
 
 - HTTP Method: `GET`
 - Endpoint: `/apis/{apiId}/schemas/{schemaId}/files`
@@ -798,7 +680,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.get_api_schema_files(
@@ -815,11 +698,7 @@ print(result)
 
 ## get_api_schema_file_contents
 
-Gets an API schema file contents at the defined path. You can use the `versionId` query parameter to get schema file contents published in an API version.
-
-**Note:**
-
-The `versionId` query parameter is a required parameter for API viewers.
+Gets an API schema file contents at the defined path. You can use the `versionId` query parameter to get schema file contents published in an API version. **Note:** The `versionId` query parameter is a required parameter for API viewers.
 
 - HTTP Method: `GET`
 - Endpoint: `/apis/{apiId}/schemas/{schemaId}/files/{file-path}`
@@ -847,7 +726,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.get_api_schema_file_contents(
@@ -863,13 +743,7 @@ print(result)
 
 ## create_update_api_schema_file
 
-Creates or updates an API schema file.
-
-**Note:**
-
-- If the provided file path exists, the file will be updated with the new contents.
-- If the provided file path does not exist, then a new schema file will be created.
-- If the file path contains a `/` (forward slash) character, then a folder is created. For example, if the file path is the `dir/schema.json` value, then a `dir` folder is created with the `schema.json` file inside.
+Creates or updates an API schema file. **Note:** - If the provided file path exists, the file will be updated with the new contents. - If the provided file path does not exist, then a new schema file will be created. - If the file path contains a `/` (forward slash) character, then a folder is created. For example, if the file path is the `dir/schema.json` value, then a `dir` folder is created with the `schema.json` file inside.
 
 - HTTP Method: `PUT`
 - Endpoint: `/apis/{apiId}/schemas/{schemaId}/files/{file-path}`
@@ -897,7 +771,8 @@ from postman_client.models import CreateUpdateApiSchemaFileRequest, Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CreateUpdateApiSchemaFileRequest(
@@ -944,7 +819,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.delete_api_schema_file(
@@ -985,7 +861,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.get_status_of_an_async_task(
@@ -1026,7 +903,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.get_api_versions(
@@ -1041,9 +919,7 @@ print(result)
 
 ## create_api_version
 
-Creates a new API version asynchronously and immediately returns an HTTP `202 Accepted` response. The response contains a polling link to the task status API in the `Location` header.
-
-This endpoint is equivalent to publishing a version in Postman app, which is the snapshot of API collections and schema at a given point in time.
+Creates a new API version asynchronously and immediately returns an HTTP `202 Accepted` response. The response contains a polling link to the task status API in the `Location` header. This endpoint is equivalent to publishing a version in Postman app, which is the snapshot of API collections and schema at a given point in time.
 
 - HTTP Method: `POST`
 - Endpoint: `/apis/{apiId}/versions`
@@ -1070,7 +946,8 @@ from postman_client.models.create_api_version_request import CreateApiVersion1
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CreateApiVersion1(
@@ -1099,12 +976,7 @@ print(result)
 
 ## get_api_version
 
-Gets information about an API version.
-
-**Note:**
-
-- For API editors, this endpoint returns an HTTP `302 Found` status code when the version status is pending. It also returns the `/apis/{apiId}/tasks/{taskId}` task status response header.
-- For API viewers, this endpoint returns an HTTP `404 Not Found` when the version status is pending.
+Gets information about an API version. **Note:** - For API editors, this endpoint returns an HTTP `302 Found` status code when the version status is pending. It also returns the `/apis/{apiId}/tasks/{taskId}` task status response header. - For API viewers, this endpoint returns an HTTP `404 Not Found` when the version status is pending.
 
 - HTTP Method: `GET`
 - Endpoint: `/apis/{apiId}/versions/{versionId}`
@@ -1130,7 +1002,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.get_api_version(
@@ -1144,11 +1017,7 @@ print(result)
 
 ## update_api_version
 
-Updates an API version.
-
-**Note:**
-
-This endpoint returns an HTTP `404 Not Found` response when an API version is pending publication.
+Updates an API version. **Note:** This endpoint returns an HTTP `404 Not Found` response when an API version is pending publication.
 
 - HTTP Method: `PUT`
 - Endpoint: `/apis/{apiId}/versions/{versionId}`
@@ -1175,7 +1044,8 @@ from postman_client.models import UpdateApiVersionRequest, Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = UpdateApiVersionRequest(
@@ -1195,11 +1065,7 @@ print(result)
 
 ## delete_api_version
 
-Deletes an API version.
-
-**Note:**
-
-This endpoint returns an HTTP `404 Not Found` response when an API version is pending publication.
+Deletes an API version. **Note:** This endpoint returns an HTTP `404 Not Found` response when an API version is pending publication.
 
 - HTTP Method: `DELETE`
 - Endpoint: `/apis/{apiId}/versions/{versionId}`
@@ -1221,7 +1087,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.api.delete_api_version(

@@ -29,10 +29,10 @@ The model for which the task is performing the operation.
 
 **Properties**
 
-| Name        | Type | Required | Description   |
-| :---------- | :--- | :------- | :------------ |
-| COLLECTION  | str  | ✅       | "collection"  |
-| API_VERSION | str  | ✅       | "api-version" |
+| Name       | Type | Required | Description   |
+| :--------- | :--- | :------- | :------------ |
+| COLLECTION | str  | ✅       | "collection"  |
+| APIVERSION | str  | ✅       | "api-version" |
 
 # Action
 

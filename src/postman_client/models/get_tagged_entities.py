@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class EntitiesEntityType(Enum):
@@ -41,6 +41,13 @@ class Entities(BaseModel):
     """
 
     def __init__(self, entity_id: str = None, entity_type: EntitiesEntityType = None):
+        """Entities
+
+        :param entity_id: The element's unique ID., defaults to None
+        :type entity_id: str, optional
+        :param entity_type: The type of Postman element., defaults to None
+        :type entity_type: EntitiesEntityType, optional
+        """
         if entity_id is not None:
             self.entity_id = entity_id
         if entity_type is not None:
@@ -58,6 +65,11 @@ class GetTaggedEntitiesData(BaseModel):
     """
 
     def __init__(self, entities: List[Entities]):
+        """An object containing the paginated elements.
+
+        :param entities: A list of the Postman elements that contain the given tag.
+        :type entities: List[Entities]
+        """
         self.entities = self._define_list(entities, Entities)
 
 
@@ -72,6 +84,13 @@ class GetTaggedEntitiesMeta(BaseModel):
     """
 
     def __init__(self, count: int, next_cursor: str = None):
+        """The response's pagination information.
+
+        :param count: The number of tagged elements returned in the response.
+        :type count: int
+        :param next_cursor: The pagination cursor that points to the next record in the results set., defaults to None
+        :type next_cursor: str, optional
+        """
         self.count = count
         if next_cursor is not None:
             self.next_cursor = next_cursor
@@ -90,6 +109,13 @@ class GetTaggedEntities(BaseModel):
     def __init__(
         self, data: GetTaggedEntitiesData = None, meta: GetTaggedEntitiesMeta = None
     ):
+        """GetTaggedEntities
+
+        :param data: An object containing the paginated elements., defaults to None
+        :type data: GetTaggedEntitiesData, optional
+        :param meta: The response's pagination information., defaults to None
+        :type meta: GetTaggedEntitiesMeta, optional
+        """
         if data is not None:
             self.data = self._define_object(data, GetTaggedEntitiesData)
         if meta is not None:

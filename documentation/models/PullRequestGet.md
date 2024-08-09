@@ -56,11 +56,7 @@ Information about the current progress of the pull request's merge.
 
 # MergeStatus
 
-The pull request's current merge status:
-
-- `inactive` — There is no merge in progress.
-- `inprogress` — The pull request is currently merging.
-- `failed` — The pull request's merge failed.
+The pull request's current merge status: - `inactive` — There is no merge in progress. - `inprogress` — The pull request is currently merging. - `failed` — The pull request's merge failed.
 
 **Properties**
 

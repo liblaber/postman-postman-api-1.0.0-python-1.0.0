@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({"resource_type": "resourceType", "last_modified": "lastModified"})
@@ -20,6 +20,15 @@ class ScimUpdateGroupMeta(BaseModel):
     def __init__(
         self, resource_type: str = None, created: str = None, last_modified: str = None
     ):
+        """The response's non-standard meta information.
+
+        :param resource_type: The resource type., defaults to None
+        :type resource_type: str, optional
+        :param created: The date and time at which the group was created., defaults to None
+        :type created: str, optional
+        :param last_modified: The date and time at which the group was last modified., defaults to None
+        :type last_modified: str, optional
+        """
         if resource_type is not None:
             self.resource_type = resource_type
         if created is not None:
@@ -52,6 +61,19 @@ class ScimUpdateGroupOkResponse(BaseModel):
         external_id: str = None,
         meta: ScimUpdateGroupMeta = None,
     ):
+        """ScimUpdateGroupOkResponse
+
+        :param schemas: The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml)., defaults to None
+        :type schemas: List[str], optional
+        :param id_: The group's ID., defaults to None
+        :type id_: str, optional
+        :param display_name: The group's name., defaults to None
+        :type display_name: str, optional
+        :param external_id: The group's external ID., defaults to None
+        :type external_id: str, optional
+        :param meta: The response's non-standard meta information., defaults to None
+        :type meta: ScimUpdateGroupMeta, optional
+        """
         if schemas is not None:
             self.schemas = schemas
         if id_ is not None:

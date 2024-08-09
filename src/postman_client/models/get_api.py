@@ -3,8 +3,8 @@
 from typing import Union
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
-from .base import OneOfBaseModel
+from .utils.base_model import BaseModel
+from .utils.one_of_base_model import OneOfBaseModel
 
 
 @JsonMap(
@@ -48,6 +48,25 @@ class GetApi1(BaseModel):
         updated_by: int = None,
         description: str = None,
     ):
+        """The API's base data schema.
+
+        :param id_: The API's ID., defaults to None
+        :type id_: str, optional
+        :param name: The API's name., defaults to None
+        :type name: str, optional
+        :param summary: The API's short summary., defaults to None
+        :type summary: str, optional
+        :param created_at: The date and time at which the API was created., defaults to None
+        :type created_at: str, optional
+        :param created_by: The Postman ID of the user that created the API., defaults to None
+        :type created_by: int, optional
+        :param updated_at: The date and time at which the API was updated., defaults to None
+        :type updated_at: str, optional
+        :param updated_by: The Postman ID of the user that updated the API., defaults to None
+        :type updated_by: int, optional
+        :param description: The API's description., defaults to None
+        :type description: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -90,8 +109,21 @@ class GitInfo(BaseModel):
         schema_folder: str = None,
         collection_folder: str = None,
     ):
+        """Information about the API's Git repository integration.
+
+        :param domain: The domain at which the Git repository is hosted., defaults to None
+        :type domain: str, optional
+        :param repository: The repository's name., defaults to None
+        :type repository: str, optional
+        :param organization: The organization that owns the repository., defaults to None
+        :type organization: str, optional
+        :param schema_folder: The API definition's repository folder location., defaults to None
+        :type schema_folder: str, optional
+        :param collection_folder: The API definition's collection repository folder location., defaults to None
+        :type collection_folder: str, optional
+        """
         if domain is not None:
-            self.domain = domain
+            self.domain = self._define_str("domain", domain, nullable=True)
         if repository is not None:
             self.repository = repository
         if organization is not None:
@@ -111,6 +143,11 @@ class GetApi2Schemas(BaseModel):
     """
 
     def __init__(self, id_: str = None):
+        """Information about the schema.
+
+        :param id_: The schema's ID., defaults to None
+        :type id_: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
 
@@ -126,6 +163,13 @@ class GetApi2Versions(BaseModel):
     """
 
     def __init__(self, id_: str = None, name: str = None):
+        """Information about the version.
+
+        :param id_: The version's ID., defaults to None
+        :type id_: str, optional
+        :param name: The version's name., defaults to None
+        :type name: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -141,6 +185,11 @@ class GetApi2Collections(BaseModel):
     """
 
     def __init__(self, id_: str = None):
+        """Information about the collection.
+
+        :param id_: The collection's ID., defaults to None
+        :type id_: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
 
@@ -199,6 +248,33 @@ class GetApi2(BaseModel):
         versions: List[GetApi2Versions] = None,
         collections: List[GetApi2Collections] = None,
     ):
+        """GetApi2
+
+        :param id_: The API's ID., defaults to None
+        :type id_: str, optional
+        :param name: The API's name., defaults to None
+        :type name: str, optional
+        :param summary: The API's short summary., defaults to None
+        :type summary: str, optional
+        :param created_at: The date and time at which the API was created., defaults to None
+        :type created_at: str, optional
+        :param created_by: The Postman ID of the user that created the API., defaults to None
+        :type created_by: int, optional
+        :param updated_at: The date and time at which the API was updated., defaults to None
+        :type updated_at: str, optional
+        :param updated_by: The Postman ID of the user that updated the API., defaults to None
+        :type updated_by: int, optional
+        :param description: The API's description., defaults to None
+        :type description: str, optional
+        :param git_info: Information about the API's Git repository integration., defaults to None
+        :type git_info: GitInfo, optional
+        :param schemas: The API's schemas., defaults to None
+        :type schemas: List[GetApi2Schemas], optional
+        :param versions: The API's versions., defaults to None
+        :type versions: List[GetApi2Versions], optional
+        :param collections: The API's collections., defaults to None
+        :type collections: List[GetApi2Collections], optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:

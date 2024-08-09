@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class DisplayName(Enum):
@@ -51,6 +51,17 @@ class UpdateWorkspaceRolesRoles2(BaseModel):
         usergroup: List[float] = None,
         display_name: DisplayName = None,
     ):
+        """UpdateWorkspaceRolesRoles2
+
+        :param id_: The role's ID., defaults to None
+        :type id_: int, optional
+        :param user: A list of user IDs assigned to the role., defaults to None
+        :type user: List[float], optional
+        :param usergroup: A list of user group IDs assigned to the role., defaults to None
+        :type usergroup: List[float], optional
+        :param display_name: The role's display name., defaults to None
+        :type display_name: DisplayName, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if user is not None:
@@ -72,5 +83,10 @@ class UpdateWorkspaceRolesOkResponse(BaseModel):
     """
 
     def __init__(self, roles: List[UpdateWorkspaceRolesRoles2] = None):
+        """UpdateWorkspaceRolesOkResponse
+
+        :param roles: roles, defaults to None
+        :type roles: List[UpdateWorkspaceRolesRoles2], optional
+        """
         if roles is not None:
             self.roles = self._define_list(roles, UpdateWorkspaceRolesRoles2)

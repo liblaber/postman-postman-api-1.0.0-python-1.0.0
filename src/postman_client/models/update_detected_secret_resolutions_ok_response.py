@@ -3,24 +3,24 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class HistoryResolution(Enum):
     """An enumeration representing different categories.
 
-    :cvar FALSE_POSITIVE: "FALSE_POSITIVE"
-    :vartype FALSE_POSITIVE: str
-    :cvar ACCEPTED_RISK: "ACCEPTED_RISK"
-    :vartype ACCEPTED_RISK: str
+    :cvar FALSEPOSITIVE: "FALSE_POSITIVE"
+    :vartype FALSEPOSITIVE: str
+    :cvar ACCEPTEDRISK: "ACCEPTED_RISK"
+    :vartype ACCEPTEDRISK: str
     :cvar REVOKED: "REVOKED"
     :vartype REVOKED: str
     :cvar ACTIVE: "ACTIVE"
     :vartype ACTIVE: str
     """
 
-    FALSE_POSITIVE = "FALSE_POSITIVE"
-    ACCEPTED_RISK = "ACCEPTED_RISK"
+    FALSEPOSITIVE = "FALSE_POSITIVE"
+    ACCEPTEDRISK = "ACCEPTED_RISK"
     REVOKED = "REVOKED"
     ACTIVE = "ACTIVE"
 
@@ -51,6 +51,15 @@ class History(BaseModel):
         created_at: str = None,
         resolution: HistoryResolution = None,
     ):
+        """History
+
+        :param actor: The ID of the user that updated the secret's resolution status., defaults to None
+        :type actor: float, optional
+        :param created_at: The date and time at which the resolution status was updated., defaults to None
+        :type created_at: str, optional
+        :param resolution: The secret's updated resolution status: - `ACTIVE` — The secret is active. - `FALSE_POSITIVE` — The discovered secret is not an actual secret. - `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue. - `ACCEPTED_RISK` — The Secret Scanner found the secret, but user accepts the risk of publishing it. , defaults to None
+        :type resolution: HistoryResolution, optional
+        """
         if actor is not None:
             self.actor = actor
         if created_at is not None:
@@ -64,18 +73,18 @@ class History(BaseModel):
 class UpdateSecretResolutionsResolution2(Enum):
     """An enumeration representing different categories.
 
-    :cvar FALSE_POSITIVE: "FALSE_POSITIVE"
-    :vartype FALSE_POSITIVE: str
-    :cvar ACCEPTED_RISK: "ACCEPTED_RISK"
-    :vartype ACCEPTED_RISK: str
+    :cvar FALSEPOSITIVE: "FALSE_POSITIVE"
+    :vartype FALSEPOSITIVE: str
+    :cvar ACCEPTEDRISK: "ACCEPTED_RISK"
+    :vartype ACCEPTEDRISK: str
     :cvar REVOKED: "REVOKED"
     :vartype REVOKED: str
     :cvar ACTIVE: "ACTIVE"
     :vartype ACTIVE: str
     """
 
-    FALSE_POSITIVE = "FALSE_POSITIVE"
-    ACCEPTED_RISK = "ACCEPTED_RISK"
+    FALSEPOSITIVE = "FALSE_POSITIVE"
+    ACCEPTEDRISK = "ACCEPTED_RISK"
     REVOKED = "REVOKED"
     ACTIVE = "ACTIVE"
 
@@ -114,6 +123,17 @@ class UpdateDetectedSecretResolutionsOkResponse(BaseModel):
         secret_hash: str = None,
         workspace_id: str = None,
     ):
+        """UpdateDetectedSecretResolutionsOkResponse
+
+        :param history: The history of the secret's resolution status changes., defaults to None
+        :type history: List[History], optional
+        :param resolution: The secret's current resolution status: - `ACTIVE` — The secret is active. - `FALSE_POSITIVE` — The discovered secret is not an actual secret. - `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue. - `ACCEPTED_RISK` — The Secret Scanner found the secret, but user accepts the risk of publishing it. , defaults to None
+        :type resolution: UpdateSecretResolutionsResolution2, optional
+        :param secret_hash: The SHA-256 hash of the detected secret., defaults to None
+        :type secret_hash: str, optional
+        :param workspace_id: The ID of the workspace that contains the secret., defaults to None
+        :type workspace_id: str, optional
+        """
         if history is not None:
             self.history = self._define_list(history, History)
         if resolution is not None:

@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -14,5 +14,10 @@ class TransferCollectionItems200Error(BaseModel):
     """
 
     def __init__(self, ids: List[str] = None):
+        """TransferCollectionItems200Error
+
+        :param ids: A list of the transferred collection request, response, or folder UIDs., defaults to None
+        :type ids: List[str], optional
+        """
         if ids is not None:
             self.ids = ids

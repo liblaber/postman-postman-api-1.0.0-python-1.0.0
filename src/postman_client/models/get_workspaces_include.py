@@ -6,11 +6,11 @@ from enum import Enum
 class GetWorkspacesInclude(Enum):
     """An enumeration representing different categories.
 
-    :cvar MOCKS_DEACTIVATED: "mocks:deactivated"
-    :vartype MOCKS_DEACTIVATED: str
+    :cvar MOCKSDEACTIVATED: "mocks:deactivated"
+    :vartype MOCKSDEACTIVATED: str
     """
 
-    MOCKS_DEACTIVATED = "mocks:deactivated"
+    MOCKSDEACTIVATED = "mocks:deactivated"
 
     def list():
         """Lists all category values.

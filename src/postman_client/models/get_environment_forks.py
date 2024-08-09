@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap(
@@ -37,6 +37,19 @@ class GetEnvironmentForksData(BaseModel):
         created_by: str = None,
         updated_at: str = None,
     ):
+        """Information about the forked environment.
+
+        :param fork_id: The forked environment's unique ID., defaults to None
+        :type fork_id: str, optional
+        :param fork_name: The forked environment's label., defaults to None
+        :type fork_name: str, optional
+        :param created_at: The date and time at which the fork was created., defaults to None
+        :type created_at: str, optional
+        :param created_by: The user who created the environment fork., defaults to None
+        :type created_by: str, optional
+        :param updated_at: The date and time at which the fork was last updated., defaults to None
+        :type updated_at: str, optional
+        """
         if fork_id is not None:
             self.fork_id = fork_id
         if fork_name is not None:
@@ -60,10 +73,19 @@ class GetEnvironmentForksMeta(BaseModel):
     """
 
     def __init__(self, total: float = None, next_cursor: str = None):
+        """The response's meta information for paginated results.
+
+        :param total: The total number of forked environments., defaults to None
+        :type total: float, optional
+        :param next_cursor: The pagination cursor that points to the next record in the results set., defaults to None
+        :type next_cursor: str, optional
+        """
         if total is not None:
             self.total = total
         if next_cursor is not None:
-            self.next_cursor = next_cursor
+            self.next_cursor = self._define_str(
+                "next_cursor", next_cursor, nullable=True
+            )
 
 
 @JsonMap({})
@@ -81,6 +103,13 @@ class GetEnvironmentForks(BaseModel):
         data: List[GetEnvironmentForksData] = None,
         meta: GetEnvironmentForksMeta = None,
     ):
+        """GetEnvironmentForks
+
+        :param data: A list of the environment's forks., defaults to None
+        :type data: List[GetEnvironmentForksData], optional
+        :param meta: The response's meta information for paginated results., defaults to None
+        :type meta: GetEnvironmentForksMeta, optional
+        """
         if data is not None:
             self.data = self._define_list(data, GetEnvironmentForksData)
         if meta is not None:

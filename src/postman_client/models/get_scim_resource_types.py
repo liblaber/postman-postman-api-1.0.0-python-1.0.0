@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -16,6 +16,13 @@ class SchemaExtensions(BaseModel):
     """
 
     def __init__(self, schema: str = None, required: bool = None):
+        """SchemaExtensions
+
+        :param schema: The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml)., defaults to None
+        :type schema: str, optional
+        :param required: If true, the resource must include this schema extension., defaults to None
+        :type required: bool, optional
+        """
         if schema is not None:
             self.schema = schema
         if required is not None:
@@ -52,6 +59,23 @@ class GetScimResourceTypes(BaseModel):
         schema: str = None,
         schema_extensions: List[SchemaExtensions] = None,
     ):
+        """GetScimResourceTypes
+
+        :param schemas: The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml)., defaults to None
+        :type schemas: List[str], optional
+        :param id_: The resource's ID., defaults to None
+        :type id_: str, optional
+        :param name: The resource's friendly name., defaults to None
+        :type name: str, optional
+        :param endpoint: The resource's endpoint., defaults to None
+        :type endpoint: str, optional
+        :param description: The resource's description., defaults to None
+        :type description: str, optional
+        :param schema: The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml)., defaults to None
+        :type schema: str, optional
+        :param schema_extensions: Information about the resource's schema extensions., defaults to None
+        :type schema_extensions: List[SchemaExtensions], optional
+        """
         if schemas is not None:
             self.schemas = schemas
         if id_ is not None:

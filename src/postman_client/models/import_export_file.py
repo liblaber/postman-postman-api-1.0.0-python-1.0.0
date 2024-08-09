@@ -2,7 +2,7 @@
 
 from enum import Enum
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class ImportExportFileType(Enum):
@@ -30,9 +30,16 @@ class ImportExportFile(BaseModel):
     :param type_: The `file` type value.
     :type type_: ImportExportFileType
     :param input: A file containing a valid user's export .zip file.
-    :type input: any
+    :type input: bytes
     """
 
-    def __init__(self, type_: ImportExportFileType, input: any):
+    def __init__(self, type_: ImportExportFileType, input: bytes):
+        """ImportExportFile
+
+        :param type_: The `file` type value.
+        :type type_: ImportExportFileType
+        :param input: A file containing a valid user's export .zip file.
+        :type input: bytes
+        """
         self.type_ = self._enum_matching(type_, ImportExportFileType.list(), "type_")
         self.input = input

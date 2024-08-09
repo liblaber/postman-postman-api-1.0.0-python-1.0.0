@@ -2,22 +2,13 @@
 
 A list of all methods in the `UserService` service. Click on the method name to view detailed information about that method.
 
-| Methods                                           | Description                                    |
-| :------------------------------------------------ | :--------------------------------------------- |
-| [get_authenticated_user](#get_authenticated_user) | Gets information about the authenticated user. |
-
-**Note:**
-
-This API returns a different response for users with the [Guest role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
-|
+| Methods                                           | Description                                                                                                                                                                                                                   |
+| :------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [get_authenticated_user](#get_authenticated_user) | Gets information about the authenticated user. **Note:** This API returns a different response for users with the [Guest role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles). |
 
 ## get_authenticated_user
 
-Gets information about the authenticated user.
-
-**Note:**
-
-This API returns a different response for users with the [Guest role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
+Gets information about the authenticated user. **Note:** This API returns a different response for users with the [Guest role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
 
 - HTTP Method: `GET`
 - Endpoint: `/me`
@@ -34,7 +25,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.user.get_authenticated_user()

@@ -2,7 +2,7 @@
 
 from enum import Enum
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -14,6 +14,11 @@ class RespondPanElementAddRequestResponse(BaseModel):
     """
 
     def __init__(self, message: str = None):
+        """The response to the user's request.
+
+        :param message: A message that details why the user's request was denied., defaults to None
+        :type message: str, optional
+        """
         if message is not None:
             self.message = message
 
@@ -59,6 +64,13 @@ class PrivateApiNetworkRespondPanElementAddRequestRequest1(BaseModel):
         status: RespondPanElementAddRequestStatus,
         response: RespondPanElementAddRequestResponse = None,
     ):
+        """PrivateApiNetworkRespondPanElementAddRequestRequest1
+
+        :param response: The response to the user's request., defaults to None
+        :type response: RespondPanElementAddRequestResponse, optional
+        :param status: The request's status.
+        :type status: RespondPanElementAddRequestStatus
+        """
         if response is not None:
             self.response = self._define_object(
                 response, RespondPanElementAddRequestResponse

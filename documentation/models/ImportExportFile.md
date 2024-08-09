@@ -5,7 +5,7 @@
 | Name   | Type                 | Required | Description                                        |
 | :----- | :------------------- | :------- | :------------------------------------------------- |
 | type\_ | ImportExportFileType | ✅       | The `file` type value.                             |
-| input  | any                  | ✅       | A file containing a valid user's export .zip file. |
+| input  | bytes                | ✅       | A file containing a valid user's export .zip file. |
 
 # ImportExportFileType
 

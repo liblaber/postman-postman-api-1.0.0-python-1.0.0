@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -14,6 +14,11 @@ class Patch(BaseModel):
     """
 
     def __init__(self, supported: bool = None):
+        """Information about patch configuration.
+
+        :param supported: If true, the feature is supported., defaults to None
+        :type supported: bool, optional
+        """
         if supported is not None:
             self.supported = supported
 
@@ -36,6 +41,15 @@ class Bulk(BaseModel):
         max_payload_size: float = None,
         supported: bool = None,
     ):
+        """Information about bulk configuration.
+
+        :param max_operations: The total number of maximum operations allowed for bulk operations., defaults to None
+        :type max_operations: float, optional
+        :param max_payload_size: The maximum payload allowed for bulk operations., defaults to None
+        :type max_payload_size: float, optional
+        :param supported: If true, the feature is supported., defaults to None
+        :type supported: bool, optional
+        """
         if max_operations is not None:
             self.max_operations = max_operations
         if max_payload_size is not None:
@@ -55,6 +69,13 @@ class Filter(BaseModel):
     """
 
     def __init__(self, max_results: float = None, supported: bool = None):
+        """Information about the filter configuration.
+
+        :param max_results: The total number of maximum results allowed for filter operations., defaults to None
+        :type max_results: float, optional
+        :param supported: If true, the feature is supported., defaults to None
+        :type supported: bool, optional
+        """
         if max_results is not None:
             self.max_results = max_results
         if supported is not None:
@@ -70,6 +91,11 @@ class ChangePassword(BaseModel):
     """
 
     def __init__(self, supported: bool = None):
+        """Information about the change password configuration.
+
+        :param supported: If true, the feature is supported., defaults to None
+        :type supported: bool, optional
+        """
         if supported is not None:
             self.supported = supported
 
@@ -83,6 +109,11 @@ class GetScimServiceProviderConfigSort(BaseModel):
     """
 
     def __init__(self, supported: bool = None):
+        """Information about the sort configuration.
+
+        :param supported: If true, the feature is supported., defaults to None
+        :type supported: bool, optional
+        """
         if supported is not None:
             self.supported = supported
 
@@ -108,6 +139,17 @@ class AuthenticationSchemes(BaseModel):
         spec_uri: str = None,
         type_: str = None,
     ):
+        """Information about the scheme.
+
+        :param description: The scheme's description., defaults to None
+        :type description: str, optional
+        :param name: The scheme's friendly name., defaults to None
+        :type name: str, optional
+        :param spec_uri: A link to the scheme's specification documentation., defaults to None
+        :type spec_uri: str, optional
+        :param type_: The scheme's type., defaults to None
+        :type type_: str, optional
+        """
         if description is not None:
             self.description = description
         if name is not None:
@@ -127,6 +169,11 @@ class Etag(BaseModel):
     """
 
     def __init__(self, supported: bool = None):
+        """Information about the [entity tag](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) (Etag) HTTP response header configuration.
+
+        :param supported: If true, the feature is supported., defaults to None
+        :type supported: bool, optional
+        """
         if supported is not None:
             self.supported = supported
 
@@ -142,6 +189,13 @@ class GetScimServiceProviderConfigMeta(BaseModel):
     """
 
     def __init__(self, resource_type: str = None, location: str = None):
+        """The response's non-standard meta information.
+
+        :param resource_type: resource_type, defaults to None
+        :type resource_type: str, optional
+        :param location: location, defaults to None
+        :type location: str, optional
+        """
         if resource_type is not None:
             self.resource_type = resource_type
         if location is not None:
@@ -193,6 +247,29 @@ class GetScimServiceProviderConfig(BaseModel):
         etag: Etag = None,
         meta: GetScimServiceProviderConfigMeta = None,
     ):
+        """Information about Postman's SCIM API configurations and supported operations.
+
+        :param schemas: The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml)., defaults to None
+        :type schemas: List[str], optional
+        :param documentation_uri: A link to the URI's documentation., defaults to None
+        :type documentation_uri: str, optional
+        :param patch: Information about patch configuration., defaults to None
+        :type patch: Patch, optional
+        :param bulk: Information about bulk configuration., defaults to None
+        :type bulk: Bulk, optional
+        :param filter: Information about the filter configuration., defaults to None
+        :type filter: Filter, optional
+        :param change_password: Information about the change password configuration., defaults to None
+        :type change_password: ChangePassword, optional
+        :param sort: Information about the sort configuration., defaults to None
+        :type sort: GetScimServiceProviderConfigSort, optional
+        :param authentication_schemes: A list of authentication schemes., defaults to None
+        :type authentication_schemes: List[AuthenticationSchemes], optional
+        :param etag: Information about the [entity tag](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) (Etag) HTTP response header configuration., defaults to None
+        :type etag: Etag, optional
+        :param meta: The response's non-standard meta information., defaults to None
+        :type meta: GetScimServiceProviderConfigMeta, optional
+        """
         if schemas is not None:
             self.schemas = schemas
         if documentation_uri is not None:

@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -17,6 +17,13 @@ class ServerResponseHeaders2(BaseModel):
     """
 
     def __init__(self, key: str = None, value: str = None):
+        """Information about they key-value pair.
+
+        :param key: The request header's key value., defaults to None
+        :type key: str, optional
+        :param value: The request header's value., defaults to None
+        :type value: str, optional
+        """
         if key is not None:
             self.key = key
         if value is not None:
@@ -79,6 +86,19 @@ class UpdateMockServerResponseServerResponse(BaseModel):
         language: ServerResponseLanguage2 = None,
         body: str = None,
     ):
+        """UpdateMockServerResponseServerResponse
+
+        :param name: The server response's name., defaults to None
+        :type name: str, optional
+        :param status_code: The server response's 5xx HTTP response code. This property only accepts 5xx values., defaults to None
+        :type status_code: int, optional
+        :param headers: The server response's request headers, such as Content-Type, Accept, encoding, and other information., defaults to None
+        :type headers: List[ServerResponseHeaders2], optional
+        :param language: The server response's body language type., defaults to None
+        :type language: ServerResponseLanguage2, optional
+        :param body: The server response's body that returns when calling the mock server., defaults to None
+        :type body: str, optional
+        """
         if name is not None:
             self.name = name
         if status_code is not None:
@@ -102,6 +122,11 @@ class UpdateMockServerResponse(BaseModel):
     """
 
     def __init__(self, server_response: UpdateMockServerResponseServerResponse = None):
+        """UpdateMockServerResponse
+
+        :param server_response: server_response, defaults to None
+        :type server_response: UpdateMockServerResponseServerResponse, optional
+        """
         if server_response is not None:
             self.server_response = self._define_object(
                 server_response, UpdateMockServerResponseServerResponse
