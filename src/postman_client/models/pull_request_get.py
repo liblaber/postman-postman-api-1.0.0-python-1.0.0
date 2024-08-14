@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({"id_": "id", "fork_name": "forkName"})
@@ -27,6 +27,17 @@ class Source(BaseModel):
         fork_name: str = None,
         exists: bool = None,
     ):
+        """Information about the pull request's source (parent) element.
+
+        :param id_: The pull request's source ID., defaults to None
+        :type id_: str, optional
+        :param name: The source element's name., defaults to None
+        :type name: str, optional
+        :param fork_name: The name of the fork created from the source element., defaults to None
+        :type fork_name: str, optional
+        :param exists: If true, whether the element is present and not deleted., defaults to None
+        :type exists: bool, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -50,6 +61,15 @@ class Destination(BaseModel):
     """
 
     def __init__(self, id_: str = None, name: str = None, exists: bool = None):
+        """Information about the pull request destination element.
+
+        :param id_: The destination element's ID., defaults to None
+        :type id_: str, optional
+        :param name: The destination element's name., defaults to None
+        :type name: str, optional
+        :param exists: If true, whether the element is present and not deleted., defaults to None
+        :type exists: bool, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -91,6 +111,11 @@ class Merge(BaseModel):
     """
 
     def __init__(self, status: MergeStatus = None):
+        """Information about the current progress of the pull request's merge.
+
+        :param status: The pull request's current merge status: - `inactive` — There is no merge in progress. - `inprogress` — The pull request is currently merging. - `failed` — The pull request's merge failed. , defaults to None
+        :type status: MergeStatus, optional
+        """
         if status is not None:
             self.status = self._enum_matching(status, MergeStatus.list(), "status")
 
@@ -106,6 +131,13 @@ class Reviewers(BaseModel):
     """
 
     def __init__(self, id_: str = None, status: str = None):
+        """Reviewers
+
+        :param id_: The reviewer's user ID., defaults to None
+        :type id_: str, optional
+        :param status: The reviewer's review status response. One of: - `approved` - `declined` , defaults to None
+        :type status: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if status is not None:
@@ -172,6 +204,37 @@ class PullRequestGet(BaseModel):
         merge: Merge = None,
         reviewers: List[Reviewers] = None,
     ):
+        """PullRequestGet
+
+        :param created_at: The date and time at which the pull request was created., defaults to None
+        :type created_at: str, optional
+        :param updated_at: The date and time at which the pull request was updated., defaults to None
+        :type updated_at: str, optional
+        :param id_: The pull request's ID., defaults to None
+        :type id_: str, optional
+        :param title: The pull request's title., defaults to None
+        :type title: str, optional
+        :param description: The pull request's description., defaults to None
+        :type description: str, optional
+        :param created_by: The ID of the user who created the pull request., defaults to None
+        :type created_by: str, optional
+        :param updated_by: The ID of the user who last updated the pull request., defaults to None
+        :type updated_by: str, optional
+        :param comment: If the pull request is a `decline` status, an optoinal comment about why the pull request was declined., defaults to None
+        :type comment: str, optional
+        :param fortk_type: The type of element the pull request was forked from., defaults to None
+        :type fortk_type: str, optional
+        :param source: Information about the pull request's source (parent) element., defaults to None
+        :type source: Source, optional
+        :param destination: Information about the pull request destination element., defaults to None
+        :type destination: Destination, optional
+        :param status: The pull request's current review status: - `open` — The pull request is still open. - `approved` — The pull request was approved by its reviewers. - `declined` — The pull request was not approved by its reviewers. , defaults to None
+        :type status: str, optional
+        :param merge: Information about the current progress of the pull request's merge., defaults to None
+        :type merge: Merge, optional
+        :param reviewers: Information about the reviewers assigned to the pull request., defaults to None
+        :type reviewers: List[Reviewers], optional
+        """
         if created_at is not None:
             self.created_at = created_at
         if updated_at is not None:

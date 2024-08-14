@@ -2,7 +2,7 @@
 
 from enum import Enum
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class UserNameType(Enum):
@@ -34,6 +34,13 @@ class UserName(BaseModel):
     """
 
     def __init__(self, type_: UserNameType, id_: int):
+        """An object that contains information about the tagged user. The object's name is the user's Postman username. For example, `@user-postman`.
+
+        :param type_: The `user` value.
+        :type type_: UserNameType
+        :param id_: The user's ID.
+        :type id_: int
+        """
         self.type_ = self._enum_matching(type_, UserNameType.list(), "type_")
         self.id_ = id_
 
@@ -47,6 +54,11 @@ class CommentCreateUpdateTags(BaseModel):
     """
 
     def __init__(self, user_name: UserName = None):
+        """Information about users tagged in the `body` comment.
+
+        :param user_name: An object that contains information about the tagged user. The object's name is the user's Postman username. For example, `@user-postman`., defaults to None
+        :type user_name: UserName, optional
+        """
         if user_name is not None:
             self.user_name = self._define_object(user_name, UserName)
 
@@ -62,6 +74,13 @@ class CommentCreateUpdate(BaseModel):
     """
 
     def __init__(self, body: str, tags: CommentCreateUpdateTags = None):
+        """Information about the comment.
+
+        :param body: The contents of the comment.
+        :type body: str
+        :param tags: Information about users tagged in the `body` comment., defaults to None
+        :type tags: CommentCreateUpdateTags, optional
+        """
         self.body = body
         if tags is not None:
             self.tags = self._define_object(tags, CommentCreateUpdateTags)

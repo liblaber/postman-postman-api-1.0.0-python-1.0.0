@@ -3,50 +3,50 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class CreateApiSchemaType2(Enum):
     """An enumeration representing different categories.
 
-    :cvar PROTO_2: "proto:2"
-    :vartype PROTO_2: str
-    :cvar PROTO_3: "proto:3"
-    :vartype PROTO_3: str
+    :cvar PROTO2: "proto:2"
+    :vartype PROTO2: str
+    :cvar PROTO3: "proto:3"
+    :vartype PROTO3: str
     :cvar GRAPHQL: "graphql"
     :vartype GRAPHQL: str
-    :cvar OPENAPI_3_1: "openapi:3_1"
-    :vartype OPENAPI_3_1: str
-    :cvar OPENAPI_3: "openapi:3"
-    :vartype OPENAPI_3: str
-    :cvar OPENAPI_2: "openapi:2"
-    :vartype OPENAPI_2: str
-    :cvar OPENAPI_1: "openapi:1"
-    :vartype OPENAPI_1: str
-    :cvar RAML_1: "raml:1"
-    :vartype RAML_1: str
-    :cvar RAML_0_8: "raml:0_8"
-    :vartype RAML_0_8: str
-    :cvar WSDL_2: "wsdl:2"
-    :vartype WSDL_2: str
-    :cvar WSDL_1: "wsdl:1"
-    :vartype WSDL_1: str
-    :cvar ASYNCAPI_2: "asyncapi:2"
-    :vartype ASYNCAPI_2: str
+    :cvar OPENAPI3_1: "openapi:3_1"
+    :vartype OPENAPI3_1: str
+    :cvar OPENAPI3: "openapi:3"
+    :vartype OPENAPI3: str
+    :cvar OPENAPI2: "openapi:2"
+    :vartype OPENAPI2: str
+    :cvar OPENAPI1: "openapi:1"
+    :vartype OPENAPI1: str
+    :cvar RAML1: "raml:1"
+    :vartype RAML1: str
+    :cvar RAML0_8: "raml:0_8"
+    :vartype RAML0_8: str
+    :cvar WSDL2: "wsdl:2"
+    :vartype WSDL2: str
+    :cvar WSDL1: "wsdl:1"
+    :vartype WSDL1: str
+    :cvar ASYNCAPI2: "asyncapi:2"
+    :vartype ASYNCAPI2: str
     """
 
-    PROTO_2 = "proto:2"
-    PROTO_3 = "proto:3"
+    PROTO2 = "proto:2"
+    PROTO3 = "proto:3"
     GRAPHQL = "graphql"
-    OPENAPI_3_1 = "openapi:3_1"
-    OPENAPI_3 = "openapi:3"
-    OPENAPI_2 = "openapi:2"
-    OPENAPI_1 = "openapi:1"
-    RAML_1 = "raml:1"
-    RAML_0_8 = "raml:0_8"
-    WSDL_2 = "wsdl:2"
-    WSDL_1 = "wsdl:1"
-    ASYNCAPI_2 = "asyncapi:2"
+    OPENAPI3_1 = "openapi:3_1"
+    OPENAPI3 = "openapi:3"
+    OPENAPI2 = "openapi:2"
+    OPENAPI1 = "openapi:1"
+    RAML1 = "raml:1"
+    RAML0_8 = "raml:0_8"
+    WSDL2 = "wsdl:2"
+    WSDL1 = "wsdl:1"
+    ASYNCAPI2 = "asyncapi:2"
 
     def list():
         """Lists all category values.
@@ -95,6 +95,23 @@ class CreateApiSchemaFiles2(BaseModel):
         updated_at: str = None,
         updated_by: str = None,
     ):
+        """Information about the schema file.
+
+        :param id_: The schema file's ID., defaults to None
+        :type id_: str, optional
+        :param name: The schema file's name., defaults to None
+        :type name: str, optional
+        :param path: The file system path to the schema file., defaults to None
+        :type path: str, optional
+        :param created_at: The date and time at which the file was created., defaults to None
+        :type created_at: str, optional
+        :param created_by: The user ID of the user that created the file., defaults to None
+        :type created_by: str, optional
+        :param updated_at: The date and time at which the file was last updated., defaults to None
+        :type updated_at: str, optional
+        :param updated_by: The user ID of the user that last updated the file., defaults to None
+        :type updated_by: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -150,6 +167,23 @@ class CreateApiSchemaOkResponse(BaseModel):
         updated_at: str = None,
         updated_by: str = None,
     ):
+        """Information about the created API schema.
+
+        :param id_: The schema's ID., defaults to None
+        :type id_: str, optional
+        :param type_: The schema's type., defaults to None
+        :type type_: CreateApiSchemaType2, optional
+        :param files: The list of the schema's files., defaults to None
+        :type files: List[CreateApiSchemaFiles2], optional
+        :param created_at: The date and time at which the schema was created., defaults to None
+        :type created_at: str, optional
+        :param created_by: The user ID of the user that created the schema., defaults to None
+        :type created_by: str, optional
+        :param updated_at: The date and time at which the schema was last updated., defaults to None
+        :type updated_at: str, optional
+        :param updated_by: The user ID of the user that updated the schema., defaults to None
+        :type updated_by: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if type_ is not None:

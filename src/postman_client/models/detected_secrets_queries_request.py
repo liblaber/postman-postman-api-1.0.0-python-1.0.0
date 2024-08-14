@@ -3,22 +3,22 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class Statuses(Enum):
     """An enumeration representing different categories.
 
-    :cvar FALSE_POSITIVE: "FALSE_POSITIVE"
-    :vartype FALSE_POSITIVE: str
-    :cvar ACCEPTED_RISK: "ACCEPTED_RISK"
-    :vartype ACCEPTED_RISK: str
+    :cvar FALSEPOSITIVE: "FALSE_POSITIVE"
+    :vartype FALSEPOSITIVE: str
+    :cvar ACCEPTEDRISK: "ACCEPTED_RISK"
+    :vartype ACCEPTEDRISK: str
     :cvar REVOKED: "REVOKED"
     :vartype REVOKED: str
     """
 
-    FALSE_POSITIVE = "FALSE_POSITIVE"
-    ACCEPTED_RISK = "ACCEPTED_RISK"
+    FALSEPOSITIVE = "FALSE_POSITIVE"
+    ACCEPTEDRISK = "ACCEPTED_RISK"
     REVOKED = "REVOKED"
 
     def list():
@@ -81,6 +81,19 @@ class DetectedSecretsQueriesRequest(BaseModel):
         workspace_ids: List[str] = None,
         workspace_visiblities: List[WorkspaceVisiblities] = None,
     ):
+        """DetectedSecretsQueriesRequest
+
+        :param resolved: If true, return secrets with a `resolved` status., defaults to None
+        :type resolved: bool, optional
+        :param secret_types: A list of secrets types to query. For a list of valid IDs, use the GET `/secret-types` endpoint., defaults to None
+        :type secret_types: List[str], optional
+        :param statuses: A list of the types of resolution statuses to query., defaults to None
+        :type statuses: List[Statuses], optional
+        :param workspace_ids: A list of workspaces IDs to query., defaults to None
+        :type workspace_ids: List[str], optional
+        :param workspace_visiblities: A list of workspace [visibility settings](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility) to query. This currently supports the `team` and `public` settings., defaults to None
+        :type workspace_visiblities: List[WorkspaceVisiblities], optional
+        """
         if resolved is not None:
             self.resolved = resolved
         if secret_types is not None:

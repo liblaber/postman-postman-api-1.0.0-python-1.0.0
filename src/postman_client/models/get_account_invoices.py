@@ -3,7 +3,7 @@
 from __future__ import annotations
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 from .invoice_data import InvoiceData
 
 
@@ -16,4 +16,9 @@ class GetAccountInvoices(BaseModel):
     """
 
     def __init__(self, data: List[InvoiceData]):
+        """GetAccountInvoices
+
+        :param data: data
+        :type data: List[InvoiceData]
+        """
         self.data = self._define_list(data, InvoiceData)

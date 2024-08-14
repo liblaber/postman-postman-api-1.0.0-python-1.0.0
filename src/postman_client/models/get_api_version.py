@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({"id_": "id", "type_": "type"})
@@ -16,6 +16,13 @@ class VersionSchemas(BaseModel):
     """
 
     def __init__(self, id_: str = None, type_: str = None):
+        """VersionSchemas
+
+        :param id_: The schema's ID., defaults to None
+        :type id_: str, optional
+        :param type_: The schema type., defaults to None
+        :type type_: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if type_ is not None:
@@ -33,6 +40,13 @@ class VersionCollections(BaseModel):
     """
 
     def __init__(self, id_: str = None, type_: str = None):
+        """VersionCollections
+
+        :param id_: The collection's ID., defaults to None
+        :type id_: str, optional
+        :param type_: The collection's name., defaults to None
+        :type type_: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if type_ is not None:
@@ -76,6 +90,23 @@ class Version(BaseModel):
         schemas: List[VersionSchemas] = None,
         collections: List[VersionCollections] = None,
     ):
+        """Information about the API version.
+
+        :param id_: The version's ID., defaults to None
+        :type id_: str, optional
+        :param name: The version's name., defaults to None
+        :type name: str, optional
+        :param created_at: The date and time at which the version was created., defaults to None
+        :type created_at: str, optional
+        :param updated_at: The date and time at which the version was last updated., defaults to None
+        :type updated_at: str, optional
+        :param release_notes: The version's release notes., defaults to None
+        :type release_notes: str, optional
+        :param schemas: schemas, defaults to None
+        :type schemas: List[VersionSchemas], optional
+        :param collections: collections, defaults to None
+        :type collections: List[VersionCollections], optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -101,5 +132,10 @@ class GetApiVersion(BaseModel):
     """
 
     def __init__(self, version: Version = None):
+        """GetApiVersion
+
+        :param version: Information about the API version., defaults to None
+        :type version: Version, optional
+        """
         if version is not None:
             self.version = self._define_object(version, Version)

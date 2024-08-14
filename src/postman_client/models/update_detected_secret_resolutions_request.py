@@ -2,23 +2,23 @@
 
 from enum import Enum
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class UpdateSecretResolutionsResolution1(Enum):
     """An enumeration representing different categories.
 
-    :cvar FALSE_POSITIVE: "FALSE_POSITIVE"
-    :vartype FALSE_POSITIVE: str
+    :cvar FALSEPOSITIVE: "FALSE_POSITIVE"
+    :vartype FALSEPOSITIVE: str
     :cvar REVOKED: "REVOKED"
     :vartype REVOKED: str
-    :cvar ACCEPTED_RISK: "ACCEPTED_RISK"
-    :vartype ACCEPTED_RISK: str
+    :cvar ACCEPTEDRISK: "ACCEPTED_RISK"
+    :vartype ACCEPTEDRISK: str
     """
 
-    FALSE_POSITIVE = "FALSE_POSITIVE"
+    FALSEPOSITIVE = "FALSE_POSITIVE"
     REVOKED = "REVOKED"
-    ACCEPTED_RISK = "ACCEPTED_RISK"
+    ACCEPTEDRISK = "ACCEPTED_RISK"
 
     def list():
         """Lists all category values.
@@ -47,6 +47,13 @@ class UpdateDetectedSecretResolutionsRequest(BaseModel):
     def __init__(
         self, resolution: UpdateSecretResolutionsResolution1, workspace_id: str
     ):
+        """UpdateDetectedSecretResolutionsRequest
+
+        :param resolution: The secret's updated resolution status: - `FALSE_POSITIVE` — The discovered secret is not an actual secret. - `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue. - `ACCEPTED_RISK` — The Secret Scanner found the secret, but user accepts the risk of publishing it.
+        :type resolution: UpdateSecretResolutionsResolution1
+        :param workspace_id: The ID of the workspace that contains the secret.
+        :type workspace_id: str
+        """
         self.resolution = self._enum_matching(
             resolution, UpdateSecretResolutionsResolution1.list(), "resolution"
         )

@@ -2,53 +2,25 @@
 
 A list of all methods in the `MocksService` service. Click on the method name to view detailed information about that method.
 
-| Methods                 | Description                                                                                                   |
-| :---------------------- | :------------------------------------------------------------------------------------------------------------ |
-| [get_mocks](#get_mocks) | Gets all mock servers. By default, this endpoint returns only mock servers you created across all workspaces. |
-
-**Note:**
-
-If you pass both the `teamId` and `workspace` query parameters, this endpoint only accepts the `workspace` query.
-|
-|[create_mock](#create_mock)| Creates a mock server in a collection.
-
-**Note:**
-
-- If you do not include the `workspaceId` query parameter, the system creates the mock server in your [Personal
-  workspace](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/).
-- You cannot create mocks for collections added to an API definition.
-  |
-  |[get_mock](#get_mock)| Gets information about a mock server. |
-  |[update_mock](#update_mock)| Updates a mock server. |
-  |[delete_mock](#delete_mock)| Deletes a mock server. |
-  |[get_mock_call_logs](#get_mock_call_logs)| Gets a mock server's call logs. You can get a maximum of 6.5MB of call logs or a total of 100 call logs, whichever limit is met first in one API call.
-
-Call logs contain exchanged request and response data made to mock servers. The logs provide visibility into how the mock servers are being used. You can log data to debug, test, analyze, and more, depending upon the use case.
-|
-|[publish_mock](#publish_mock)| Publishes a mock server. Publishing a mock server sets its **Access Control** configuration setting to public. |
-|[unpublish_mock](#unpublish_mock)| Unpublishes a mock server. Unpublishing a mock server sets its **Access Control** configuration setting to private. |
-|[get_mock_server_responses](#get_mock_server_responses)| Gets all of a mock server's server responses. |
-|[create_mock_server_response](#create_mock_server_response)| Creates a server response. Server responses let you simulate 5xx server-level responses, such as 500 or 503.
-
-Server-level responses are agnostic to application-level logic. Server responses let you simulate this behavior on a mock server. You do not need to define each error for all exposed paths on the mock server.
-
-If you set a server response as active, then all the calls to the mock server return with that active server response.
-
-**Note:**
-
-You can create multiple server responses for a mock server, but only one mock server can be set as active.
-|
-|[get_mock_server_response](#get_mock_server_response)| Gets information about a server response. |
-|[update_mock_server_response](#update_mock_server_response)| Updates a server response. |
-|[delete_mock_server_response](#delete_mock_server_response)| Deletes a mock server's server response. |
+| Methods                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| :---------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [get_mocks](#get_mocks)                                     | Gets all mock servers. By default, this endpoint returns only mock servers you created across all workspaces. **Note:** If you pass both the `teamId` and `workspace` query parameters, this endpoint only accepts the `workspace` query.                                                                                                                                                                                                                                                                                                                                 |
+| [create_mock](#create_mock)                                 | Creates a mock server in a collection. **Note:** - If you do not include the `workspaceId` query parameter, the system creates the mock server in your [Personal workspace](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/). - You cannot create mocks for collections added to an API definition.                                                                                                                                                                                                                      |
+| [get_mock](#get_mock)                                       | Gets information about a mock server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| [update_mock](#update_mock)                                 | Updates a mock server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| [delete_mock](#delete_mock)                                 | Deletes a mock server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| [get_mock_call_logs](#get_mock_call_logs)                   | Gets a mock server's call logs. You can get a maximum of 6.5MB of call logs or a total of 100 call logs, whichever limit is met first in one API call. Call logs contain exchanged request and response data made to mock servers. The logs provide visibility into how the mock servers are being used. You can log data to debug, test, analyze, and more, depending upon the use case.                                                                                                                                                                                 |
+| [publish_mock](#publish_mock)                               | Publishes a mock server. Publishing a mock server sets its **Access Control** configuration setting to public.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| [unpublish_mock](#unpublish_mock)                           | Unpublishes a mock server. Unpublishing a mock server sets its **Access Control** configuration setting to private.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| [get_mock_server_responses](#get_mock_server_responses)     | Gets all of a mock server's server responses.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| [create_mock_server_response](#create_mock_server_response) | Creates a server response. Server responses let you simulate 5xx server-level responses, such as 500 or 503. Server-level responses are agnostic to application-level logic. Server responses let you simulate this behavior on a mock server. You do not need to define each error for all exposed paths on the mock server. If you set a server response as active, then all the calls to the mock server return with that active server response. **Note:** You can create multiple server responses for a mock server, but only one mock server can be set as active. |
+| [get_mock_server_response](#get_mock_server_response)       | Gets information about a server response.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| [update_mock_server_response](#update_mock_server_response) | Updates a server response.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| [delete_mock_server_response](#delete_mock_server_response) | Deletes a mock server's server response.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ## get_mocks
 
-Gets all mock servers. By default, this endpoint returns only mock servers you created across all workspaces.
-
-**Note:**
-
-If you pass both the `teamId` and `workspace` query parameters, this endpoint only accepts the `workspace` query.
+Gets all mock servers. By default, this endpoint returns only mock servers you created across all workspaces. **Note:** If you pass both the `teamId` and `workspace` query parameters, this endpoint only accepts the `workspace` query.
 
 - HTTP Method: `GET`
 - Endpoint: `/mocks`
@@ -72,7 +44,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.mocks.get_mocks(
@@ -85,13 +58,7 @@ print(result)
 
 ## create_mock
 
-Creates a mock server in a collection.
-
-**Note:**
-
-- If you do not include the `workspaceId` query parameter, the system creates the mock server in your [Personal
-  workspace](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/).
-- You cannot create mocks for collections added to an API definition.
+Creates a mock server in a collection. **Note:** - If you do not include the `workspaceId` query parameter, the system creates the mock server in your [Personal workspace](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/). - You cannot create mocks for collections added to an API definition.
 
 - HTTP Method: `POST`
 - Endpoint: `/mocks`
@@ -116,7 +83,8 @@ from postman_client.models import CreateMock
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CreateMock(
@@ -161,7 +129,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.mocks.get_mock(mock_id="e3d951bf-873f-49ac-a658-b2dcb91d3289")
@@ -196,7 +165,8 @@ from postman_client.models import UpdateMock
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = UpdateMock(
@@ -245,7 +215,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.mocks.delete_mock(mock_id="e3d951bf-873f-49ac-a658-b2dcb91d3289")
@@ -255,9 +226,7 @@ print(result)
 
 ## get_mock_call_logs
 
-Gets a mock server's call logs. You can get a maximum of 6.5MB of call logs or a total of 100 call logs, whichever limit is met first in one API call.
-
-Call logs contain exchanged request and response data made to mock servers. The logs provide visibility into how the mock servers are being used. You can log data to debug, test, analyze, and more, depending upon the use case.
+Gets a mock server's call logs. You can get a maximum of 6.5MB of call logs or a total of 100 call logs, whichever limit is met first in one API call. Call logs contain exchanged request and response data made to mock servers. The logs provide visibility into how the mock servers are being used. You can log data to debug, test, analyze, and more, depending upon the use case.
 
 - HTTP Method: `GET`
 - Endpoint: `/mocks/{mockId}/call-logs`
@@ -292,7 +261,8 @@ from postman_client.models import GetMockCallLogsSort, AscDesc
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.mocks.get_mock_call_logs(
@@ -338,7 +308,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.mocks.publish_mock(mock_id="e3d951bf-873f-49ac-a658-b2dcb91d3289")
@@ -371,7 +342,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.mocks.unpublish_mock(mock_id="e3d951bf-873f-49ac-a658-b2dcb91d3289")
@@ -404,7 +376,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.mocks.get_mock_server_responses(mock_id="e3d951bf-873f-49ac-a658-b2dcb91d3289")
@@ -414,15 +387,7 @@ print(result)
 
 ## create_mock_server_response
 
-Creates a server response. Server responses let you simulate 5xx server-level responses, such as 500 or 503.
-
-Server-level responses are agnostic to application-level logic. Server responses let you simulate this behavior on a mock server. You do not need to define each error for all exposed paths on the mock server.
-
-If you set a server response as active, then all the calls to the mock server return with that active server response.
-
-**Note:**
-
-You can create multiple server responses for a mock server, but only one mock server can be set as active.
+Creates a server response. Server responses let you simulate 5xx server-level responses, such as 500 or 503. Server-level responses are agnostic to application-level logic. Server responses let you simulate this behavior on a mock server. You do not need to define each error for all exposed paths on the mock server. If you set a server response as active, then all the calls to the mock server return with that active server response. **Note:** You can create multiple server responses for a mock server, but only one mock server can be set as active.
 
 - HTTP Method: `POST`
 - Endpoint: `/mocks/{mockId}/server-responses`
@@ -447,7 +412,8 @@ from postman_client.models import CreateMockServerResponse
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CreateMockServerResponse(
@@ -499,7 +465,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.mocks.get_mock_server_response(
@@ -538,7 +505,8 @@ from postman_client.models import UpdateMockServerResponse
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = UpdateMockServerResponse(
@@ -591,7 +559,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.mocks.delete_mock_server_response(

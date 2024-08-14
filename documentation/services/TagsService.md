@@ -2,20 +2,15 @@
 
 A list of all methods in the `TagsService` service. Click on the method name to view detailed information about that method.
 
-| Methods                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| :------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [get_api_tags](#get_api_tags)                     | Gets all the tags associated with an API.                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| [update_api_tags](#update_api_tags)               | Updates an API's associated tags. This endpoint replaces all existing tags with those you pass in the request body.                                                                                                                                                                                                                                                                                                                                                     |
-| [get_collection_tags](#get_collection_tags)       | Gets all the tags associated with a collection.                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| [update_collection_tags](#update_collection_tags) | Updates a collection's associated tags. This endpoint replaces all existing tags with those you pass in the request body.                                                                                                                                                                                                                                                                                                                                               |
-| [get_tagged_entities](#get_tagged_entities)       | Gets Postman elements (entities) by a given tag. Tags enable you to organize and search [workspaces](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#tagging-a-workspace), [APIs](https://learning.postman.com/docs/designing-and-developing-your-api/managing-apis/#tagging-apis), and [collections](https://learning.postman.com/docs/collections/using-collections/#tagging-a-collection) that contain shared tags. |
-
-**Note:**
-
-Tagging is available on Postman [**Enterprise** plans](https://www.postman.com/pricing/).
-|
-|[get_workspace_tags](#get_workspace_tags)| Gets all the tags associated with a workspace. |
-|[update_workspace_tags](#update_workspace_tags)| Updates a workspace's associated tags. This endpoint replaces all existing tags with those you pass in the request body. |
+| Methods                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| :------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [get_api_tags](#get_api_tags)                     | Gets all the tags associated with an API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| [update_api_tags](#update_api_tags)               | Updates an API's associated tags. This endpoint replaces all existing tags with those you pass in the request body.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| [get_collection_tags](#get_collection_tags)       | Gets all the tags associated with a collection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| [update_collection_tags](#update_collection_tags) | Updates a collection's associated tags. This endpoint replaces all existing tags with those you pass in the request body.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| [get_tagged_entities](#get_tagged_entities)       | Gets Postman elements (entities) by a given tag. Tags enable you to organize and search [workspaces](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#tagging-a-workspace), [APIs](https://learning.postman.com/docs/designing-and-developing-your-api/managing-apis/#tagging-apis), and [collections](https://learning.postman.com/docs/collections/using-collections/#tagging-a-collection) that contain shared tags. **Note:** Tagging is available on Postman [**Enterprise** plans](https://www.postman.com/pricing/). |
+| [get_workspace_tags](#get_workspace_tags)         | Gets all the tags associated with a workspace.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| [update_workspace_tags](#update_workspace_tags)   | Updates a workspace's associated tags. This endpoint replaces all existing tags with those you pass in the request body.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 ## get_api_tags
 
@@ -44,7 +39,8 @@ from postman_client.models import Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.tags.get_api_tags(
@@ -83,7 +79,8 @@ from postman_client.models import TagUpdateTags, Accept
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = TagUpdateTags(
@@ -128,7 +125,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.tags.get_collection_tags(collection_id="12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2")
@@ -163,7 +161,8 @@ from postman_client.models import TagUpdateTags
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = TagUpdateTags(
@@ -184,11 +183,7 @@ print(result)
 
 ## get_tagged_entities
 
-Gets Postman elements (entities) by a given tag. Tags enable you to organize and search [workspaces](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#tagging-a-workspace), [APIs](https://learning.postman.com/docs/designing-and-developing-your-api/managing-apis/#tagging-apis), and [collections](https://learning.postman.com/docs/collections/using-collections/#tagging-a-collection) that contain shared tags.
-
-**Note:**
-
-Tagging is available on Postman [**Enterprise** plans](https://www.postman.com/pricing/).
+Gets Postman elements (entities) by a given tag. Tags enable you to organize and search [workspaces](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#tagging-a-workspace), [APIs](https://learning.postman.com/docs/designing-and-developing-your-api/managing-apis/#tagging-apis), and [collections](https://learning.postman.com/docs/collections/using-collections/#tagging-a-collection) that contain shared tags. **Note:** Tagging is available on Postman [**Enterprise** plans](https://www.postman.com/pricing/).
 
 - HTTP Method: `GET`
 - Endpoint: `/tags/{slug}/entities`
@@ -216,7 +211,8 @@ from postman_client.models import AscDescDefaultDesc, GetTaggedEntitiesEntityTyp
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.tags.get_tagged_entities(
@@ -255,7 +251,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.tags.get_workspace_tags(workspace_id="1f0df51a-8658-4ee8-a2a1-d2567dfa09a9")
@@ -290,7 +287,8 @@ from postman_client.models import TagUpdateTags
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = TagUpdateTags(

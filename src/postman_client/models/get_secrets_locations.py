@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class DataResourceType(Enum):
@@ -87,6 +87,27 @@ class GetSecretsLocationsData(BaseModel):
         detected_at: str = None,
         url: str = None,
     ):
+        """Information about the secret finding locations.
+
+        :param is_resource_deleted: If true, the resource in which the secret was found was deleted., defaults to None
+        :type is_resource_deleted: bool, optional
+        :param leaked_by: The ID of the user who exposed the secret., defaults to None
+        :type leaked_by: int, optional
+        :param location: The location where the secret was found., defaults to None
+        :type location: str, optional
+        :param occurrences: The number of times the secret occurs in the location., defaults to None
+        :type occurrences: int, optional
+        :param parent_resource_id: The parent resource's unique ID. If the resource is a request, folder, or example, this value is a collection ID. If the resource is a collection, globals, or environment, this is the resource's ID., defaults to None
+        :type parent_resource_id: str, optional
+        :param resource_id: The unique ID of the resource where the secret was detected., defaults to None
+        :type resource_id: str, optional
+        :param resource_type: The type of resource in which the secret was detected., defaults to None
+        :type resource_type: DataResourceType, optional
+        :param detected_at: The date and time at which the secret was detected., defaults to None
+        :type detected_at: str, optional
+        :param url: The URL to the resource that contains the secret., defaults to None
+        :type url: str, optional
+        """
         if is_resource_deleted is not None:
             self.is_resource_deleted = is_resource_deleted
         if leaked_by is not None:
@@ -112,18 +133,18 @@ class GetSecretsLocationsData(BaseModel):
 class ActivityFeedStatus(Enum):
     """An enumeration representing different categories.
 
-    :cvar FALSE_POSITIVE: "FALSE_POSITIVE"
-    :vartype FALSE_POSITIVE: str
-    :cvar ACCEPTED_RISK: "ACCEPTED_RISK"
-    :vartype ACCEPTED_RISK: str
+    :cvar FALSEPOSITIVE: "FALSE_POSITIVE"
+    :vartype FALSEPOSITIVE: str
+    :cvar ACCEPTEDRISK: "ACCEPTED_RISK"
+    :vartype ACCEPTEDRISK: str
     :cvar REVOKED: "REVOKED"
     :vartype REVOKED: str
     :cvar ACTIVE: "ACTIVE"
     :vartype ACTIVE: str
     """
 
-    FALSE_POSITIVE = "FALSE_POSITIVE"
-    ACCEPTED_RISK = "ACCEPTED_RISK"
+    FALSEPOSITIVE = "FALSE_POSITIVE"
+    ACCEPTEDRISK = "ACCEPTED_RISK"
     REVOKED = "REVOKED"
     ACTIVE = "ACTIVE"
 
@@ -154,6 +175,15 @@ class ActivityFeed(BaseModel):
         resolved_by: int = None,
         status: ActivityFeedStatus = None,
     ):
+        """ActivityFeed
+
+        :param resolved_at: The date and time at which the resolution status was last updated., defaults to None
+        :type resolved_at: str, optional
+        :param resolved_by: The ID of the user that updated the secret's resolution status., defaults to None
+        :type resolved_by: int, optional
+        :param status: The secret's current resolution status: - `ACTIVE` — The secret is active. - `FALSE_POSITIVE` — The discovered secret is not an actual secret. - `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue. - `ACCEPTED_RISK` — The Secret Scanner found the secret, but user accepts the risk of publishing it. , defaults to None
+        :type status: ActivityFeedStatus, optional
+        """
         if resolved_at is not None:
             self.resolved_at = resolved_at
         if resolved_by is not None:
@@ -205,6 +235,25 @@ class GetSecretsLocationsMeta(BaseModel):
         secret_type: str = None,
         total: int = None,
     ):
+        """GetSecretsLocationsMeta
+
+        :param activity_feed: The history of the secret's resolution status changes., defaults to None
+        :type activity_feed: List[ActivityFeed], optional
+        :param cursor: The pointer to the first record of the set of paginated results., defaults to None
+        :type cursor: str, optional
+        :param limit: The maximum number of rows to return in the response., defaults to None
+        :type limit: int, optional
+        :param next_cursor: The Base64-encoded value that points to the next record in the results set., defaults to None
+        :type next_cursor: str, optional
+        :param obfuscated_secret: The secret's obfuscated value., defaults to None
+        :type obfuscated_secret: str, optional
+        :param secret_hash: The secret's SHA-256 hash., defaults to None
+        :type secret_hash: str, optional
+        :param secret_type: The type of thesecret., defaults to None
+        :type secret_type: str, optional
+        :param total: The total number of discovered secret locations., defaults to None
+        :type total: int, optional
+        """
         if activity_feed is not None:
             self.activity_feed = self._define_list(activity_feed, ActivityFeed)
         if cursor is not None:
@@ -212,7 +261,9 @@ class GetSecretsLocationsMeta(BaseModel):
         if limit is not None:
             self.limit = limit
         if next_cursor is not None:
-            self.next_cursor = next_cursor
+            self.next_cursor = self._define_str(
+                "next_cursor", next_cursor, nullable=True
+            )
         if obfuscated_secret is not None:
             self.obfuscated_secret = obfuscated_secret
         if secret_hash is not None:
@@ -238,6 +289,13 @@ class GetSecretsLocations(BaseModel):
         data: List[GetSecretsLocationsData] = None,
         meta: GetSecretsLocationsMeta = None,
     ):
+        """GetSecretsLocations
+
+        :param data: data, defaults to None
+        :type data: List[GetSecretsLocationsData], optional
+        :param meta: meta, defaults to None
+        :type meta: GetSecretsLocationsMeta, optional
+        """
         if data is not None:
             self.data = self._define_list(data, GetSecretsLocationsData)
         if meta is not None:

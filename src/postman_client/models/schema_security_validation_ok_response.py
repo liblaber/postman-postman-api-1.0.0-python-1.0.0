@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -14,5 +14,10 @@ class SchemaSecurityValidationOkResponse(BaseModel):
     """
 
     def __init__(self, warnings: List[dict] = None):
+        """SchemaSecurityValidationOkResponse
+
+        :param warnings: Information about each issue discovered in the analysis. Each object includes the violation's severity and category, the location of the issue, data paths, and other information. This returns an empty object if there are no issues present in the schema. If there are issues, this returns the `possibleFixUrl` response in each warning object. This provides a link to documentation you can use to resolve the warning. , defaults to None
+        :type warnings: List[dict], optional
+        """
         if warnings is not None:
             self.warnings = warnings

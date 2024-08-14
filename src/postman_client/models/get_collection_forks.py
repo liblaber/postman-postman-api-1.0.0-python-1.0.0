@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap(
@@ -33,6 +33,17 @@ class GetCollectionForksData(BaseModel):
         fork_id: str = None,
         fork_name: str = None,
     ):
+        """Information about the forked collection.
+
+        :param created_at: The date and time at which the fork was created., defaults to None
+        :type created_at: str, optional
+        :param created_by: The user who created the collection fork., defaults to None
+        :type created_by: str, optional
+        :param fork_id: The forked collection's ID., defaults to None
+        :type fork_id: str, optional
+        :param fork_name: The forked collection's label., defaults to None
+        :type fork_name: str, optional
+        """
         if created_at is not None:
             self.created_at = created_at
         if created_by is not None:
@@ -54,8 +65,17 @@ class GetCollectionForksMeta(BaseModel):
     """
 
     def __init__(self, next_cursor: str = None, total: float = None):
+        """The response's meta information for paginated results.
+
+        :param next_cursor: The pagination cursor that points to the next record in the results set., defaults to None
+        :type next_cursor: str, optional
+        :param total: The total number of forked collections., defaults to None
+        :type total: float, optional
+        """
         if next_cursor is not None:
-            self.next_cursor = next_cursor
+            self.next_cursor = self._define_str(
+                "next_cursor", next_cursor, nullable=True
+            )
         if total is not None:
             self.total = total
 
@@ -75,6 +95,13 @@ class GetCollectionForks(BaseModel):
         data: List[GetCollectionForksData] = None,
         meta: GetCollectionForksMeta = None,
     ):
+        """GetCollectionForks
+
+        :param data: A list of the collection's forks., defaults to None
+        :type data: List[GetCollectionForksData], optional
+        :param meta: The response's meta information for paginated results., defaults to None
+        :type meta: GetCollectionForksMeta, optional
+        """
         if data is not None:
             self.data = self._define_list(data, GetCollectionForksData)
         if meta is not None:

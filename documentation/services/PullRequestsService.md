@@ -32,7 +32,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.pull_requests.get_pull_request(pull_request_id="4e1a6609-1a29-4037-a411-89ecc14c6cd8")
@@ -67,7 +68,8 @@ from postman_client.models import PullRequestUpdate
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = PullRequestUpdate(

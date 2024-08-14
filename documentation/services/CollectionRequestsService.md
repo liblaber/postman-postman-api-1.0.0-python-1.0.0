@@ -2,27 +2,12 @@
 
 A list of all methods in the `CollectionRequestsService` service. Click on the method name to view detailed information about that method.
 
-| Methods                                           | Description                                   |
-| :------------------------------------------------ | :-------------------------------------------- |
-| [get_request_comments](#get_request_comments)     | Gets all comments left by users in a request. |
-| [create_request_comment](#create_request_comment) | Creates a comment on a request.               |
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
-|
-|[update_request_comment](#update_request_comment)| Updates a comment on a request.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
-|
-|[delete_request_comment](#delete_request_comment)| Deletes a comment from a request. On success, this returns an HTTP `204 No Content` response
-
-**Note:**
-
-Deleting the first comment of a thread deletes all the comments in the thread.
-|
+| Methods                                           | Description                                                                                                                                                                           |
+| :------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [get_request_comments](#get_request_comments)     | Gets all comments left by users in a request.                                                                                                                                         |
+| [create_request_comment](#create_request_comment) | Creates a comment on a request. **Note:** This endpoint accepts a max of 10,000 characters.                                                                                           |
+| [update_request_comment](#update_request_comment) | Updates a comment on a request. **Note:** This endpoint accepts a max of 10,000 characters.                                                                                           |
+| [delete_request_comment](#delete_request_comment) | Deletes a comment from a request. On success, this returns an HTTP `204 No Content` response **Note:** Deleting the first comment of a thread deletes all the comments in the thread. |
 
 ## get_request_comments
 
@@ -50,7 +35,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collection_requests.get_request_comments(
@@ -63,11 +49,7 @@ print(result)
 
 ## create_request_comment
 
-Creates a comment on a request.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
+Creates a comment on a request. **Note:** This endpoint accepts a max of 10,000 characters.
 
 - HTTP Method: `POST`
 - Endpoint: `/collections/{collectionId}/requests/{requestId}/comments`
@@ -93,7 +75,8 @@ from postman_client.models import CommentCreateUpdate
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CommentCreateUpdate(
@@ -117,11 +100,7 @@ print(result)
 
 ## update_request_comment
 
-Updates a comment on a request.
-
-**Note:**
-
-This endpoint accepts a max of 10,000 characters.
+Updates a comment on a request. **Note:** This endpoint accepts a max of 10,000 characters.
 
 - HTTP Method: `PUT`
 - Endpoint: `/collections/{collectionId}/requests/{requestId}/comments/{commentId}`
@@ -148,7 +127,8 @@ from postman_client.models import CommentCreateUpdate
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CommentCreateUpdate(
@@ -173,11 +153,7 @@ print(result)
 
 ## delete_request_comment
 
-Deletes a comment from a request. On success, this returns an HTTP `204 No Content` response
-
-**Note:**
-
-Deleting the first comment of a thread deletes all the comments in the thread.
+Deletes a comment from a request. On success, this returns an HTTP `204 No Content` response **Note:** Deleting the first comment of a thread deletes all the comments in the thread.
 
 - HTTP Method: `DELETE`
 - Endpoint: `/collections/{collectionId}/requests/{requestId}/comments/{commentId}`
@@ -198,7 +174,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.collection_requests.delete_request_comment(

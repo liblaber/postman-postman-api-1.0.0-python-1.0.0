@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class WorkspacesType(Enum):
@@ -90,6 +90,19 @@ class Workspaces(BaseModel):
         type_: WorkspacesType = None,
         visibility: WorkspacesVisibility = None,
     ):
+        """Information about the workspace.
+
+        :param id_: The workspace's ID., defaults to None
+        :type id_: str, optional
+        :param name: The workspace's name., defaults to None
+        :type name: str, optional
+        :param created_by: The user who created the workspace. The response only returns workspaces that you have access to., defaults to None
+        :type created_by: int, optional
+        :param type_: The type of workspace., defaults to None
+        :type type_: WorkspacesType, optional
+        :param visibility: The workspace's visibility. [Visibility](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility) determines who can access the workspace: - `personal` — Only you can access the workspace. - `team` — All team members can access the workspace. - `private` — Only invited team members can access the workspace ([**Professional** and **Enterprise** plans only](https://www.postman.com/pricing)). - `public` — Everyone can access the workspace. - `partner` — Only invited team members and [partners](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/partner-workspaces/) can access the workspace ([**Professional** and **Enterprise** plans only](https://www.postman.com/pricing)). , defaults to None
+        :type visibility: WorkspacesVisibility, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -113,5 +126,10 @@ class GetWorkspaces(BaseModel):
     """
 
     def __init__(self, workspaces: List[Workspaces] = None):
+        """GetWorkspaces
+
+        :param workspaces: workspaces, defaults to None
+        :type workspaces: List[Workspaces], optional
+        """
         if workspaces is not None:
             self.workspaces = self._define_list(workspaces, Workspaces)

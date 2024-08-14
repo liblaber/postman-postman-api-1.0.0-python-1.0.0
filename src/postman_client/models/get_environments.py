@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap(
@@ -42,6 +42,23 @@ class GetEnvironmentsEnvironments(BaseModel):
         uid: str = None,
         is_public: bool = None,
     ):
+        """GetEnvironmentsEnvironments
+
+        :param id_: The environment's ID., defaults to None
+        :type id_: str, optional
+        :param name: The environment's name., defaults to None
+        :type name: str, optional
+        :param created_at: The date and time at which the environment was created., defaults to None
+        :type created_at: str, optional
+        :param updated_at: The date and time at which the environment was last updated., defaults to None
+        :type updated_at: str, optional
+        :param owner: The environment owner's ID., defaults to None
+        :type owner: str, optional
+        :param uid: The environment's unique ID., defaults to None
+        :type uid: str, optional
+        :param is_public: If true, the environment is public and visible to all users., defaults to None
+        :type is_public: bool, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -67,6 +84,11 @@ class GetEnvironments(BaseModel):
     """
 
     def __init__(self, environments: List[GetEnvironmentsEnvironments] = None):
+        """GetEnvironments
+
+        :param environments: environments, defaults to None
+        :type environments: List[GetEnvironmentsEnvironments], optional
+        """
         if environments is not None:
             self.environments = self._define_list(
                 environments, GetEnvironmentsEnvironments

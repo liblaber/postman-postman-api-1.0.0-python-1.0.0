@@ -2,7 +2,7 @@
 
 from enum import Enum
 from typing import Any
-from ...models.base import BaseModel
+from ...models.utils.base_model import BaseModel
 
 
 def extract_original_data(data: Any) -> Any:

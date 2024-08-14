@@ -45,10 +45,7 @@ The collection, folder, or request the items will be transferred to. For respons
 
 # Location
 
-The transferred items' placement in the target destination:
-
-- For `start` or `end` — Do not include the `model` and `id` values.
-- For `before` or `after` — Include the `model` and `id` properties.
+The transferred items' placement in the target destination: - For `start` or `end` — Do not include the `model` and `id` values. - For `before` or `after` — Include the `model` and `id` properties.
 
 **Properties**
 

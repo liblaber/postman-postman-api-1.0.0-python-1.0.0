@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap(
@@ -46,6 +46,25 @@ class GetApisApis(BaseModel):
         updated_by: int = None,
         description: str = None,
     ):
+        """The API's base data schema.
+
+        :param id_: The API's ID., defaults to None
+        :type id_: str, optional
+        :param name: The API's name., defaults to None
+        :type name: str, optional
+        :param summary: The API's short summary., defaults to None
+        :type summary: str, optional
+        :param created_at: The date and time at which the API was created., defaults to None
+        :type created_at: str, optional
+        :param created_by: The Postman ID of the user that created the API., defaults to None
+        :type created_by: int, optional
+        :param updated_at: The date and time at which the API was updated., defaults to None
+        :type updated_at: str, optional
+        :param updated_by: The Postman ID of the user that updated the API., defaults to None
+        :type updated_by: int, optional
+        :param description: The API's description., defaults to None
+        :type description: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -79,6 +98,15 @@ class GetApisMeta(BaseModel):
     def __init__(
         self, limit: float = None, total: float = None, next_cursor: str = None
     ):
+        """The response's meta information for paginated results.
+
+        :param limit: The maximum number of records in the paginated response., defaults to None
+        :type limit: float, optional
+        :param total: The number of records that match the defined criteria., defaults to None
+        :type total: float, optional
+        :param next_cursor: The pagination cursor that points to the next record in the results set., defaults to None
+        :type next_cursor: str, optional
+        """
         if limit is not None:
             self.limit = limit
         if total is not None:
@@ -98,6 +126,13 @@ class GetApis(BaseModel):
     """
 
     def __init__(self, apis: List[GetApisApis] = None, meta: GetApisMeta = None):
+        """Information about the API schema.
+
+        :param apis: apis, defaults to None
+        :type apis: List[GetApisApis], optional
+        :param meta: The response's meta information for paginated results., defaults to None
+        :type meta: GetApisMeta, optional
+        """
         if apis is not None:
             self.apis = self._define_list(apis, GetApisApis)
         if meta is not None:

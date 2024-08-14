@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class DataType(Enum):
@@ -11,12 +11,12 @@ class DataType(Enum):
 
     :cvar DEFAULT: "DEFAULT"
     :vartype DEFAULT: str
-    :cvar TEAM_REGEX: "TEAM_REGEX"
-    :vartype TEAM_REGEX: str
+    :cvar TEAMREGEX: "TEAM_REGEX"
+    :vartype TEAMREGEX: str
     """
 
     DEFAULT = "DEFAULT"
-    TEAM_REGEX = "TEAM_REGEX"
+    TEAMREGEX = "TEAM_REGEX"
 
     def list():
         """Lists all category values.
@@ -40,6 +40,15 @@ class GetSecretTypesData(BaseModel):
     """
 
     def __init__(self, name: str = None, id_: str = None, type_: DataType = None):
+        """Information about the secret type.
+
+        :param name: The name of the secret type., defaults to None
+        :type name: str, optional
+        :param id_: The ID of the secret type., defaults to None
+        :type id_: str, optional
+        :param type_: The origin of the secret type: - `DEFAULT` — Supported by default in Postman. - `TEAM_REGEX` — A custom regex added by an Admin or Super Admin user in the **Configure Alerts** section of the [**Team Settings**](https://learning.postman.com/docs/administration/team-settings/) interface. , defaults to None
+        :type type_: DataType, optional
+        """
         if name is not None:
             self.name = name
         if id_ is not None:
@@ -57,6 +66,11 @@ class GetSecretTypesMeta(BaseModel):
     """
 
     def __init__(self, total: int = None):
+        """GetSecretTypesMeta
+
+        :param total: The total number of supported secrets., defaults to None
+        :type total: int, optional
+        """
         if total is not None:
             self.total = total
 
@@ -74,6 +88,13 @@ class GetSecretTypes(BaseModel):
     def __init__(
         self, data: List[GetSecretTypesData] = None, meta: GetSecretTypesMeta = None
     ):
+        """GetSecretTypes
+
+        :param data: data, defaults to None
+        :type data: List[GetSecretTypesData], optional
+        :param meta: meta, defaults to None
+        :type meta: GetSecretTypesMeta, optional
+        """
         if data is not None:
             self.data = self._define_list(data, GetSecretTypesData)
         if meta is not None:

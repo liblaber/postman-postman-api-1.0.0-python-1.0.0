@@ -3,8 +3,8 @@
 from typing import Union
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
-from .base import OneOfBaseModel
+from .utils.base_model import BaseModel
+from .utils.one_of_base_model import OneOfBaseModel
 
 
 @JsonMap({"id_": "id"})
@@ -16,6 +16,11 @@ class CreateApiVersion1Schemas(BaseModel):
     """
 
     def __init__(self, id_: str = None):
+        """Information about the schema.
+
+        :param id_: The schema's ID., defaults to None
+        :type id_: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
 
@@ -29,6 +34,11 @@ class CreateApiVersion1Collections(BaseModel):
     """
 
     def __init__(self, id_: str = None):
+        """Information about the collection.
+
+        :param id_: The collection's ID., defaults to None
+        :type id_: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
 
@@ -54,6 +64,17 @@ class CreateApiVersion1(BaseModel):
         collections: List[CreateApiVersion1Collections],
         release_notes: str = None,
     ):
+        """Information about the API version.
+
+        :param name: The version's name.
+        :type name: str
+        :param schemas: A list of the version's schemas.
+        :type schemas: List[CreateApiVersion1Schemas]
+        :param collections: A list of the version's collections.
+        :type collections: List[CreateApiVersion1Collections]
+        :param release_notes: Information about the API version release. For example, changelog notes., defaults to None
+        :type release_notes: str, optional
+        """
         self.name = name
         self.schemas = self._define_list(schemas, CreateApiVersion1Schemas)
         self.collections = self._define_list(collections, CreateApiVersion1Collections)
@@ -70,6 +91,11 @@ class CreateApiVersion2Schemas(BaseModel):
     """
 
     def __init__(self, file_path: str = None):
+        """Information about the schema.
+
+        :param file_path: The path to the schema root file in the Git repository., defaults to None
+        :type file_path: str, optional
+        """
         if file_path is not None:
             self.file_path = file_path
 
@@ -83,6 +109,11 @@ class CreateApiVersion2Collections(BaseModel):
     """
 
     def __init__(self, file_path: str = None):
+        """Information about the collection.
+
+        :param file_path: Path to a collection in the Git repository., defaults to None
+        :type file_path: str, optional
+        """
         if file_path is not None:
             self.file_path = file_path
 
@@ -111,6 +142,19 @@ class CreateApiVersion2(BaseModel):
         collections: List[CreateApiVersion2Collections],
         release_notes: str = None,
     ):
+        """Information about the API version.
+
+        :param name: The version's name.
+        :type name: str
+        :param branch: The branch ID.
+        :type branch: str
+        :param schemas: A list of the version's schemas.
+        :type schemas: List[CreateApiVersion2Schemas]
+        :param collections: A list of the version's collections.
+        :type collections: List[CreateApiVersion2Collections]
+        :param release_notes: Information about the API version release. For example, changelog notes., defaults to None
+        :type release_notes: str, optional
+        """
         self.name = name
         self.branch = branch
         self.schemas = self._define_list(schemas, CreateApiVersion2Schemas)
@@ -128,6 +172,11 @@ class CreateApiVersion3Schemas(BaseModel):
     """
 
     def __init__(self, directory_path: str = None):
+        """Information about the schema.
+
+        :param directory_path: The path to the root directory where schemas are stored in the Git repository., defaults to None
+        :type directory_path: str, optional
+        """
         if directory_path is not None:
             self.directory_path = directory_path
 
@@ -141,6 +190,11 @@ class CreateApiVersion3Collections(BaseModel):
     """
 
     def __init__(self, file_path: str = None):
+        """Information about the collection.
+
+        :param file_path: The path to the collection in the Git repository., defaults to None
+        :type file_path: str, optional
+        """
         if file_path is not None:
             self.file_path = file_path
 
@@ -169,6 +223,19 @@ class CreateApiVersion3(BaseModel):
         collections: List[CreateApiVersion3Collections],
         release_notes: str = None,
     ):
+        """Information about the API version.
+
+        :param name: The version's name.
+        :type name: str
+        :param branch: The branch ID.
+        :type branch: str
+        :param schemas: A list of the version's schemas.
+        :type schemas: List[CreateApiVersion3Schemas]
+        :param collections: A list of the version's collections.
+        :type collections: List[CreateApiVersion3Collections]
+        :param release_notes: Information about the API version release. For example, changelog notes., defaults to None
+        :type release_notes: str, optional
+        """
         self.name = name
         self.branch = branch
         self.schemas = self._define_list(schemas, CreateApiVersion3Schemas)

@@ -55,9 +55,7 @@ Information about the mock server's simulated network delay settings. This retur
 
 # DelayType
 
-The type of simulated delay value:
-
-- `fixed` — The delay value is a fixed value.
+The type of simulated delay value: - `fixed` — The delay value is a fixed value.
 
 **Properties**
 
@@ -67,11 +65,7 @@ The type of simulated delay value:
 
 # Preset
 
-The simulated fixed network delay value:
-
-- `1` — 2G (300 ms).
-- `2` — 3G (100 ms).
-  The object does not return this value for custom delay values.
+The simulated fixed network delay value: - `1` — 2G (300 ms). - `2` — 3G (100 ms). The object does not return this value for custom delay values.
 
 **Properties**
 

@@ -12,19 +12,15 @@
 
 # Statuses
 
-The secret resolution status type:
-
-- `FALSE_POSITIVE` — The discovered secret is not an actual secret.
-- `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue.
-- `ACCEPTED_RISK` — The Secret Scanner found the secret, but user accepts the risk of publishing it.
+The secret resolution status type: - `FALSE_POSITIVE` — The discovered secret is not an actual secret. - `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue. - `ACCEPTED_RISK` — The Secret Scanner found the secret, but user accepts the risk of publishing it.
 
 **Properties**
 
-| Name           | Type | Required | Description      |
-| :------------- | :--- | :------- | :--------------- |
-| FALSE_POSITIVE | str  | ✅       | "FALSE_POSITIVE" |
-| ACCEPTED_RISK  | str  | ✅       | "ACCEPTED_RISK"  |
-| REVOKED        | str  | ✅       | "REVOKED"        |
+| Name          | Type | Required | Description      |
+| :------------ | :--- | :------- | :--------------- |
+| FALSEPOSITIVE | str  | ✅       | "FALSE_POSITIVE" |
+| ACCEPTEDRISK  | str  | ✅       | "ACCEPTED_RISK"  |
+| REVOKED       | str  | ✅       | "REVOKED"        |
 
 # WorkspaceVisiblities
 

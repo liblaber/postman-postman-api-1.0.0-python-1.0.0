@@ -20,20 +20,20 @@ The schema's type.
 
 **Properties**
 
-| Name        | Type | Required | Description   |
-| :---------- | :--- | :------- | :------------ |
-| PROTO_2     | str  | ✅       | "proto:2"     |
-| PROTO_3     | str  | ✅       | "proto:3"     |
-| GRAPHQL     | str  | ✅       | "graphql"     |
-| OPENAPI_3_1 | str  | ✅       | "openapi:3_1" |
-| OPENAPI_3   | str  | ✅       | "openapi:3"   |
-| OPENAPI_2   | str  | ✅       | "openapi:2"   |
-| OPENAPI_1   | str  | ✅       | "openapi:1"   |
-| RAML_1      | str  | ✅       | "raml:1"      |
-| RAML_0_8    | str  | ✅       | "raml:0_8"    |
-| WSDL_2      | str  | ✅       | "wsdl:2"      |
-| WSDL_1      | str  | ✅       | "wsdl:1"      |
-| ASYNCAPI_2  | str  | ✅       | "asyncapi:2"  |
+| Name       | Type | Required | Description   |
+| :--------- | :--- | :------- | :------------ |
+| PROTO2     | str  | ✅       | "proto:2"     |
+| PROTO3     | str  | ✅       | "proto:3"     |
+| GRAPHQL    | str  | ✅       | "graphql"     |
+| OPENAPI3_1 | str  | ✅       | "openapi:3_1" |
+| OPENAPI3   | str  | ✅       | "openapi:3"   |
+| OPENAPI2   | str  | ✅       | "openapi:2"   |
+| OPENAPI1   | str  | ✅       | "openapi:1"   |
+| RAML1      | str  | ✅       | "raml:1"      |
+| RAML0_8    | str  | ✅       | "raml:0_8"    |
+| WSDL2      | str  | ✅       | "wsdl:2"      |
+| WSDL1      | str  | ✅       | "wsdl:1"      |
+| ASYNCAPI2  | str  | ✅       | "asyncapi:2"  |
 
 # CreateApiSchemaFiles_2
 

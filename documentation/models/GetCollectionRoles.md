@@ -23,10 +23,7 @@ Information about the group role.
 
 # GroupRole
 
-The role type:
-
-- `VIEWER` — Can view, fork, and export collections.
-- `EDITOR` — Can edit collections directly.
+The role type: - `VIEWER` — Can view, fork, and export collections. - `EDITOR` — Can edit collections directly.
 
 **Properties**
 
@@ -48,10 +45,7 @@ Information about the team role.
 
 # TeamRole
 
-The role type:
-
-- `VIEWER` — Can view, fork, and export collections.
-- `EDITOR` — Can edit collections directly.
+The role type: - `VIEWER` — Can view, fork, and export collections. - `EDITOR` — Can edit collections directly.
 
 **Properties**
 
@@ -73,10 +67,7 @@ Information about the user role.
 
 # UserRole
 
-The role type:
-
-- `VIEWER` — Can view, fork, and export collections.
-- `EDITOR` — Can edit collections directly.
+The role type: - `VIEWER` — Can view, fork, and export collections. - `EDITOR` — Can edit collections directly.
 
 **Properties**
 

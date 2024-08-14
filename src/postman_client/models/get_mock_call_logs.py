@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -16,6 +16,13 @@ class RequestHeaders(BaseModel):
     """
 
     def __init__(self, key: str = None, value: str = None):
+        """The request's headers.
+
+        :param key: The request header's name., defaults to None
+        :type key: str, optional
+        :param value: The request header's value., defaults to None
+        :type value: str, optional
+        """
         if key is not None:
             self.key = key
         if value is not None:
@@ -33,6 +40,13 @@ class RequestBody(BaseModel):
     """
 
     def __init__(self, mode: str = None, data: str = None):
+        """The request's body information.
+
+        :param mode: The request body's media type (mode)., defaults to None
+        :type mode: str, optional
+        :param data: The request body's contents., defaults to None
+        :type data: str, optional
+        """
         if mode is not None:
             self.mode = mode
         if data is not None:
@@ -60,6 +74,17 @@ class CallLogsRequest(BaseModel):
         headers: RequestHeaders = None,
         body: RequestBody = None,
     ):
+        """The server response's request information.
+
+        :param method: The request method., defaults to None
+        :type method: str, optional
+        :param path: The request's path., defaults to None
+        :type path: str, optional
+        :param headers: The request's headers., defaults to None
+        :type headers: RequestHeaders, optional
+        :param body: The request's body information., defaults to None
+        :type body: RequestBody, optional
+        """
         if method is not None:
             self.method = method
         if path is not None:
@@ -81,6 +106,13 @@ class Description(BaseModel):
     """
 
     def __init__(self, content: str = None, type_: str = None):
+        """The response header's description information.
+
+        :param content: The response header description's content., defaults to None
+        :type content: str, optional
+        :param type_: The response header description's media type., defaults to None
+        :type type_: str, optional
+        """
         if content is not None:
             self.content = content
         if type_ is not None:
@@ -102,6 +134,15 @@ class ResponseHeaders(BaseModel):
     def __init__(
         self, description: Description = None, key: str = None, value: str = None
     ):
+        """The response's headers.
+
+        :param description: The response header's description information., defaults to None
+        :type description: Description, optional
+        :param key: The response header's name., defaults to None
+        :type key: str, optional
+        :param value: The response header's value., defaults to None
+        :type value: str, optional
+        """
         if description is not None:
             self.description = self._define_object(description, Description)
         if key is not None:
@@ -119,6 +160,11 @@ class ResponseBody(BaseModel):
     """
 
     def __init__(self, data: str = None):
+        """The response's body information.
+
+        :param data: The response body's contents., defaults to None
+        :type data: str, optional
+        """
         if data is not None:
             self.data = data
 
@@ -144,6 +190,17 @@ class CallLogsResponse(BaseModel):
         headers: ResponseHeaders = None,
         body: ResponseBody = None,
     ):
+        """The server response's response information.
+
+        :param type_: The type of response., defaults to None
+        :type type_: str, optional
+        :param status_code: The response's status code., defaults to None
+        :type status_code: float, optional
+        :param headers: The response's headers., defaults to None
+        :type headers: ResponseHeaders, optional
+        :param body: The response's body information., defaults to None
+        :type body: ResponseBody, optional
+        """
         if type_ is not None:
             self.type_ = type_
         if status_code is not None:
@@ -178,6 +235,19 @@ class CallLogs(BaseModel):
         request: CallLogsRequest = None,
         response: CallLogsResponse = None,
     ):
+        """Information about the mock server's server responses.
+
+        :param id_: The server response's ID., defaults to None
+        :type id_: str, optional
+        :param response_name: The server response's name., defaults to None
+        :type response_name: str, optional
+        :param served_at: The date and time at which the server response was served., defaults to None
+        :type served_at: str, optional
+        :param request: The server response's request information., defaults to None
+        :type request: CallLogsRequest, optional
+        :param response: The server response's response information., defaults to None
+        :type response: CallLogsResponse, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if response_name is not None:
@@ -199,8 +269,15 @@ class GetMockCallLogsMeta(BaseModel):
     """
 
     def __init__(self, next_cursor: str = None):
+        """The response's non-standard meta information.
+
+        :param next_cursor: The pagination cursor that points to the next record in the results set., defaults to None
+        :type next_cursor: str, optional
+        """
         if next_cursor is not None:
-            self.next_cursor = next_cursor
+            self.next_cursor = self._define_str(
+                "next_cursor", next_cursor, nullable=True
+            )
 
 
 @JsonMap({"call_logs": "call-logs"})
@@ -216,6 +293,13 @@ class GetMockCallLogs(BaseModel):
     def __init__(
         self, call_logs: List[CallLogs] = None, meta: GetMockCallLogsMeta = None
     ):
+        """GetMockCallLogs
+
+        :param call_logs: call_logs, defaults to None
+        :type call_logs: List[CallLogs], optional
+        :param meta: The response's non-standard meta information., defaults to None
+        :type meta: GetMockCallLogsMeta, optional
+        """
         if call_logs is not None:
             self.call_logs = self._define_list(call_logs, CallLogs)
         if meta is not None:

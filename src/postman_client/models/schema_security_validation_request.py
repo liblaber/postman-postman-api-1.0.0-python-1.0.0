@@ -2,7 +2,7 @@
 
 from enum import Enum
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class SchemaLanguage(Enum):
@@ -60,6 +60,15 @@ class SchemaSecurityValidationSchema(BaseModel):
     """
 
     def __init__(self, language: SchemaLanguage, schema: str, type_: SchemaType):
+        """SchemaSecurityValidationSchema
+
+        :param language: The definition format.
+        :type language: SchemaLanguage
+        :param schema: The stringified API definition.
+        :type schema: str
+        :param type_: The definition type.
+        :type type_: SchemaType
+        """
         self.language = self._enum_matching(language, SchemaLanguage.list(), "language")
         self.schema = schema
         self.type_ = self._enum_matching(type_, SchemaType.list(), "type_")
@@ -74,5 +83,10 @@ class SchemaSecurityValidationRequest(BaseModel):
     """
 
     def __init__(self, schema: SchemaSecurityValidationSchema = None):
+        """SchemaSecurityValidationRequest
+
+        :param schema: schema, defaults to None
+        :type schema: SchemaSecurityValidationSchema, optional
+        """
         if schema is not None:
             self.schema = self._define_object(schema, SchemaSecurityValidationSchema)

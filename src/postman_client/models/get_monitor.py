@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -16,6 +16,13 @@ class StatsAssertions1(BaseModel):
     """
 
     def __init__(self, failed: float = None, total: float = None):
+        """Information about the monitor's assertions.
+
+        :param failed: The total number of test failures., defaults to None
+        :type failed: float, optional
+        :param total: The total number of tests performed., defaults to None
+        :type total: float, optional
+        """
         if failed is not None:
             self.failed = failed
         if total is not None:
@@ -31,6 +38,11 @@ class StatsRequests1(BaseModel):
     """
 
     def __init__(self, total: float = None):
+        """Information about the monitor's requests.
+
+        :param total: The total number of requests., defaults to None
+        :type total: float, optional
+        """
         if total is not None:
             self.total = total
 
@@ -48,6 +60,13 @@ class LastRunStats(BaseModel):
     def __init__(
         self, assertions: StatsAssertions1 = None, requests: StatsRequests1 = None
     ):
+        """Information about the monitor's stats.
+
+        :param assertions: Information about the monitor's assertions., defaults to None
+        :type assertions: StatsAssertions1, optional
+        :param requests: Information about the monitor's requests., defaults to None
+        :type requests: StatsRequests1, optional
+        """
         if assertions is not None:
             self.assertions = self._define_object(assertions, StatsAssertions1)
         if requests is not None:
@@ -75,6 +94,17 @@ class LastRun(BaseModel):
         stats: LastRunStats = None,
         status: str = None,
     ):
+        """Information about the monitor's previous run.
+
+        :param finished_at: The date and time at which the monitor's previous run completed., defaults to None
+        :type finished_at: str, optional
+        :param started_at: The date and time at which the monitor's previous run started., defaults to None
+        :type started_at: str, optional
+        :param stats: Information about the monitor's stats., defaults to None
+        :type stats: LastRunStats, optional
+        :param status: The monitor's status after its last run., defaults to None
+        :type status: str, optional
+        """
         if finished_at is not None:
             self.finished_at = finished_at
         if started_at is not None:
@@ -94,6 +124,11 @@ class OnError(BaseModel):
     """
 
     def __init__(self, email: str = None):
+        """OnError
+
+        :param email: The email address of the user to notify on monitor error., defaults to None
+        :type email: str, optional
+        """
         if email is not None:
             self.email = email
 
@@ -107,6 +142,11 @@ class OnFailure(BaseModel):
     """
 
     def __init__(self, email: str = None):
+        """OnFailure
+
+        :param email: The email address of the user to notify on monitor failure., defaults to None
+        :type email: str, optional
+        """
         if email is not None:
             self.email = email
 
@@ -124,6 +164,13 @@ class Notifications(BaseModel):
     def __init__(
         self, on_error: List[OnError] = None, on_failure: List[OnFailure] = None
     ):
+        """Information about the monitor's notification settings.
+
+        :param on_error: on_error, defaults to None
+        :type on_error: List[OnError], optional
+        :param on_failure: on_failure, defaults to None
+        :type on_failure: List[OnFailure], optional
+        """
         if on_error is not None:
             self.on_error = self._define_list(on_error, OnError)
         if on_failure is not None:
@@ -158,6 +205,17 @@ class Options(BaseModel):
         request_timeout: float = None,
         strict_ssl: bool = None,
     ):
+        """Information about the monitor's option settings.
+
+        :param follow_redirects: If true, follow redirects enabled., defaults to None
+        :type follow_redirects: bool, optional
+        :param request_delay: The monitor's request delay value., defaults to None
+        :type request_delay: float, optional
+        :param request_timeout: The monitor's request timeout value., defaults to None
+        :type request_timeout: float, optional
+        :param strict_ssl: If true, strict SSL enabled., defaults to None
+        :type strict_ssl: bool, optional
+        """
         if follow_redirects is not None:
             self.follow_redirects = follow_redirects
         if request_delay is not None:
@@ -181,6 +239,15 @@ class MonitorSchedule2(BaseModel):
     """
 
     def __init__(self, cron: str = None, next_run: str = None, timezone: str = None):
+        """Information about the monitor's schedule.
+
+        :param cron: The monitor's cron frequency value., defaults to None
+        :type cron: str, optional
+        :param next_run: The date and time of monitor's next scheduled run., defaults to None
+        :type next_run: str, optional
+        :param timezone: The monitor's timezone., defaults to None
+        :type timezone: str, optional
+        """
         if cron is not None:
             self.cron = cron
         if next_run is not None:
@@ -238,6 +305,31 @@ class GetMonitorMonitor(BaseModel):
         options: Options = None,
         schedule: MonitorSchedule2 = None,
     ):
+        """GetMonitorMonitor
+
+        :param id_: The monitor's ID., defaults to None
+        :type id_: str, optional
+        :param name: The monitor's name., defaults to None
+        :type name: str, optional
+        :param uid: The monitor's unique ID., defaults to None
+        :type uid: str, optional
+        :param owner: The ID of monitor's owner., defaults to None
+        :type owner: float, optional
+        :param collection_uid: The unique ID of the monitor's associated collection., defaults to None
+        :type collection_uid: str, optional
+        :param environment_uid: The unique ID of the monitor's associated environment., defaults to None
+        :type environment_uid: str, optional
+        :param distribution: A list of the monitor's [geographic regions](https://learning.postman.com/docs/monitoring-your-api/setting-up-monitor/#adding-regions)., defaults to None
+        :type distribution: List[str], optional
+        :param last_run: Information about the monitor's previous run., defaults to None
+        :type last_run: LastRun, optional
+        :param notifications: Information about the monitor's notification settings., defaults to None
+        :type notifications: Notifications, optional
+        :param options: Information about the monitor's option settings., defaults to None
+        :type options: Options, optional
+        :param schedule: Information about the monitor's schedule., defaults to None
+        :type schedule: MonitorSchedule2, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -271,5 +363,10 @@ class GetMonitor(BaseModel):
     """
 
     def __init__(self, monitor: GetMonitorMonitor = None):
+        """GetMonitor
+
+        :param monitor: monitor, defaults to None
+        :type monitor: GetMonitorMonitor, optional
+        """
         if monitor is not None:
             self.monitor = self._define_object(monitor, GetMonitorMonitor)

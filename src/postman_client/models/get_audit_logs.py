@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({"id_": "id"})
@@ -29,6 +29,19 @@ class Actor(BaseModel):
         id_: float = None,
         active: bool = None,
     ):
+        """Information about the user who preformed the audit event.
+
+        :param name: The user's name., defaults to None
+        :type name: str, optional
+        :param username: The user's username., defaults to None
+        :type username: str, optional
+        :param email: The user's email address., defaults to None
+        :type email: str, optional
+        :param id_: id_, defaults to None
+        :type id_: float, optional
+        :param active: If true, the user is active. If false, the user is deactivated., defaults to None
+        :type active: bool, optional
+        """
         if name is not None:
             self.name = name
         if username is not None:
@@ -62,6 +75,17 @@ class DataUser(BaseModel):
         email: str = None,
         id_: float = None,
     ):
+        """Information about the user.
+
+        :param name: The user's name., defaults to None
+        :type name: str, optional
+        :param username: The user's username., defaults to None
+        :type username: str, optional
+        :param email: The user's email address., defaults to None
+        :type email: str, optional
+        :param id_: The user's ID., defaults to None
+        :type id_: float, optional
+        """
         if name is not None:
             self.name = name
         if username is not None:
@@ -83,6 +107,13 @@ class DataTeam(BaseModel):
     """
 
     def __init__(self, name: str = None, id_: float = None):
+        """The user's team information.
+
+        :param name: The team's name., defaults to None
+        :type name: str, optional
+        :param id_: The team's ID., defaults to None
+        :type id_: float, optional
+        """
         if name is not None:
             self.name = name
         if id_ is not None:
@@ -110,6 +141,17 @@ class TrailsData(BaseModel):
         team: DataTeam = None,
         variables: dict = None,
     ):
+        """TrailsData
+
+        :param actor: Information about the user who preformed the audit event., defaults to None
+        :type actor: Actor, optional
+        :param user: Information about the user., defaults to None
+        :type user: DataUser, optional
+        :param team: The user's team information., defaults to None
+        :type team: DataTeam, optional
+        :param variables: Additional information about the performed action., defaults to None
+        :type variables: dict, optional
+        """
         if actor is not None:
             self.actor = self._define_object(actor, Actor)
         if user is not None:
@@ -150,6 +192,23 @@ class Trails(BaseModel):
         message: str = None,
         data: TrailsData = None,
     ):
+        """Trails
+
+        :param id_: The audit event's ID., defaults to None
+        :type id_: float, optional
+        :param ip: The IP address of the user that performed the action., defaults to None
+        :type ip: str, optional
+        :param user_agent: The user agent information., defaults to None
+        :type user_agent: str, optional
+        :param action: The action performed by the user., defaults to None
+        :type action: str, optional
+        :param timestamp: The date and time at which the event occurred., defaults to None
+        :type timestamp: str, optional
+        :param message: The audit event's description., defaults to None
+        :type message: str, optional
+        :param data: data, defaults to None
+        :type data: TrailsData, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if ip is not None:
@@ -175,5 +234,10 @@ class GetAuditLogs(BaseModel):
     """
 
     def __init__(self, trails: List[Trails] = None):
+        """GetAuditLogs
+
+        :param trails: trails, defaults to None
+        :type trails: List[Trails], optional
+        """
         if trails is not None:
             self.trails = self._define_list(trails, Trails)

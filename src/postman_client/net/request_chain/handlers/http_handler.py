@@ -18,12 +18,12 @@ class HttpHandler(BaseHandler):
     :ivar int _timeout_in_seconds: The timeout for the HTTP request in seconds.
     """
 
-    def __init__(self):
+    def __init__(self, timeout=60000):
         """
         Initialize a new instance of HttpHandler.
         """
         super().__init__()
-        self._timeout_in_seconds = 60
+        self._timeout_in_seconds = timeout / 1000
 
     def handle(
         self, request: Request
@@ -78,8 +78,12 @@ class HttpHandler(BaseHandler):
 
         if "multipart/form-data" in content_type:
             headers.pop("Content-Type", None)
-            if data:
-                return {"files": data}
-            return {}
+            files, form_data = {}, {}
+            for key, value in data.items():
+                if isinstance(value, bytes):
+                    files[key] = value
+                else:
+                    form_data[key] = value
+            return {"files": files, "data": form_data}
 
         return {"data": data}

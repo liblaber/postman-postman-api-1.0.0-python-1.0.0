@@ -21,17 +21,14 @@ Information about the secret type.
 
 # DataType
 
-The origin of the secret type:
-
-- `DEFAULT` — Supported by default in Postman.
-- `TEAM_REGEX` — A custom regex added by an Admin or Super Admin user in the **Configure Alerts** section of the [**Team Settings**](https://learning.postman.com/docs/administration/team-settings/) interface.
+The origin of the secret type: - `DEFAULT` — Supported by default in Postman. - `TEAM_REGEX` — A custom regex added by an Admin or Super Admin user in the **Configure Alerts** section of the [**Team Settings**](https://learning.postman.com/docs/administration/team-settings/) interface.
 
 **Properties**
 
-| Name       | Type | Required | Description  |
-| :--------- | :--- | :------- | :----------- |
-| DEFAULT    | str  | ✅       | "DEFAULT"    |
-| TEAM_REGEX | str  | ✅       | "TEAM_REGEX" |
+| Name      | Type | Required | Description  |
+| :-------- | :--- | :------- | :----------- |
+| DEFAULT   | str  | ✅       | "DEFAULT"    |
+| TEAMREGEX | str  | ✅       | "TEAM_REGEX" |
 
 # GetSecretTypesMeta
 

@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({"add": "$add", "remove": "$remove"})
@@ -16,6 +16,13 @@ class CollectionEnvironments(BaseModel):
     """
 
     def __init__(self, add: List[str] = None, remove: List[str] = None):
+        """The collection's updated environments.
+
+        :param add: add, defaults to None
+        :type add: List[str], optional
+        :param remove: remove, defaults to None
+        :type remove: List[str], optional
+        """
         if add is not None:
             self.add = add
         if remove is not None:
@@ -35,6 +42,13 @@ class UpdatePanCollectionCollection(BaseModel):
     def __init__(
         self, parent_folder_id: int = None, environments: CollectionEnvironments = None
     ):
+        """UpdatePanCollectionCollection
+
+        :param parent_folder_id: The collection's new parent folder ID., defaults to None
+        :type parent_folder_id: int, optional
+        :param environments: The collection's updated environments., defaults to None
+        :type environments: CollectionEnvironments, optional
+        """
         if parent_folder_id is not None:
             self.parent_folder_id = parent_folder_id
         if environments is not None:
@@ -52,6 +66,11 @@ class UpdatePanCollection(BaseModel):
     """
 
     def __init__(self, collection: UpdatePanCollectionCollection = None):
+        """UpdatePanCollection
+
+        :param collection: collection, defaults to None
+        :type collection: UpdatePanCollectionCollection, optional
+        """
         if collection is not None:
             self.collection = self._define_object(
                 collection, UpdatePanCollectionCollection

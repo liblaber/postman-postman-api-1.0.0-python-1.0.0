@@ -2,7 +2,7 @@
 
 from enum import Enum
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class Strategy(Enum):
@@ -39,6 +39,15 @@ class MergeCollectionForkRequest(BaseModel):
     """
 
     def __init__(self, destination: str, source: str, strategy: Strategy = None):
+        """MergeCollectionForkRequest
+
+        :param destination: The destination (parent) collection's unique ID.
+        :type destination: str
+        :param source: The source collection's unique ID.
+        :type source: str
+        :param strategy: The fork's merge strategy: - `deleteSource` — Merge the changes into the parent collection. After the merge process is complete, Postman deletes the fork. You must have Editor access to both the parent and forked collections. - `updateSourceWithDestination` — Merge the changes into the parent collection. Any differences in the parent collection are also made to the fork. , defaults to None
+        :type strategy: Strategy, optional
+        """
         self.destination = destination
         self.source = source
         if strategy is not None:

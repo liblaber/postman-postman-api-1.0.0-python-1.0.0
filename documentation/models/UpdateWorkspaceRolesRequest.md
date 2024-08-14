@@ -40,11 +40,7 @@ Information about the updated user or user group role.
 
 # ValueRole_2
 
-The workspace role's ID:
-
-- `1` — Viewer. Can view, fork, and export workspace resources.
-- `2` — Editor. Can create and edit workspace resources.
-- `3` — Admin. Can manage workspace details and members.
+The workspace role's ID: - `1` — Viewer. Can view, fork, and export workspace resources. - `2` — Editor. Can create and edit workspace resources. - `3` — Admin. Can manage workspace details and members.
 
 **Properties**
 

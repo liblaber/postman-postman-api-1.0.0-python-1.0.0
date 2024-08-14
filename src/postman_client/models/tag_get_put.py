@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -14,9 +14,18 @@ class TagGetPutTags(BaseModel):
     """
 
     def __init__(self, slug: str = None):
+        """Information about the tag.
+
+        :param slug: The tag's ID within a team or individual (non-team) user scope., defaults to None
+        :type slug: str, optional
+        """
         if slug is not None:
-            self.slug = self._pattern_matching(
-                slug, "^[a-z][a-z0-9-]*[a-z0-9]+$", "slug"
+            self.slug = self._define_str(
+                "slug",
+                slug,
+                pattern="^[a-z][a-z0-9-]*[a-z0-9]+$",
+                min_length=2,
+                max_length=64,
             )
 
 
@@ -29,5 +38,10 @@ class TagGetPut(BaseModel):
     """
 
     def __init__(self, tags: List[TagGetPutTags] = None):
+        """TagGetPut
+
+        :param tags: A list of associated tags., defaults to None
+        :type tags: List[TagGetPutTags], optional
+        """
         if tags is not None:
             self.tags = self._define_list(tags, TagGetPutTags)

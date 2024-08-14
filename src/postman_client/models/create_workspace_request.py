@@ -2,7 +2,7 @@
 
 from enum import Enum
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class WorkspaceType1(Enum):
@@ -48,6 +48,15 @@ class CreateWorkspaceWorkspace1(BaseModel):
     """
 
     def __init__(self, name: str, type_: WorkspaceType1, description: str = None):
+        """Information about the workspace.
+
+        :param name: The workspace's name.
+        :type name: str
+        :param type_: The type of workspace: - `personal` - `private` — Private workspaces are available on Postman [**Professional** and **Enterprise** plans](https://www.postman.com/pricing). - `public` - `team` - `partner` — [Partner Workspaces](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/partner-workspaces/) are available on Postman [**Professional** and **Enterprise** plans](https://www.postman.com/pricing)).
+        :type type_: WorkspaceType1
+        :param description: The workspace's description., defaults to None
+        :type description: str, optional
+        """
         self.name = name
         self.type_ = self._enum_matching(type_, WorkspaceType1.list(), "type_")
         if description is not None:
@@ -63,5 +72,10 @@ class CreateWorkspaceRequest(BaseModel):
     """
 
     def __init__(self, workspace: CreateWorkspaceWorkspace1 = None):
+        """CreateWorkspaceRequest
+
+        :param workspace: Information about the workspace., defaults to None
+        :type workspace: CreateWorkspaceWorkspace1, optional
+        """
         if workspace is not None:
             self.workspace = self._define_object(workspace, CreateWorkspaceWorkspace1)

@@ -2,19 +2,14 @@
 
 A list of all methods in the `MonitorsService` service. Click on the method name to view detailed information about that method.
 
-| Methods                           | Description        |
-| :-------------------------------- | :----------------- |
-| [get_monitors](#get_monitors)     | Gets all monitors. |
-| [create_monitor](#create_monitor) | Creates a monitor. |
-
-**Note:**
-
-You cannot create monitors for collections added to an API definition.
-|
-|[get_monitor](#get_monitor)| Gets information about a monitor. |
-|[update_monitor](#update_monitor)| Updates a monitor. |
-|[delete_monitor](#delete_monitor)| Deletes a monitor. |
-|[run_monitor](#run_monitor)| Runs a monitor and returns its run results. |
+| Methods                           | Description                                                                                         |
+| :-------------------------------- | :-------------------------------------------------------------------------------------------------- |
+| [get_monitors](#get_monitors)     | Gets all monitors.                                                                                  |
+| [create_monitor](#create_monitor) | Creates a monitor. **Note:** You cannot create monitors for collections added to an API definition. |
+| [get_monitor](#get_monitor)       | Gets information about a monitor.                                                                   |
+| [update_monitor](#update_monitor) | Updates a monitor.                                                                                  |
+| [delete_monitor](#delete_monitor) | Deletes a monitor.                                                                                  |
+| [run_monitor](#run_monitor)       | Runs a monitor and returns its run results.                                                         |
 
 ## get_monitors
 
@@ -41,7 +36,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.monitors.get_monitors(workspace="1f0df51a-8658-4ee8-a2a1-d2567dfa09a9")
@@ -51,11 +47,7 @@ print(result)
 
 ## create_monitor
 
-Creates a monitor.
-
-**Note:**
-
-You cannot create monitors for collections added to an API definition.
+Creates a monitor. **Note:** You cannot create monitors for collections added to an API definition.
 
 - HTTP Method: `POST`
 - Endpoint: `/monitors`
@@ -80,7 +72,8 @@ from postman_client.models import CreateMonitorRequest
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CreateMonitorRequest(
@@ -128,7 +121,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.monitors.get_monitor(monitor_id="1e6b6cc1-c760-48e0-968f-4bfaeeae9af1")
@@ -163,7 +157,8 @@ from postman_client.models import UpdateMonitorRequest
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = UpdateMonitorRequest(
@@ -209,7 +204,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.monitors.delete_monitor(monitor_id="1e6b6cc1-c760-48e0-968f-4bfaeeae9af1")
@@ -242,7 +238,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.monitors.run_monitor(monitor_id="1e6b6cc1-c760-48e0-968f-4bfaeeae9af1")

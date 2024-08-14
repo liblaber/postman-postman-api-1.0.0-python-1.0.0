@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({"given_name": "givenName", "family_name": "familyName"})
@@ -17,6 +17,13 @@ class CreateScimUserName2(BaseModel):
     """
 
     def __init__(self, given_name: str = None, family_name: str = None):
+        """CreateScimUserName2
+
+        :param given_name: The user's first name., defaults to None
+        :type given_name: str, optional
+        :param family_name: The user's last name., defaults to None
+        :type family_name: str, optional
+        """
         if given_name is not None:
             self.given_name = given_name
         if family_name is not None:
@@ -59,6 +66,15 @@ class CreateScimUserMeta(BaseModel):
         last_modified: str = None,
         resource_type: MetaResourceType = None,
     ):
+        """The response's non-standard meta information.
+
+        :param created: The date and time at which the user was created., defaults to None
+        :type created: str, optional
+        :param last_modified: The date and time at which the user was last modified., defaults to None
+        :type last_modified: str, optional
+        :param resource_type: The SCIM resource type., defaults to None
+        :type resource_type: MetaResourceType, optional
+        """
         if created is not None:
             self.created = created
         if last_modified is not None:
@@ -99,6 +115,23 @@ class CreateScimUserCreatedResponse(BaseModel):
         active: bool = None,
         meta: CreateScimUserMeta = None,
     ):
+        """CreateScimUserCreatedResponse
+
+        :param schemas: The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml)., defaults to None
+        :type schemas: List[str], optional
+        :param id_: The user's SCIM ID., defaults to None
+        :type id_: str, optional
+        :param user_name: The user's username., defaults to None
+        :type user_name: str, optional
+        :param name: name, defaults to None
+        :type name: CreateScimUserName2, optional
+        :param external_id: The user's external ID., defaults to None
+        :type external_id: str, optional
+        :param active: If true, the user is active., defaults to None
+        :type active: bool, optional
+        :param meta: The response's non-standard meta information., defaults to None
+        :type meta: CreateScimUserMeta, optional
+        """
         if schemas is not None:
             self.schemas = schemas
         if id_ is not None:

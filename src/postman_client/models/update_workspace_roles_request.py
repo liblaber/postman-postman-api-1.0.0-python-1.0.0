@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class RolesPath2(Enum):
@@ -62,6 +62,13 @@ class RolesValue2(BaseModel):
     """
 
     def __init__(self, id_: str, role: ValueRole2):
+        """Information about the updated user or user group role.
+
+        :param id_: The user or user group ID.
+        :type id_: str
+        :param role: The workspace role's ID: - `1` — Viewer. Can view, fork, and export workspace resources. - `2` — Editor. Can create and edit workspace resources. - `3` — Admin. Can manage workspace details and members.
+        :type role: ValueRole2
+        """
         self.id_ = id_
         self.role = self._enum_matching(role, ValueRole2.list(), "role")
 
@@ -79,6 +86,15 @@ class UpdateWorkspaceRolesRoles1(BaseModel):
     """
 
     def __init__(self, op: str, path: RolesPath2, value: List[RolesValue2]):
+        """UpdateWorkspaceRolesRoles1
+
+        :param op: The operation to perform on the path.
+        :type op: str
+        :param path: The resource to perform the action on.
+        :type path: RolesPath2
+        :param value: value
+        :type value: List[RolesValue2]
+        """
         self.op = op
         self.path = self._enum_matching(path, RolesPath2.list(), "path")
         self.value = self._define_list(value, RolesValue2)
@@ -93,5 +109,10 @@ class UpdateWorkspaceRolesRequest(BaseModel):
     """
 
     def __init__(self, roles: List[UpdateWorkspaceRolesRoles1] = None):
+        """UpdateWorkspaceRolesRequest
+
+        :param roles: roles, defaults to None
+        :type roles: List[UpdateWorkspaceRolesRoles1], optional
+        """
         if roles is not None:
             self.roles = self._define_list(roles, UpdateWorkspaceRolesRoles1)

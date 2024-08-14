@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -17,6 +17,13 @@ class DeleteMockServerResponseHeaders(BaseModel):
     """
 
     def __init__(self, key: str = None, value: str = None):
+        """DeleteMockServerResponseHeaders
+
+        :param key: The request header's key value., defaults to None
+        :type key: str, optional
+        :param value: The request header's value., defaults to None
+        :type value: str, optional
+        """
         if key is not None:
             self.key = key
         if value is not None:
@@ -102,6 +109,27 @@ class DeleteMockServerResponse(BaseModel):
         updated_by: str = None,
         created_at: str = None,
     ):
+        """Information about the deleted server response.
+
+        :param id_: The server response's ID., defaults to None
+        :type id_: str, optional
+        :param name: The server response's name., defaults to None
+        :type name: str, optional
+        :param status_code: The server response's 5xx HTTP response code., defaults to None
+        :type status_code: float, optional
+        :param headers: The server response's request headers, such as Content-Type, Accept, encoding, and other information., defaults to None
+        :type headers: List[DeleteMockServerResponseHeaders], optional
+        :param language: The server response's body language type., defaults to None
+        :type language: DeleteMockServerResponseLanguage, optional
+        :param body: The server response's body that returns when calling the mock server., defaults to None
+        :type body: str, optional
+        :param created_by: The user ID of the user who created the server response., defaults to None
+        :type created_by: str, optional
+        :param updated_by: The user ID of the user who last updated the server response., defaults to None
+        :type updated_by: str, optional
+        :param created_at: The date and time at which the server response was created., defaults to None
+        :type created_at: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:

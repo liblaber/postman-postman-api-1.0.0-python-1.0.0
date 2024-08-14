@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({"created_at": "createdAt", "created_by": "createdBy"})
@@ -21,6 +21,15 @@ class RequestResponse(BaseModel):
     def __init__(
         self, created_at: str = None, created_by: int = None, message: str = None
     ):
+        """Information about the response to the element's request. This object only returns when the network manager denied a request with a message.
+
+        :param created_at: The date and time at which the network manager denied the request., defaults to None
+        :type created_at: str, optional
+        :param created_by: The network manager's user ID., defaults to None
+        :type created_by: int, optional
+        :param message: The network manager's request response message., defaults to None
+        :type message: str, optional
+        """
         if created_at is not None:
             self.created_at = created_at
         if created_by is not None:
@@ -82,6 +91,21 @@ class RequestElement(BaseModel):
         name: str = None,
         summary: str = None,
     ):
+        """Information about the requested element.
+
+        :param id_: The element's ID., defaults to None
+        :type id_: str, optional
+        :param created_at: The date and time at which the element was approved and added to the Private API Network., defaults to None
+        :type created_at: str, optional
+        :param created_by: The user ID of the user who requested to add the element to the Private API Network., defaults to None
+        :type created_by: int, optional
+        :param type_: The element type., defaults to None
+        :type type_: ElementType2, optional
+        :param name: The element's name., defaults to None
+        :type name: str, optional
+        :param summary: If applicable, the element's short summary., defaults to None
+        :type summary: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if created_at is not None:
@@ -93,7 +117,7 @@ class RequestElement(BaseModel):
         if name is not None:
             self.name = name
         if summary is not None:
-            self.summary = summary
+            self.summary = self._define_str("summary", summary, nullable=True)
 
 
 class RequestStatus(Enum):
@@ -147,6 +171,23 @@ class RespondPanElementAddRequestRequest2(BaseModel):
         element: RequestElement = None,
         status: RequestStatus = None,
     ):
+        """RespondPanElementAddRequestRequest2
+
+        :param id_: The request's ID., defaults to None
+        :type id_: int, optional
+        :param created_at: The date and time at which the request was created., defaults to None
+        :type created_at: str, optional
+        :param created_by: The ID of the user who created the request., defaults to None
+        :type created_by: int, optional
+        :param message: The user's optional message included in the request., defaults to None
+        :type message: str, optional
+        :param response: Information about the response to the element's request. This object only returns when the network manager denied a request with a message., defaults to None
+        :type response: RequestResponse, optional
+        :param element: Information about the requested element., defaults to None
+        :type element: RequestElement, optional
+        :param status: The request's status., defaults to None
+        :type status: RequestStatus, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if created_at is not None:
@@ -172,6 +213,11 @@ class RespondPanElementAddRequestOkResponse(BaseModel):
     """
 
     def __init__(self, request: List[RespondPanElementAddRequestRequest2] = None):
+        """RespondPanElementAddRequestOkResponse
+
+        :param request: Information about the Private API Network request., defaults to None
+        :type request: List[RespondPanElementAddRequestRequest2], optional
+        """
         if request is not None:
             self.request = self._define_list(
                 request, RespondPanElementAddRequestRequest2

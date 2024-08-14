@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class ValuesType3(Enum):
@@ -51,6 +51,17 @@ class EnvironmentValues3(BaseModel):
         value: str = None,
         type_: ValuesType3 = None,
     ):
+        """EnvironmentValues3
+
+        :param enabled: If true, the variable is enabled., defaults to None
+        :type enabled: bool, optional
+        :param key: The variable's name., defaults to None
+        :type key: str, optional
+        :param value: The variable's value., defaults to None
+        :type value: str, optional
+        :param type_: The variable type., defaults to None
+        :type type_: ValuesType3, optional
+        """
         if enabled is not None:
             self.enabled = enabled
         if key is not None:
@@ -72,6 +83,13 @@ class UpdateEnvironmentEnvironment1(BaseModel):
     """
 
     def __init__(self, name: str = None, values: List[EnvironmentValues3] = None):
+        """UpdateEnvironmentEnvironment1
+
+        :param name: The environment's name., defaults to None
+        :type name: str, optional
+        :param values: Information about the environment's variables., defaults to None
+        :type values: List[EnvironmentValues3], optional
+        """
         if name is not None:
             self.name = name
         if values is not None:
@@ -87,6 +105,11 @@ class UpdateEnvironmentRequest(BaseModel):
     """
 
     def __init__(self, environment: UpdateEnvironmentEnvironment1 = None):
+        """UpdateEnvironmentRequest
+
+        :param environment: environment, defaults to None
+        :type environment: UpdateEnvironmentEnvironment1, optional
+        """
         if environment is not None:
             self.environment = self._define_object(
                 environment, UpdateEnvironmentEnvironment1

@@ -3,7 +3,7 @@
 from __future__ import annotations
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 from .resources import Resources
 
 
@@ -38,6 +38,19 @@ class GetScimUserResources(BaseModel):
         start_index: float = None,
         total_results: float = None,
     ):
+        """GetScimUserResources
+
+        :param resources: A list of user resources., defaults to None
+        :type resources: List[Resources], optional
+        :param items_per_page: The number of items per response page., defaults to None
+        :type items_per_page: float, optional
+        :param schemas: schemas, defaults to None
+        :type schemas: List[str], optional
+        :param start_index: The index entry by which the returned results begin., defaults to None
+        :type start_index: float, optional
+        :param total_results: The total number of results found., defaults to None
+        :type total_results: float, optional
+        """
         if resources is not None:
             self.resources = self._define_list(resources, Resources)
         if items_per_page is not None:

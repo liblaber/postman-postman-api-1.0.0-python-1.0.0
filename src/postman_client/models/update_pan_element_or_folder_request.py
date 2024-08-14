@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 from typing import Union
-from .base import OneOfBaseModel
+from .utils.one_of_base_model import OneOfBaseModel
 from .update_pan_api import UpdatePanApi
 from .update_pan_collection import UpdatePanCollection
 from .update_pan_workspace import UpdatePanWorkspace

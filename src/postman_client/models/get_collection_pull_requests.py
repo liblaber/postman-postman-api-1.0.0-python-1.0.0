@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class DataStatus(Enum):
@@ -88,6 +88,33 @@ class GetCollectionPullRequestsData(BaseModel):
         updated_by: str = None,
         updated_at: str = None,
     ):
+        """Information about the pull request.
+
+        :param created_at: The date and time at which the pull request was created., defaults to None
+        :type created_at: str, optional
+        :param created_by: The ID of the user who created the pull request., defaults to None
+        :type created_by: str, optional
+        :param description: The pull request's description., defaults to None
+        :type description: str, optional
+        :param destination_id: The pull request's merge destination ID., defaults to None
+        :type destination_id: str, optional
+        :param href: A URL where you can view the pull request's details., defaults to None
+        :type href: str, optional
+        :param id_: The pull request's ID., defaults to None
+        :type id_: str, optional
+        :param source_id: The pull request's source (parent) ID., defaults to None
+        :type source_id: str, optional
+        :param status: The pull request's current status., defaults to None
+        :type status: DataStatus, optional
+        :param comment: If the pull request is declined, a comment about why the pull request was declined., defaults to None
+        :type comment: str, optional
+        :param title: The pull request's title., defaults to None
+        :type title: str, optional
+        :param updated_by: The ID of the user who updated the pull request., defaults to None
+        :type updated_by: str, optional
+        :param updated_at: The date and time at which the pull request was updated., defaults to None
+        :type updated_at: str, optional
+        """
         if created_at is not None:
             self.created_at = created_at
         if created_by is not None:
@@ -123,5 +150,10 @@ class GetCollectionPullRequests(BaseModel):
     """
 
     def __init__(self, data: List[GetCollectionPullRequestsData] = None):
+        """GetCollectionPullRequests
+
+        :param data: data, defaults to None
+        :type data: List[GetCollectionPullRequestsData], optional
+        """
         if data is not None:
             self.data = self._define_list(data, GetCollectionPullRequestsData)

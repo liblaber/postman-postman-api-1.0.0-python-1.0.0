@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap(
@@ -36,6 +36,19 @@ class CommentResponseData(BaseModel):
         updated_at: str = None,
         body: str = None,
     ):
+        """Information about the comment.
+
+        :param id_: The comment's ID., defaults to None
+        :type id_: int, optional
+        :param created_by: The user ID of the user who created the comment., defaults to None
+        :type created_by: int, optional
+        :param created_at: The date and time at which the comment was created., defaults to None
+        :type created_at: str, optional
+        :param updated_at: The date and time when the comment was last updated., defaults to None
+        :type updated_at: str, optional
+        :param body: The contents of the comment., defaults to None
+        :type body: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if created_by is not None:
@@ -57,5 +70,10 @@ class CommentResponse(BaseModel):
     """
 
     def __init__(self, data: List[CommentResponseData] = None):
+        """CommentResponse
+
+        :param data: data, defaults to None
+        :type data: List[CommentResponseData], optional
+        """
         if data is not None:
             self.data = self._define_list(data, CommentResponseData)

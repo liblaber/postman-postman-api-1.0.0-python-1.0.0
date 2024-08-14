@@ -12,9 +12,7 @@ A list of all methods in the `EnvironmentsService` service. Click on the method 
 | [get_environment_forks](#get_environment_forks)   | Gets all of an environment's forked environments.                                                                                                                                                                          |
 | [fork_environment](#fork_environment)             | Creates a [fork](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-elements/) of an existing environment.                                                                           |
 | [merge_environment_fork](#merge_environment_fork) | [Merges](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-elements/#merge-changes-from-a-fork) a forked environment back into its parent environment.                              |
-|  |
 | [pull_environment](#pull_environment)             | [Pulls](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-elements/#pull-updates-from-a-parent-element) the changes from a parent (source) environment into the forked environment. |
-|  |
 
 ## get_environments
 
@@ -41,7 +39,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.environments.get_environments(workspace="1f0df51a-8658-4ee8-a2a1-d2567dfa09a9")
@@ -76,7 +75,8 @@ from postman_client.models import CreateEnvironmentRequest
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = CreateEnvironmentRequest(
@@ -126,7 +126,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.environments.get_environment(environment_id="5daabc50-8451-43f6-922d-96b403b4f28e")
@@ -161,7 +162,8 @@ from postman_client.models import UpdateEnvironmentRequest
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = UpdateEnvironmentRequest(
@@ -211,7 +213,8 @@ from postman_client import PostmanClient, Environment
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.environments.delete_environment(environment_id="5daabc50-8451-43f6-922d-96b403b4f28e")
@@ -249,7 +252,8 @@ from postman_client.models import AscDesc, GetEnvironmentForksSort
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 result = sdk.environments.get_environment_forks(
@@ -291,7 +295,8 @@ from postman_client.models import ForkEnvironmentRequest
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = ForkEnvironmentRequest(
@@ -334,7 +339,8 @@ from postman_client.models import MergeEnvironmentForkRequest
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = MergeEnvironmentForkRequest(
@@ -377,7 +383,8 @@ from postman_client.models import PullEnvironmentRequest
 sdk = PostmanClient(
     api_key="YOUR_API_KEY",
     api_key_header="YOUR_API_KEY_HEADER",
-    base_url=Environment.DEFAULT.value
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
 )
 
 request_body = PullEnvironmentRequest(

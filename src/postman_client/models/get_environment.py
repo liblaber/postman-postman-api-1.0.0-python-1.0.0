@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class ValuesType2(Enum):
@@ -51,6 +51,17 @@ class EnvironmentValues2(BaseModel):
         value: str = None,
         type_: ValuesType2 = None,
     ):
+        """EnvironmentValues2
+
+        :param enabled: If true, the variable is enabled., defaults to None
+        :type enabled: bool, optional
+        :param key: The variable's name., defaults to None
+        :type key: str, optional
+        :param value: The variable's value., defaults to None
+        :type value: str, optional
+        :param type_: The variable type., defaults to None
+        :type type_: ValuesType2, optional
+        """
         if enabled is not None:
             self.enabled = enabled
         if key is not None:
@@ -98,6 +109,23 @@ class GetEnvironmentEnvironment(BaseModel):
         values: List[EnvironmentValues2] = None,
         is_public: bool = None,
     ):
+        """GetEnvironmentEnvironment
+
+        :param id_: The environment's ID., defaults to None
+        :type id_: str, optional
+        :param name: The environment's name., defaults to None
+        :type name: str, optional
+        :param owner: The ID of environment's owner., defaults to None
+        :type owner: str, optional
+        :param created_at: The date and time at which the environment was created., defaults to None
+        :type created_at: str, optional
+        :param updated_at: The date and time at which the environment was last updated., defaults to None
+        :type updated_at: str, optional
+        :param values: Information about the environment's variables., defaults to None
+        :type values: List[EnvironmentValues2], optional
+        :param is_public: If true, the environment is public and visible to all users., defaults to None
+        :type is_public: bool, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if name is not None:
@@ -123,6 +151,11 @@ class GetEnvironment(BaseModel):
     """
 
     def __init__(self, environment: GetEnvironmentEnvironment = None):
+        """GetEnvironment
+
+        :param environment: environment, defaults to None
+        :type environment: GetEnvironmentEnvironment, optional
+        """
         if environment is not None:
             self.environment = self._define_object(
                 environment, GetEnvironmentEnvironment

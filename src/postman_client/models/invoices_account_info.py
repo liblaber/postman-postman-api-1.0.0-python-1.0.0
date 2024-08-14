@@ -2,20 +2,20 @@
 
 from enum import Enum
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class SalesChannel(Enum):
     """An enumeration representing different categories.
 
-    :cvar SELF_SERVE: "SELF_SERVE"
-    :vartype SELF_SERVE: str
-    :cvar SALES_SERVE: "SALES_SERVE"
-    :vartype SALES_SERVE: str
+    :cvar SELFSERVE: "SELF_SERVE"
+    :vartype SELFSERVE: str
+    :cvar SALESSERVE: "SALES_SERVE"
+    :vartype SALESSERVE: str
     """
 
-    SELF_SERVE = "SELF_SERVE"
-    SALES_SERVE = "SALES_SERVE"
+    SELFSERVE = "SELF_SERVE"
+    SALESSERVE = "SALES_SERVE"
 
     def list():
         """Lists all category values.
@@ -47,6 +47,17 @@ class Slots(BaseModel):
         total: int = None,
         unbilled: int = None,
     ):
+        """Information about the team's slots.
+
+        :param available: The number of the team's available slots., defaults to None
+        :type available: int, optional
+        :param consumed: The number of currently-billed team members., defaults to None
+        :type consumed: int, optional
+        :param total: The total number of slots available to the team., defaults to None
+        :type total: int, optional
+        :param unbilled: The number of unbilled slots if [auto-flex billing](https://learning.postman.com/auto-flex-policy/) is available., defaults to None
+        :type unbilled: int, optional
+        """
         if available is not None:
             self.available = available
         if consumed is not None:
@@ -91,6 +102,21 @@ class InvoicesAccountInfo(BaseModel):
         sales_channel: SalesChannel = None,
         slots: Slots = None,
     ):
+        """Information about the account.
+
+        :param billing_email: The email address to which invoices are sent., defaults to None
+        :type billing_email: str, optional
+        :param id_: The account's ID., defaults to None
+        :type id_: int, optional
+        :param state: The account's current state: - `FREE` - `PAID` - `EXPIRED_TRIAL` - `OVERDUE` - `SUSPENDED` - `BLOCKED` - `PAYMENT_DISPUTED` , defaults to None
+        :type state: str, optional
+        :param team_id: The team's ID associated with the account., defaults to None
+        :type team_id: int, optional
+        :param sales_channel: The sales channel from which the account was created: - `SELF_SERVE` — The user purchased the account plan. - `SALES_SERVE` — The account was purchased through the Postman sales team process. , defaults to None
+        :type sales_channel: SalesChannel, optional
+        :param slots: Information about the team's slots., defaults to None
+        :type slots: Slots, optional
+        """
         if billing_email is not None:
             self.billing_email = billing_email
         if id_ is not None:

@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap({})
@@ -16,6 +16,13 @@ class GetScimGroupResourceMembers(BaseModel):
     """
 
     def __init__(self, value: str = None, display: str = None):
+        """GetScimGroupResourceMembers
+
+        :param value: The member's SCIM ID., defaults to None
+        :type value: str, optional
+        :param display: The member's display name., defaults to None
+        :type display: str, optional
+        """
         if value is not None:
             self.value = value
         if display is not None:
@@ -37,6 +44,15 @@ class GetScimGroupResourceMeta(BaseModel):
     def __init__(
         self, resource_type: str = None, created: str = None, last_modified: str = None
     ):
+        """The response's non-standard meta information.
+
+        :param resource_type: The resource type., defaults to None
+        :type resource_type: str, optional
+        :param created: The date and time at which the group was created., defaults to None
+        :type created: str, optional
+        :param last_modified: The date and time at which the group was last modified., defaults to None
+        :type last_modified: str, optional
+        """
         if resource_type is not None:
             self.resource_type = resource_type
         if created is not None:
@@ -72,6 +88,21 @@ class GetScimGroupResource(BaseModel):
         external_id: str = None,
         meta: GetScimGroupResourceMeta = None,
     ):
+        """GetScimGroupResource
+
+        :param schemas: The [SCIM schema URI](https://www.iana.org/assignments/scim/scim.xhtml)., defaults to None
+        :type schemas: List[str], optional
+        :param id_: The group's SCIM ID., defaults to None
+        :type id_: str, optional
+        :param user_name: The group's display name., defaults to None
+        :type user_name: str, optional
+        :param members: Information about the group's members., defaults to None
+        :type members: List[GetScimGroupResourceMembers], optional
+        :param external_id: The group's external ID., defaults to None
+        :type external_id: str, optional
+        :param meta: The response's non-standard meta information., defaults to None
+        :type meta: GetScimGroupResourceMeta, optional
+        """
         if schemas is not None:
             self.schemas = schemas
         if id_ is not None:

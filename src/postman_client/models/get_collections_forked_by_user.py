@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap(
@@ -33,6 +33,17 @@ class GetCollectionsForkedByUserData(BaseModel):
         source_id: str = None,
         created_at: str = None,
     ):
+        """Information about the forked collection.
+
+        :param fork_name: The forked collection's label., defaults to None
+        :type fork_name: str, optional
+        :param fork_id: The forked collection's ID., defaults to None
+        :type fork_id: str, optional
+        :param source_id: The ID of the forked collection's source collection., defaults to None
+        :type source_id: str, optional
+        :param created_at: The date and time at which the fork was created., defaults to None
+        :type created_at: str, optional
+        """
         if fork_name is not None:
             self.fork_name = fork_name
         if fork_id is not None:
@@ -61,10 +72,21 @@ class GetCollectionsForkedByUserMeta(BaseModel):
         next_cursor: str = None,
         inaccessible_fork: float = None,
     ):
+        """The response's meta information for paginated results.
+
+        :param total: The total number of forked collections., defaults to None
+        :type total: float, optional
+        :param next_cursor: The pagination cursor that points to the next record in the results set., defaults to None
+        :type next_cursor: str, optional
+        :param inaccessible_fork: The total number of forked collections that the user cannot access., defaults to None
+        :type inaccessible_fork: float, optional
+        """
         if total is not None:
             self.total = total
         if next_cursor is not None:
-            self.next_cursor = next_cursor
+            self.next_cursor = self._define_str(
+                "next_cursor", next_cursor, nullable=True
+            )
         if inaccessible_fork is not None:
             self.inaccessible_fork = inaccessible_fork
 
@@ -84,6 +106,13 @@ class GetCollectionsForkedByUser(BaseModel):
         data: List[GetCollectionsForkedByUserData] = None,
         meta: GetCollectionsForkedByUserMeta = None,
     ):
+        """GetCollectionsForkedByUser
+
+        :param data: A list of the user's forked collections., defaults to None
+        :type data: List[GetCollectionsForkedByUserData], optional
+        :param meta: The response's meta information for paginated results., defaults to None
+        :type meta: GetCollectionsForkedByUserMeta, optional
+        """
         if data is not None:
             self.data = self._define_list(data, GetCollectionsForkedByUserData)
         if meta is not None:

@@ -3,24 +3,24 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class DataResolution(Enum):
     """An enumeration representing different categories.
 
-    :cvar FALSE_POSITIVE: "FALSE_POSITIVE"
-    :vartype FALSE_POSITIVE: str
-    :cvar ACCEPTED_RISK: "ACCEPTED_RISK"
-    :vartype ACCEPTED_RISK: str
+    :cvar FALSEPOSITIVE: "FALSE_POSITIVE"
+    :vartype FALSEPOSITIVE: str
+    :cvar ACCEPTEDRISK: "ACCEPTED_RISK"
+    :vartype ACCEPTEDRISK: str
     :cvar REVOKED: "REVOKED"
     :vartype REVOKED: str
     :cvar ACTIVE: "ACTIVE"
     :vartype ACTIVE: str
     """
 
-    FALSE_POSITIVE = "FALSE_POSITIVE"
-    ACCEPTED_RISK = "ACCEPTED_RISK"
+    FALSEPOSITIVE = "FALSE_POSITIVE"
+    ACCEPTEDRISK = "ACCEPTED_RISK"
     REVOKED = "REVOKED"
     ACTIVE = "ACTIVE"
 
@@ -108,6 +108,27 @@ class DetectedSecretsQueriesData(BaseModel):
         workspace_id: str = None,
         workspace_visibility: DataWorkspaceVisibility = None,
     ):
+        """Information about the secret finding.
+
+        :param obfuscated_secret: The secret's obfuscated value., defaults to None
+        :type obfuscated_secret: str, optional
+        :param occurrences: The number of times the secret was found in the workspace., defaults to None
+        :type occurrences: float, optional
+        :param resolution: The secret's current status: - `ACTIVE` — The secret is active. - `FALSE_POSITIVE` — The discovered secret is not an actual secret. - `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue. - `ACCEPTED_RISK` — The Secret Scanner found the secret, but user accepts the risk of publishing it. , defaults to None
+        :type resolution: DataResolution, optional
+        :param secret_hash: The SHA-256 hash of the detected secret., defaults to None
+        :type secret_hash: str, optional
+        :param secret_id: The detected secret's ID., defaults to None
+        :type secret_id: str, optional
+        :param secret_type: The type of the secret., defaults to None
+        :type secret_type: str, optional
+        :param detected_at: The date and time at which the secret was first detected., defaults to None
+        :type detected_at: str, optional
+        :param workspace_id: The ID of the workspace that contains the secret., defaults to None
+        :type workspace_id: str, optional
+        :param workspace_visibility: The workspace's [visibility setting](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility)., defaults to None
+        :type workspace_visibility: DataWorkspaceVisibility, optional
+        """
         if obfuscated_secret is not None:
             self.obfuscated_secret = obfuscated_secret
         if occurrences is not None:
@@ -149,10 +170,21 @@ class DetectedSecretsQueriesMeta(BaseModel):
     def __init__(
         self, limit: float = None, next_cursor: str = None, total: float = None
     ):
+        """The response's meta information for paginated results.
+
+        :param limit: The maximum number of records in the paginated response., defaults to None
+        :type limit: float, optional
+        :param next_cursor: The pagination cursor that points to the next record in the results set., defaults to None
+        :type next_cursor: str, optional
+        :param total: The number of records that match the defined criteria. This will only be present if the `include` query parameter is specified with the `meta.total` value., defaults to None
+        :type total: float, optional
+        """
         if limit is not None:
             self.limit = limit
         if next_cursor is not None:
-            self.next_cursor = next_cursor
+            self.next_cursor = self._define_str(
+                "next_cursor", next_cursor, nullable=True
+            )
         if total is not None:
             self.total = total
 
@@ -172,6 +204,13 @@ class DetectedSecretsQueriesOkResponse(BaseModel):
         data: List[DetectedSecretsQueriesData] = None,
         meta: DetectedSecretsQueriesMeta = None,
     ):
+        """DetectedSecretsQueriesOkResponse
+
+        :param data: data, defaults to None
+        :type data: List[DetectedSecretsQueriesData], optional
+        :param meta: The response's meta information for paginated results., defaults to None
+        :type meta: DetectedSecretsQueriesMeta, optional
+        """
         if data is not None:
             self.data = self._define_list(data, DetectedSecretsQueriesData)
         if meta is not None:

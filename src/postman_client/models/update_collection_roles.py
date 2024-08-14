@@ -3,7 +3,7 @@
 from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 class RolesOp(Enum):
@@ -80,6 +80,13 @@ class RolesValue1(BaseModel):
     """
 
     def __init__(self, id_: float, role: ValueRole1):
+        """Information about the updated role.
+
+        :param id_: The user, group, or team's ID.
+        :type id_: float
+        :param role: The role type: - `VIEWER` — Can view, fork, and export collections. - `EDITOR` — Can edit collections directly.
+        :type role: ValueRole1
+        """
         self.id_ = id_
         self.role = self._enum_matching(role, ValueRole1.list(), "role")
 
@@ -97,6 +104,15 @@ class UpdateCollectionRolesRoles(BaseModel):
     """
 
     def __init__(self, op: RolesOp, path: RolesPath1, value: List[RolesValue1]):
+        """UpdateCollectionRolesRoles
+
+        :param op: The operation to perform on the path.
+        :type op: RolesOp
+        :param path: The resource to perform the action on.
+        :type path: RolesPath1
+        :param value: value
+        :type value: List[RolesValue1]
+        """
         self.op = self._enum_matching(op, RolesOp.list(), "op")
         self.path = self._enum_matching(path, RolesPath1.list(), "path")
         self.value = self._define_list(value, RolesValue1)
@@ -111,4 +127,9 @@ class UpdateCollectionRoles(BaseModel):
     """
 
     def __init__(self, roles: List[UpdateCollectionRolesRoles]):
+        """UpdateCollectionRoles
+
+        :param roles: roles
+        :type roles: List[UpdateCollectionRolesRoles]
+        """
         self.roles = self._define_list(roles, UpdateCollectionRolesRoles)

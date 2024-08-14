@@ -2,7 +2,7 @@
 
 from typing import List
 from .utils.json_map import JsonMap
-from .base import BaseModel
+from .utils.base_model import BaseModel
 
 
 @JsonMap(
@@ -65,6 +65,35 @@ class Elements(BaseModel):
         parent_folder_id: int = None,
         href: str = None,
     ):
+        """Elements
+
+        :param created_at: The date and time at which the element was created., defaults to None
+        :type created_at: str, optional
+        :param created_by: The user who created the element., defaults to None
+        :type created_by: int, optional
+        :param updated_at: The date and time at which the element was last updated., defaults to None
+        :type updated_at: str, optional
+        :param updated_by: The user who updated the element., defaults to None
+        :type updated_by: int, optional
+        :param added_at: The date and time at which the element was published to Private API Network. This value is the same as the `updatedAt` value., defaults to None
+        :type added_at: str, optional
+        :param added_by: The user ID of the user who published the element., defaults to None
+        :type added_by: int, optional
+        :param description: The element's description., defaults to None
+        :type description: str, optional
+        :param id_: The element's ID., defaults to None
+        :type id_: str, optional
+        :param name: The element's name., defaults to None
+        :type name: str, optional
+        :param summary: The element's summary., defaults to None
+        :type summary: str, optional
+        :param type_: The element's type., defaults to None
+        :type type_: str, optional
+        :param parent_folder_id: The element's parent folder ID., defaults to None
+        :type parent_folder_id: int, optional
+        :param href: The element's HREF., defaults to None
+        :type href: str, optional
+        """
         if created_at is not None:
             self.created_at = created_at
         if created_by is not None:
@@ -139,6 +168,27 @@ class Folders(BaseModel):
         description: str = None,
         type_: str = None,
     ):
+        """Folders
+
+        :param id_: The folder's ID., defaults to None
+        :type id_: int, optional
+        :param parent_folder_id: The folder's parent folder ID., defaults to None
+        :type parent_folder_id: int, optional
+        :param updated_at: The date and time at which the folder was updated., defaults to None
+        :type updated_at: str, optional
+        :param updated_by: The user ID of the user who updated the folder., defaults to None
+        :type updated_by: int, optional
+        :param created_at: The date and time at which the folder was created., defaults to None
+        :type created_at: str, optional
+        :param created_by: The user who created the folder., defaults to None
+        :type created_by: int, optional
+        :param name: The folder's name., defaults to None
+        :type name: str, optional
+        :param description: The folder's description., defaults to None
+        :type description: str, optional
+        :param type_: The element's type. This value is always `folder`., defaults to None
+        :type type_: str, optional
+        """
         if id_ is not None:
             self.id_ = id_
         if parent_folder_id is not None:
@@ -172,6 +222,15 @@ class GetPanElementsAndFoldersMeta(BaseModel):
     """
 
     def __init__(self, limit: int = None, offset: int = None, total_count: int = None):
+        """The response's non-standard meta information.
+
+        :param limit: The maximum number of elements returned. If the value exceeds the maximum value of `1000`, then the system uses the `1000` value., defaults to None
+        :type limit: int, optional
+        :param offset: The zero-based offset of the first item returned., defaults to None
+        :type offset: int, optional
+        :param total_count: The total count of the `elements` and `folders` items., defaults to None
+        :type total_count: int, optional
+        """
         if limit is not None:
             self.limit = limit
         if offset is not None:
@@ -198,6 +257,15 @@ class GetPanElementsAndFolders(BaseModel):
         folders: List[Folders] = None,
         meta: GetPanElementsAndFoldersMeta = None,
     ):
+        """GetPanElementsAndFolders
+
+        :param elements: Information about a Private API Network's folder elements. Elements are APIs, collections, and workspaces., defaults to None
+        :type elements: List[Elements], optional
+        :param folders: Information about the Private API Network's folders., defaults to None
+        :type folders: List[Folders], optional
+        :param meta: The response's non-standard meta information., defaults to None
+        :type meta: GetPanElementsAndFoldersMeta, optional
+        """
         if elements is not None:
             self.elements = self._define_list(elements, Elements)
         if folders is not None:

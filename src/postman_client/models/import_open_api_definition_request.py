@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 from typing import Union
-from .base import OneOfBaseModel
+from .utils.one_of_base_model import OneOfBaseModel
 from .json_schema import JsonSchema
 from .json_stringified import JsonStringified
 
